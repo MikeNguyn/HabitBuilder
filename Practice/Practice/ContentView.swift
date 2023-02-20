@@ -3,7 +3,7 @@
 //  Practice
 //
 //  Created by Matthew Mukai on 2/8/23.
-// Michael
+// Michael and Curran
 
 import SwiftUI
 let PLANTICONSIZE = 100.0
