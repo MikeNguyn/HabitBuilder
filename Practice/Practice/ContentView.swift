@@ -11,100 +11,45 @@ let MENUICONSIZE = 60.0
 
 struct ContentView: View {
     var body: some View {
-        VStack{
-            Grid(){
-                        Divider()
-                        GridRow {
-                            Button(action: {
-                                // What will initiate when the button is pressed
-                            }) {
-                                Image("tomatoemoji").resizable().frame(width: PLANTICONSIZE, height: PLANTICONSIZE)
-                                // What will the button look like
+        NavigationView {
+            VStack{
+                Grid(){
+                            Divider()
+                            GridRow {
+                                NavigationLink(destination: DetailView()) {
+                                    ButtonView(buttonImage: Image("homeIcon"))
+                                }
+                                ButtonView(buttonImage: Image("homeIcon"))
+                                ButtonView(buttonImage: Image("homeIcon"))
                             }
-                            Button(action: {
-                                // What will initiate when the button is pressed
-                            }) {
-                                Image("bananaemoji").resizable().frame(width: PLANTICONSIZE, height: PLANTICONSIZE)
-                                // What will the button look like
+                            Divider()
+                            GridRow {
+                                ButtonView(buttonImage: Image("homeIcon"))
+                                ButtonView(buttonImage: Image("homeIcon"))
+                                ButtonView(buttonImage: Image("homeIcon"))
                             }
-                            Button(action: {
-                                // What will initiate when the button is pressed
-                            }) {
-                                Image("bananaemoji").resizable().frame(width: PLANTICONSIZE, height: PLANTICONSIZE)
-                                // What will the button look like
+                            Divider()
+                            GridRow {
+                                ButtonView(buttonImage: Image("homeIcon"))
+                                ButtonView(buttonImage: Image("homeIcon"))
+                                ButtonView(buttonImage: Image("homeIcon"))
                             }
-                        }
-                        Divider()
-                        GridRow {
-                            Button(action: {
-                                // What will initiate when the button is pressed
-                            }) {
-                                Image("bananaemoji").resizable().frame(width: PLANTICONSIZE, height: PLANTICONSIZE)
-                                // What will the button look like
-                            }
-                            Button(action: {
-                                // What will initiate when the button is pressed
-                            }) {
-                                Image("tomatoemoji").resizable().frame(width: PLANTICONSIZE, height: PLANTICONSIZE)
-                                // What will the button look like
-                            }
-                            Button(action: {
-                                // What will initiate when the button is pressed
-                            }) {
-                                Image("roseemoji").resizable().frame(width: PLANTICONSIZE, height: PLANTICONSIZE)
-                                // What will the button look like
-                            }
-                        }
-                        Divider()
-                        GridRow {
-                            Button(action: {
-                                // What will initiate when the button is pressed
-                            }) {
-                                Image("roseemoji").resizable().frame(width: PLANTICONSIZE, height: PLANTICONSIZE)
-                                // What will the button look like
-                            }
-                            Button(action: {
-                                // What will initiate when the button is pressed
-                            }) {
-                                Image("tomatoemoji").resizable().frame(width: PLANTICONSIZE, height: PLANTICONSIZE)
-                                // What will the button look like
-                            }
-                            Button(action: {
-                                // What will initiate when the button is pressed
-                            }) {
-                                Image("bananaemoji").resizable().frame(width: PLANTICONSIZE, height: PLANTICONSIZE)
-                                // What will the button look like
-                            }
-                        }
-                        Divider()
-            }.padding(80.0)
-//            ControlGroup {
-//                homeBtn
-//                calendarBtn
-//                shopBtn
-//
-//            }
-            HStack(spacing: 60.0){
-                Button(action: {
-                    // What will initiate when the button is pressed
-                }) {
-                    Image("homeIcon").resizable().frame(width: MENUICONSIZE, height: MENUICONSIZE)
-                    // What will the button look like
-                }
-                Button(action: {
-                    // What will initiate when the button is pressed
-                }) {
-                    Image("calendarIcon").resizable().frame(width: MENUICONSIZE, height: MENUICONSIZE)
-                    // What will the button look like
-                }
-                Button(action: {
-                    // What will initiate when the button is pressed
-                }) {
-                    Image("shopIcon").resizable().frame(width: MENUICONSIZE, height: MENUICONSIZE)
-                    // What will the button look like
+                            Divider()
+                }.padding(80.0)
+    //            ControlGroup {
+    //                homeBtn
+    //                calendarBtn
+    //                shopBtn
+    //
+    //            }
+                HStack(spacing: 60.0){
+                    ButtonView(buttonImage: Image("homeIcon"))
+                    ButtonView(buttonImage: Image("calendarIcon"))
+                    ButtonView(buttonImage: Image("calendarIcon"))
                 }
             }
         }
+       
         
     }
 }
