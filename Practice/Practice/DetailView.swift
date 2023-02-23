@@ -12,7 +12,6 @@ struct DetailView: View {
         List{
             Section(header: Text("Content Detail")){
                 HStack {
-                    Label(label: Text("Name"))
                 }
             }
         }

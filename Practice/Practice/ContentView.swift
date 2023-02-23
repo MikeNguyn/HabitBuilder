@@ -10,29 +10,30 @@ let PLANTICONSIZE = 100.0
 let MENUICONSIZE = 60.0
 
 struct ContentView: View {
+    var habitList: [Habit]
     var body: some View {
         NavigationView {
             VStack{
                 Grid(){
                             Divider()
                             GridRow {
-                                NavigationLink(destination: DetailView()) {
-                                    ButtonView(buttonImage: Image("homeIcon"))
+                                ForEach(habitList) { habit in
+                                    NavigationLink(destination: DetailView()) {
+                                        ButtonView(habit: habit)
+                                    }
                                 }
-                                ButtonView(buttonImage: Image("homeIcon"))
-                                ButtonView(buttonImage: Image("homeIcon"))
                             }
                             Divider()
                             GridRow {
-                                ButtonView(buttonImage: Image("homeIcon"))
-                                ButtonView(buttonImage: Image("homeIcon"))
-                                ButtonView(buttonImage: Image("homeIcon"))
+//                                ButtonView(buttonImage: Image("homeIcon"))
+//                                ButtonView(buttonImage: Image("homeIcon"))
+//                                ButtonView(buttonImage: Image("homeIcon"))
                             }
                             Divider()
                             GridRow {
-                                ButtonView(buttonImage: Image("homeIcon"))
-                                ButtonView(buttonImage: Image("homeIcon"))
-                                ButtonView(buttonImage: Image("homeIcon"))
+//                                ButtonView(buttonImage: Image("homeIcon"))
+//                                ButtonView(buttonImage: Image("homeIcon"))
+//                                ButtonView(buttonImage: Image("homeIcon"))
                             }
                             Divider()
                 }.padding(80.0)
@@ -43,20 +44,21 @@ struct ContentView: View {
     //
     //            }
                 HStack(spacing: 60.0){
-                    ButtonView(buttonImage: Image("homeIcon"))
-                    ButtonView(buttonImage: Image("calendarIcon"))
-                    ButtonView(buttonImage: Image("calendarIcon"))
+//                    ButtonView(buttonImage: Image("homeIcon"))
+//                    ButtonView(buttonImage: Image("calendarIcon"))
+//                    ButtonView(buttonImage: Image("calendarIcon"))
                 }
             }
         }
-       
-        
+
+
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
+    static var habitList = Habit.sampleData
     static var previews: some View {
-        ContentView()
+        ContentView(habitList: habitList)
     }
 }
 
@@ -66,19 +68,19 @@ private extension ContentView{
             /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
         }
     }
-    
+
     private var calendarBtn: some View{
         Button("Calendar") {
             /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
         }
     }
-    
+
     private var shopBtn: some View{
         Button("Shop") {
             /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
         }
     }
-    
+
     private var plantBtn: some View{
         Button(action: {
             // What will initiate when the button is pressed
