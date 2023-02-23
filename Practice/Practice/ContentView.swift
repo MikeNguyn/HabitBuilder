@@ -18,7 +18,7 @@ struct ContentView: View {
                             Divider()
                             GridRow {
                                 ForEach(habitList) { habit in
-                                    NavigationLink(destination: DetailView()) {
+                                    NavigationLink(destination: DetailView(habit: habit)) {
                                         ButtonView(habit: habit)
                                     }
                                 }
