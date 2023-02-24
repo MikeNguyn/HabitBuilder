@@ -14,6 +14,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack{
+                Text("App Name").multilineTextAlignment(.center).font(.system(size: 75, weight: .light, design: .serif))
                 Grid(){
                             Divider()
                             GridRow {

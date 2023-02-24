@@ -55,7 +55,7 @@ extension Habit {
 extension Habit {
     static let sampleData: [Habit] = [Habit(name: "Drinking Water", plant: Image("bananaemoji"), length: 30, frequency: Log(interactions: []), health: 1.0, importance: 2),
                                       Habit(name: "Drinking Wine", plant: Image("tomatoemoji"), length: 20, frequency: Log(interactions: []), health: 0.85, importance: 1),
-                                      Habit(name: "Exercise", plant: Image("roseemoji"), length: 16, frequency: Log(interactions: []), health: 0.60, importance: 3)
+                                      Habit(name: "Exercise", plant: Image("roseemoji"), length: 16, frequency: Log(interactions: []), health: 0.40, importance: 3)
         ]
 }
 
