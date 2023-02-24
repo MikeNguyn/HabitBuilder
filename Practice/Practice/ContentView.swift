@@ -25,24 +25,28 @@ struct ContentView: View {
                             }
                             Divider()
                             GridRow {
-//                                ButtonView(buttonImage: Image("homeIcon"))
-//                                ButtonView(buttonImage: Image("homeIcon"))
-//                                ButtonView(buttonImage: Image("homeIcon"))
+                                ForEach(habitList) { habit in
+                                    NavigationLink(destination: DetailView(habit: habit)) {
+                                        ButtonView(habit: habit)
+                                    }
+                                }
                             }
                             Divider()
                             GridRow {
-//                                ButtonView(buttonImage: Image("homeIcon"))
-//                                ButtonView(buttonImage: Image("homeIcon"))
-//                                ButtonView(buttonImage: Image("homeIcon"))
+                                ForEach(habitList) { habit in
+                                    NavigationLink(destination: DetailView(habit: habit)) {
+                                        ButtonView(habit: habit)
+                                    }
+                                }
                             }
                             Divider()
                 }.padding(80.0)
-    //            ControlGroup {
-    //                homeBtn
-    //                calendarBtn
-    //                shopBtn
-    //
-    //            }
+                ControlGroup {
+                    homeBtn
+                    calendarBtn
+                    shopBtn
+    
+                }
                 HStack(spacing: 60.0){
 //                    ButtonView(buttonImage: Image("homeIcon"))
 //                    ButtonView(buttonImage: Image("calendarIcon"))
