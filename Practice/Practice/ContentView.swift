@@ -18,7 +18,16 @@ struct ContentView: View {
                 Grid(){
                             Divider()
                             GridRow {
-                                ForEach(habitList) { habit in
+                                ForEach(habitList[0...2]) { habit in
+                                    NavigationLink(destination: DetailView(habit: habit)) {
+                                        ButtonView(habit: habit)
+                                    }
+                                }
+                                
+                            }
+                            Divider()
+                            GridRow {
+                                ForEach(habitList[3...5]) { habit in
                                     NavigationLink(destination: DetailView(habit: habit)) {
                                         ButtonView(habit: habit)
                                     }
@@ -26,15 +35,7 @@ struct ContentView: View {
                             }
                             Divider()
                             GridRow {
-                                ForEach(habitList) { habit in
-                                    NavigationLink(destination: DetailView(habit: habit)) {
-                                        ButtonView(habit: habit)
-                                    }
-                                }
-                            }
-                            Divider()
-                            GridRow {
-                                ForEach(habitList) { habit in
+                                ForEach(habitList[6...8]) { habit in
                                     NavigationLink(destination: DetailView(habit: habit)) {
                                         ButtonView(habit: habit)
                                     }

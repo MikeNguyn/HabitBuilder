@@ -55,9 +55,9 @@ struct DetailView: View {
                                 
                     }
                     HStack {
-                        Label("Example", systemImage: "info.circle")
+                        Label("Length", systemImage: "timer")
                                 Spacer()
-                        Text("filler stuff")
+                        Text(String(habit.length) + " days")
                                 
                     }
                     HStack {
