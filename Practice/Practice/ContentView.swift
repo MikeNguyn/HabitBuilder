@@ -18,7 +18,7 @@ struct ContentView: View {
                             Divider()
                             GridRow {
                                 ForEach(habitList[0...2]) { habit in
-                                    NavigationLink(destination: DetailView(habit: habit)) {
+                                    NavigationLink(destination: habit.name == "" ? AnyView(AddView()) : AnyView(DetailView(habit: habit))) {
                                         ButtonView(habit: habit)
                                     }
                                 }
@@ -27,7 +27,7 @@ struct ContentView: View {
                             Divider()
                             GridRow {
                                 ForEach(habitList[3...5]) { habit in
-                                    NavigationLink(destination: DetailView(habit: habit)) {
+                                    NavigationLink(destination: habit.name == "" ? AnyView(AddView()) : AnyView(DetailView(habit: habit))) {
                                         ButtonView(habit: habit)
                                     }
                                 }
@@ -35,7 +35,7 @@ struct ContentView: View {
                             Divider()
                             GridRow {
                                 ForEach(habitList[6...8]) { habit in
-                                    NavigationLink(destination: DetailView(habit: habit)) {
+                                    NavigationLink(destination: habit.name == "" ? AnyView(AddView()) : AnyView(DetailView(habit: habit))) {
                                         ButtonView(habit: habit)
                                     }
                                 }
@@ -55,7 +55,7 @@ struct ContentView: View {
 //                    ButtonView(buttonImage: Image("calendarIcon"))
                 }
             }
-            .navigationTitle("Habit Builder")
+            .navigationTitle("Garden")
         }
 
 
@@ -63,9 +63,9 @@ struct ContentView: View {
 }
 
 struct ContentView_Previews: PreviewProvider {
-    static var habitList = Habit.sampleData
+    static var habitManager = HabitManager()
     static var previews: some View {
-        ContentView(habitList: habitList)
+        ContentView(habitList: habitManager.getData())
     }
 }
 

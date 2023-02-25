@@ -11,21 +11,6 @@ struct DetailView: View {
     let habit : Habit
     let PLANTICONSIZE = 100.0
     
-    //Lines 14-27 from
-    //https://stackoverflow.com/questions/56571349/custom-back-button-for-navigationviews-navigation-bar-in-swiftui
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-
-    var btnBack : some View { Button(action: {
-        self.presentationMode.wrappedValue.dismiss()
-        }) {
-            HStack {
-            Image("clock") // set image here
-                .aspectRatio(contentMode: .fit)
-                .foregroundColor(.white)
-                Text("Go Back")
-            }
-        }
-    }
     
     var body: some View {
 //        List{
@@ -39,50 +24,50 @@ struct DetailView: View {
 //        }
         
         //HARDCODED THE VALUES FOR FONT SIZE etc. gotta change
-        VStack(){
-            Text(habit.name).font(.largeTitle)
+        NavigationView{
+            VStack(){
                 
-            habit.plant.resizable().frame(width: PLANTICONSIZE, height: PLANTICONSIZE)
-            
-            LinearProgressDemoView(habit: habit)
-            
-            List{
-                Section(header: Text("Habit Details")){
-                    HStack {
-                        Label("Priority", systemImage: "exclamationmark.square")
-                                Spacer()
-                        Label("", systemImage: getImportanceLevel(num: habit.importance))
-                                
-                    }
-                    HStack {
-                        Label("Length", systemImage: "timer")
-                                Spacer()
-                        Text(String(habit.length) + " days")
-                                
-                    }
-                    HStack {
-                        Label("Example", systemImage: "info.circle")
-                                Spacer()
-                        Text("filler stuff")
-                                
-                    }
-                    HStack {
-                        Label("Example", systemImage: "info.circle")
-                                Spacer()
-                        Text("filler stuff")
-                                
-                    }
-                    HStack {
-                        Label("Example", systemImage: "info.circle")
-                                Spacer()
-                        Text("filler stuff")
-                                
-                    }
-                }
+                habit.plant.resizable().frame(width: PLANTICONSIZE, height: PLANTICONSIZE)
                 
-            }.listStyle(.plain)
-        }.navigationBarBackButtonHidden(true)
-            .navigationBarItems(leading: btnBack)
+                LinearProgressDemoView(habit: habit)
+                
+                List{
+                    Section(header: Text("Habit Details")){
+                        HStack {
+                            Label("Priority", systemImage: "exclamationmark.square")
+                            Spacer()
+                            Label("", systemImage: getImportanceLevel(num: habit.importance))
+                            
+                        }
+                        HStack {
+                            Label("Length", systemImage: "timer")
+                            Spacer()
+                            Text(String(habit.length) + " days")
+                            
+                        }
+                        HStack {
+                            Label("Example", systemImage: "info.circle")
+                            Spacer()
+                            Text("filler stuff")
+                            
+                        }
+                        HStack {
+                            Label("Example", systemImage: "info.circle")
+                            Spacer()
+                            Text("filler stuff")
+                            
+                        }
+                        HStack {
+                            Label("Example", systemImage: "info.circle")
+                            Spacer()
+                            Text("filler stuff")
+                            
+                        }
+                    }
+                    
+                }.listStyle(.plain)
+            }.navigationTitle(habit.name)
+        }
     }
 }
 
