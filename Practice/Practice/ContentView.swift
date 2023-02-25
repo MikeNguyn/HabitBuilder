@@ -14,7 +14,6 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack{
-                Text("App Name").multilineTextAlignment(.center).font(.system(size: 75, weight: .light, design: .serif))
                 Grid(){
                             Divider()
                             GridRow {
@@ -42,19 +41,21 @@ struct ContentView: View {
                                 }
                             }
                             Divider()
-                }.padding(80.0)
+                }.padding(80)
+                Spacer()
                 ControlGroup {
                     homeBtn
                     calendarBtn
                     shopBtn
-    
                 }
+                
                 HStack(spacing: 60.0){
 //                    ButtonView(buttonImage: Image("homeIcon"))
 //                    ButtonView(buttonImage: Image("calendarIcon"))
 //                    ButtonView(buttonImage: Image("calendarIcon"))
                 }
             }
+            .navigationTitle("Habit Builder")
         }
 
 
