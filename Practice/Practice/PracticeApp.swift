@@ -11,7 +11,8 @@ import SwiftUI
 struct PracticeApp: App {
     var body: some Scene {
         WindowGroup {
-//            ContentView()
+            var habitManager = HabitManager()
+            ContentView(habitList: habitManager.getData())
         }
     }
 }
