@@ -51,6 +51,30 @@ extension Habit {
         Data(name: name, plant: plant, length: length, frequency: frequency, health: health, importance: importance)
     }
 }
+
+extension Habit {
+    enum Plant: String, Identifiable {
+        case rose
+        case cactus
+        case tomato
+        case banana
+        case trowel
+    
+        var image: Image {
+            switch self {
+                case .rose: return Image("roseemoji")
+                case .cactus: return Image("cactusemoji")
+                case .tomato: return Image("tomatoemoji")
+                case .banana: return Image("bananaemoji")
+                case .trowel: return Image("trowelemoji")
+            }
+        }
+
+        var id: String{
+            return self.rawValue
+        }
+    }
+}
     
 extension Habit {
     static let sampleData: [Habit] = [Habit(name: "Drinking Water", plant: Image("bananaemoji"), length: 30, frequency: Log(interactions: []), health: 1.0, importance: 2),

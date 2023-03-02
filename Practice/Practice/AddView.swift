@@ -6,14 +6,14 @@
 //
 
 import SwiftUI
-let listOfPlantImages = [Image("bananaemoji"),Image("roseemoji"),Image("tomatoemoji"),Image("cactusemoji")]
+let listOfPlant: [Habit.Plant] = [.cactus, .tomato, .banana, .rose]
 //let sizeOfPlantList: Int = listOfPlantImages.count
-//let screenSize: CGRect = UIScreen.main.bounds
+let screenSize: CGRect = UIScreen.main.bounds
 
 struct AddView: View {
     @State var tempName: String = ""
     @State var date: Date = Date()
-    @State var selectedPlant = listOfPlantImages[0]
+    @State var selectedPlant = listOfPlant[0]
     var plantImagePicker =  PlantImageView()
     var body: some View {
         List{
@@ -22,36 +22,41 @@ struct AddView: View {
                 Spacer()
                 TextField("Habit", text: $tempName)
             }
-//            ScrollView(.horizontal) {
-//                            HStack(spacing: 10) {
-//                                ForEach(0..< listOfPlantImages.count) { imageIdx in
-//                                           listOfPlantImages[imageIdx]
-//                                           .resizable()
-//                                           .frame(width: screenSize.width, height: screenSize.height * 0.85)
-//                                           .aspectRatio(contentMode: .fit)
-//                                        }
-//                            }.padding()
-//                        }.frame(height: 100)
-            Picker(selection: $selectedPlant, label: Text("Select Plant")) {
-                /*@START_MENU_TOKEN@*/Text("1").tag(1)/*@END_MENU_TOKEN@*/
-                /*@START_MENU_TOKEN@*/Text("2").tag(2)/*@END_MENU_TOKEN@*/
+            Menu{
+                Picker("Select Plant", selection: .constant(listOfPlant)) {
+                    ForEach(listOfPlant) { plant in
+                        plant.image
+                            .resizable()
+                            .frame(width: screenSize.width/15, height: screenSize.width/15)
+                    }
+                }
+            } label: {
+                Image("roseemoji").resizable()
+                    .frame(width: screenSize.width/15, height: screenSize.width/15)
             }
+//                Text("Plant")
+//                Menu(content: {
+//                    Picker("Select Plant", selection: .constant(listOfPlant)) {
+//                    ForEach(listOfPlant) { plant in
+//                        plant.image
+//                            .resizable()
+//                            .frame(width: screenSize.width/15, height: screenSize.width/15)
+//                    }
+//                    }, label: {
+//                        Text("Plant")
+//                    }
             
-
-            HStack {
-                Text("Tree")
+                HStack{
+                    DatePicker(
+                        "Starting Date",
+                        selection: $date,
+                        displayedComponents: [.date])
+                    .datePickerStyle(.wheel)
+                }
+                
             }
-            HStack{
-                DatePicker(
-                    "Starting Date",
-                    selection: $date,
-                    displayedComponents: [.date])
-                .datePickerStyle(.wheel)
-            }
-            
         }
     }
-}
 
 struct AddView_Previews: PreviewProvider {
     
