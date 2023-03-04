@@ -16,6 +16,8 @@ struct AddView: View {
     @Binding var listOfPlant: [Habit.Plant]
     @State var chosenPlant = Habit.Plant.tomato
     @State var daysOfWeek = [false, false, false, false, false, false, false]
+    @State var importance = [1, 2, 3]
+    @State var chosenImportance: Int = 1
     var plantImagePicker =  PlantImageView()
     var body: some View {
         NavigationView{
@@ -77,6 +79,13 @@ struct AddView: View {
                     }
                     Spacer()
                 }.frame(alignment: .center)
+                HStack{
+                    Picker("Importance", selection: $chosenImportance) {
+                        Label("", systemImage: "exclamationmark").tag(importance[0])
+                        Label("", systemImage: "exclamationmark.2").tag(importance[1])
+                        Label("", systemImage: "exclamationmark.3").tag(importance[2])
+                    }
+                }
             }
         }.navigationTitle("New Habit")
     }
@@ -85,6 +94,6 @@ struct AddView: View {
 struct AddView_Previews: PreviewProvider {
     
     static var previews: some View {
-        AddView(listOfPlant: .constant([.tomato, .cactus,.banana,.rose]))
+        AddView(listOfPlant: .constant([.tomato, .cactus,.banana,.rose,.sunflower,.corn]))
     }
 }
