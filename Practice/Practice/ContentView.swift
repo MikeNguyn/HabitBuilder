@@ -18,7 +18,7 @@ struct ContentView: View {
                             Divider()
                             GridRow {
                                 ForEach(habitList[0...2]) { habit in
-                                    NavigationLink(destination: habit.name == "" ? AnyView(AddView()) : AnyView(DetailView(habit: habit))) {
+                                    NavigationLink(destination: habit.name == "" ? AnyView(AddView(listOfPlant: .constant([.tomato, .cactus,.banana,.rose]))) : AnyView(DetailView(habit: habit))) {
                                         ButtonView(habit: habit)
                                     }
                                 }
@@ -27,7 +27,7 @@ struct ContentView: View {
                             Divider()
                             GridRow {
                                 ForEach(habitList[3...5]) { habit in
-                                    NavigationLink(destination: habit.name == "" ? AnyView(AddView()) : AnyView(DetailView(habit: habit))) {
+                                    NavigationLink(destination: habit.name == "" ? AnyView(AddView(listOfPlant: .constant([.tomato, .cactus,.banana,.rose]))) : AnyView(DetailView(habit: habit))) {
                                         ButtonView(habit: habit)
                                     }
                                 }
@@ -35,7 +35,7 @@ struct ContentView: View {
                             Divider()
                             GridRow {
                                 ForEach(habitList[6...8]) { habit in
-                                    NavigationLink(destination: habit.name == "" ? AnyView(AddView()) : AnyView(DetailView(habit: habit))) {
+                                    NavigationLink(destination: habit.name == "" ? AnyView(AddView(listOfPlant: .constant([.tomato, .cactus,.banana,.rose]))) : AnyView(DetailView(habit: habit))) {
                                         ButtonView(habit: habit)
                                     }
                                 }
