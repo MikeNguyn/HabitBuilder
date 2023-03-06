@@ -4,12 +4,15 @@
 //
 //  Created by Minh Nguyen on 2/25/23.
 //
+// The add view screen is a page for when a trowel is clicked. Allows users
+// to enter info to create a new habit.
 
 import SwiftUI
 
 //let sizeOfPlantList: Int = listOfPlantImages.count
 let screenSize: CGRect = UIScreen.main.bounds
 
+//the fill in the information part of the habit
 struct AddView: View {
     @State var tempName: String = ""
     @State var date: Date = Date()

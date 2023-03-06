@@ -4,25 +4,17 @@
 //
 //  Created by Minh Nguyen on 2/20/23.
 //
+// Detail page for when an existing habit is clicked on.
 
 import SwiftUI
 
+//The main detail backbones that display a plants information
 struct DetailView: View {
     let habit : Habit
     let PLANTICONSIZE = 100.0
     
     
     var body: some View {
-//        List{
-//            Section(header: Text("Content Detail")){
-//                HStack {
-//                    Label("Name", systemImage: "clock")
-//                    Spacer()
-//                    Text(habit.name)
-//                }
-//            }
-//        }
-        
         //HARDCODED THE VALUES FOR FONT SIZE etc. gotta change
         NavigationView{
             VStack(){
@@ -71,6 +63,7 @@ struct DetailView: View {
     }
 }
 
+//function that takes in the importance/priority of the habit and returns !,!!,!!!
 func getImportanceLevel(num: Int)->String{
     if (num == 1){
         return "exclamationmark"
@@ -81,6 +74,7 @@ func getImportanceLevel(num: Int)->String{
     return "exclamationmark.3"
 }
 
+//Takes in a double for the health and returns green if >=0.5 and red if <0.5 for health bar
 func evaluateHealth(health: Double)->Color{
     if (health >= 0.5){
         return Color.green
@@ -95,6 +89,7 @@ struct DetailView_Previews: PreviewProvider {
     }
 }
 
+//Creates the health bar of the plant
 struct LinearProgressDemoView: View {
     let habit: Habit
 

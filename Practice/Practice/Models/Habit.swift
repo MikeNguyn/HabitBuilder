@@ -4,6 +4,7 @@
 //
 //  Created by Minh Nguyen on 2/22/23.
 //
+//  A Data class for a Habit. Comprised of the attributes of any habit object.
 
 import Foundation
 import SwiftUI
@@ -52,6 +53,8 @@ extension Habit {
     }
 }
 
+
+//Habit extention is used for making images an identifiable to be used in Pickers
 extension Habit {
     enum Plant: String, Identifiable {
         case rose
@@ -79,7 +82,9 @@ extension Habit {
         }
     }
 }
-    
+ 
+
+//Sample data we use to display/test
 extension Habit {
     static let sampleData: [Habit] = [Habit(name: "Drinking Water", plant: Image("bananaemoji"), end: Date(), frequency: [false, false, false, false, false, false, false], health: 1.0, importance: 2),
                                       Habit(name: "Drinking Wine", plant: Image("tomatoemoji"), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.85, importance: 1),

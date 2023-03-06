@@ -4,6 +4,7 @@
 //
 //  Created by Minh Nguyen on 2/20/23.
 //
+// A button view that allows a plant to become a button to be clicked on
 
 import SwiftUI
 

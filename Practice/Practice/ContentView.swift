@@ -4,11 +4,14 @@
 //
 //  Created by Matthew Mukai on 2/8/23.
 // Michael and Curran and Francesca
+//The main front screen/page. It displays the main grid of plants and other icons.
 
 import SwiftUI
 let PLANTICONSIZE = 100.0
 let MENUICONSIZE = 60.0
 
+
+//the main Habit display 3x3 grid
 struct ContentView: View {
     var habitList: [Habit]
     var body: some View {
@@ -69,6 +72,7 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
+//Some bottom bar buttons that don't yet have functionality. TODO
 private extension ContentView{
     private var homeBtn: some View{
         Button("Home") {

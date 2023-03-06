@@ -4,6 +4,7 @@
 //
 //  Created by Minh Nguyen on 2/25/23.
 //
+//Initialize the habit list to be full of trowels (icon to add new plants)
 
 import Foundation
 import SwiftUI
