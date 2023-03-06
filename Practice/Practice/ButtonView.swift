@@ -16,7 +16,7 @@ struct ButtonView: View {
     
     var body: some View {
         VStack {
-            habit.plant
+            habit.plant.image
                 .resizable()
             .frame(width: screenSize.width/7, height: screenSize.width/7)
         }

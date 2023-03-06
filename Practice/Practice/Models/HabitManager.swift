@@ -15,7 +15,7 @@ struct HabitManager: Identifiable{
     
     init(id: UUID = UUID()) {
         self.id = id
-        self.habits = Array(repeating: Habit(name: "", plant: Image("trowelemoji"), length: 0, frequency: Habit.Log(interactions: []), health: 0, importance: 0), count: 9)
+        self.habits = Array(repeating: Habit(name: "", plant: .trowel, end: Date(), frequency: [false, false, false, false, false, false, false], health: 0, importance: 0), count: 9)
     }
 }
 

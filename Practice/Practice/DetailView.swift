@@ -19,7 +19,7 @@ struct DetailView: View {
         NavigationView{
             VStack(){
                 
-                habit.plant.resizable().frame(width: PLANTICONSIZE, height: PLANTICONSIZE)
+                habit.plant.image.resizable().frame(width: PLANTICONSIZE, height: PLANTICONSIZE)
                 
                 LinearProgressDemoView(habit: habit)
                 
@@ -34,7 +34,7 @@ struct DetailView: View {
                         HStack {
                             Label("Length", systemImage: "timer")
                             Spacer()
-                            Text(String(habit.length) + " days")
+                            Text(String(habit.name) + " days")
                             
                         }
                         HStack {

@@ -14,34 +14,33 @@ let screenSize: CGRect = UIScreen.main.bounds
 
 //the fill in the information part of the habit
 struct AddView: View {
-    @State var tempName: String = ""
-    @State var date: Date = Date()
-    @Binding var listOfPlant: [Habit.Plant]
-    @State var chosenPlant = Habit.Plant.tomato
-    @State var daysOfWeek = [false, false, false, false, false, false, false]
-    @State var importance = [1, 2, 3]
-    @State var chosenImportance: Int = 1
-    var plantImagePicker =  PlantImageView()
+    @Binding var habit: Habit
+//    @State var date: Date = Date()
+//    @Binding var listOfPlant: [Habit.Plant]
+//    @State var chosenPlant = Habit.Plant.tomato
+//    @State var daysOfWeek = [false, false, false, false, false, false, false]
+//    @State var importance = [1, 2, 3]
+//    @State var chosenImportance: Int = 1
     var body: some View {
         NavigationView{
             List{
                 HStack{
                     Text("Habit name")
                     Spacer()
-                    TextField("Habit", text: $tempName)
+                    TextField("Habit", text: $habit.name)
                 }
                 HStack {
                     Text("Plant")
                     Spacer()
                     Menu{
-                        Picker("Select Plant", selection: $chosenPlant) {
-                            ForEach(listOfPlant) { plant in
+                        Picker("Select Plant", selection: $habit.plant) {
+                            ForEach(Habit.Plant.allCases) { plant in
                                 plant.image
                                     .tag(plant)
                             }
                         }
                     } label: {
-                        chosenPlant.image.resizable()
+                        habit.plant.image.resizable()
                             .frame(width: screenSize.width/10, height: screenSize.width/10)
                     }
                 }
@@ -60,7 +59,7 @@ struct AddView: View {
                 HStack{
                     DatePicker(
                         "End date",
-                        selection: $date,
+                        selection: $habit.end,
                         displayedComponents: [.date]
                     )
                 }
@@ -69,24 +68,24 @@ struct AddView: View {
                     VStack(alignment: .center){
                         Text("Days of week")
                         HStack(alignment: .center){
-                            Toggle("Sun", isOn: $daysOfWeek[0])
-                            Toggle("Mon", isOn: $daysOfWeek[1])
-                            Toggle("Tue", isOn: $daysOfWeek[2])
-                            Toggle("Wed", isOn: $daysOfWeek[3])
+                            Toggle("Sun", isOn: $habit.frequency[0])
+                            Toggle("Mon", isOn: $habit.frequency[1])
+                            Toggle("Tue", isOn: $habit.frequency[2])
+                            Toggle("Wed", isOn: $habit.frequency[3])
                         }.toggleStyle(.button)
                         HStack(alignment: .center){
-                            Toggle("Thu", isOn: $daysOfWeek[4])
-                            Toggle("Fri", isOn: $daysOfWeek[5])
-                            Toggle("Sat", isOn: $daysOfWeek[6])
+                            Toggle("Thu", isOn: $habit.frequency[4])
+                            Toggle("Fri", isOn: $habit.frequency[5])
+                            Toggle("Sat", isOn: $habit.frequency[6])
                         }.toggleStyle(.button)
                     }
                     Spacer()
                 }.frame(alignment: .center)
                 HStack{
-                    Picker("Importance", selection: $chosenImportance) {
-                        Label("", systemImage: "exclamationmark").tag(importance[0])
-                        Label("", systemImage: "exclamationmark.2").tag(importance[1])
-                        Label("", systemImage: "exclamationmark.3").tag(importance[2])
+                    Picker("Importance", selection: $habit.importance) {
+                        Label("", systemImage: "exclamationmark").tag(1)
+                        Label("", systemImage: "exclamationmark.2").tag(2)
+                        Label("", systemImage: "exclamationmark.3").tag(3)
                     }
                 }
             }
@@ -97,6 +96,6 @@ struct AddView: View {
 struct AddView_Previews: PreviewProvider {
     
     static var previews: some View {
-        AddView(listOfPlant: .constant([.tomato, .cactus,.banana,.rose,.sunflower,.corn]))
+        AddView(habit: .constant(Habit.sampleData[1]))
     }
 }

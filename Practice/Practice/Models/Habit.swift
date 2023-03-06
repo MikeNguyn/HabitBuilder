@@ -12,13 +12,13 @@ import SwiftUI
 struct Habit: Identifiable {
     let id: UUID
     var name: String
-    var plant: Image
+    var plant: Plant
     var end: Date
     var frequency: [Bool]
     var health: Double
     var importance: Int
     
-    init(id: UUID = UUID(), name: String, plant: Image, end: Date, frequency: [Bool], health: Double, importance: Int) {
+    init(id: UUID = UUID(), name: String, plant: Plant, end: Date, frequency: [Bool], health: Double, importance: Int) {
         self.id = id
         self.name = name
         self.plant = plant
@@ -41,7 +41,7 @@ extension Habit {
     }
     struct Data {
         var name: String
-        var plant: Image
+        var plant: Plant
         var end: Date
         var frequency: [Bool]
         var health: Double
@@ -56,7 +56,7 @@ extension Habit {
 
 //Habit extention is used for making images an identifiable to be used in Pickers
 extension Habit {
-    enum Plant: String, Identifiable {
+    enum Plant: String, Identifiable, CaseIterable {
         case rose
         case cactus
         case tomato
@@ -64,6 +64,7 @@ extension Habit {
         case corn
         case sunflower
         case trowel
+        case pea
     
         var image: Image {
             switch self {
@@ -74,11 +75,17 @@ extension Habit {
                 case .trowel: return Image("trowelemoji")
                 case .sunflower: return Image("sunfloweremoji")
                 case .corn: return Image("cornemoji")
+                case .pea: return Image("peaemoji")
+                
             }
         }
 
         var id: String{
             return self.rawValue
+        }
+        
+        var allCases: [Plant] {
+            return [.rose, .cactus, .tomato, .banana, .corn, .sunflower, .pea]
         }
     }
 }
@@ -86,15 +93,15 @@ extension Habit {
 
 //Sample data we use to display/test
 extension Habit {
-    static let sampleData: [Habit] = [Habit(name: "Drinking Water", plant: Image("bananaemoji"), end: Date(), frequency: [false, false, false, false, false, false, false], health: 1.0, importance: 2),
-                                      Habit(name: "Drinking Wine", plant: Image("tomatoemoji"), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.85, importance: 1),
-                                      Habit(name: "Exercise", plant: Image("roseemoji"), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.40, importance: 3),
-                                      Habit(name: "Water Plants", plant: Image("cactusemoji"), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.0, importance: 2),
-                                      Habit(name: "Shower", plant: Image("roseemoji"), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.60, importance: 1),
-                                      Habit(name: "Wash Laundry", plant: Image("cactusemoji"), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.29, importance: 1),
-                                      Habit(name: "Tell a joke", plant: Image("bananaemoji"), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.82, importance: 2),
-                                      Habit(name: "Take Medicine", plant: Image("tomatoemoji"), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.90, importance: 3),
-                                      Habit(name: "Make bed", plant: Image("bananaemoji"), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.50, importance:1)
+    static let sampleData: [Habit] = [Habit(name: "Drinking Water", plant: .banana, end: Date(), frequency: [false, false, false, false, false, false, false], health: 1.0, importance: 2),
+                                      Habit(name: "Drinking Wine", plant: .tomato, end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.85, importance: 1),
+                                      Habit(name: "Exercise", plant: .rose, end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.40, importance: 3),
+                                      Habit(name: "Water Plants", plant: .cactus, end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.0, importance: 2),
+                                      Habit(name: "Shower", plant: .rose, end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.60, importance: 1),
+                                      Habit(name: "Wash Laundry", plant: .cactus, end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.29, importance: 1),
+                                      Habit(name: "Tell a joke", plant: .banana, end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.82, importance: 2),
+                                      Habit(name: "Take Medicine", plant: .tomato, end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.90, importance: 3),
+                                      Habit(name: "Make bed", plant: .corn, end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.50, importance:1)
                                       
         ]
 }

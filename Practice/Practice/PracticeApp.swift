@@ -9,10 +9,10 @@ import SwiftUI
 
 @main
 struct PracticeApp: App {
+    @State var habitManager = HabitManager()
     var body: some Scene {
         WindowGroup {
-            let habitManager = HabitManager()
-            ContentView(habitList: habitManager.getData())
+            ContentView(habitList: $habitManager.habits)
         }
     }
 }

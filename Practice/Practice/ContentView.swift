@@ -13,15 +13,15 @@ let MENUICONSIZE = 60.0
 
 //the main Habit display 3x3 grid
 struct ContentView: View {
-    var habitList: [Habit]
+    @Binding var habitList: [Habit]
     var body: some View {
         NavigationView {
             VStack{
                 Grid(){
                             Divider()
                             GridRow {
-                                ForEach(habitList[0...2]) { habit in
-                                    NavigationLink(destination: habit.name == "" ? AnyView(AddView(listOfPlant: .constant([.tomato, .cactus,.banana,.rose]))) : AnyView(DetailView(habit: habit))) {
+                                ForEach($habitList[0...2]) { $habit in
+                                    NavigationLink(destination: habit.name == "" ? AnyView(AddView(habit: $habit)) : AnyView(DetailView(habit: habit))) {
                                         ButtonView(habit: habit)
                                     }
                                 }
@@ -29,16 +29,16 @@ struct ContentView: View {
                             }
                             Divider()
                             GridRow {
-                                ForEach(habitList[3...5]) { habit in
-                                    NavigationLink(destination: habit.name == "" ? AnyView(AddView(listOfPlant: .constant([.tomato, .cactus,.banana,.rose]))) : AnyView(DetailView(habit: habit))) {
+                                ForEach($habitList[3...5]) { $habit in
+                                    NavigationLink(destination: habit.name == "" ? AnyView(AddView(habit: $habit)) : AnyView(DetailView(habit: habit))) {
                                         ButtonView(habit: habit)
                                     }
                                 }
                             }
                             Divider()
                             GridRow {
-                                ForEach(habitList[6...8]) { habit in
-                                    NavigationLink(destination: habit.name == "" ? AnyView(AddView(listOfPlant: .constant([.tomato, .cactus,.banana,.rose]))) : AnyView(DetailView(habit: habit))) {
+                                ForEach($habitList[6...8]) { $habit in
+                                    NavigationLink(destination: habit.name == "" ? AnyView(AddView(habit: $habit)) : AnyView(DetailView(habit: habit))) {
                                         ButtonView(habit: habit)
                                     }
                                 }
@@ -68,7 +68,7 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var habitManager = HabitManager()
     static var previews: some View {
-        ContentView(habitList: habitManager.getData())
+        ContentView(habitList: .constant(habitManager.habits))
     }
 }
 
