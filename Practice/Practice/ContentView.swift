@@ -7,39 +7,55 @@
 //The main front screen/page. It displays the main grid of plants and other icons.
 
 import SwiftUI
-let PLANTICONSIZE = 100.0
 let MENUICONSIZE = 60.0
 
 
 //the main Habit display 3x3 grid
 struct ContentView: View {
-    @Binding var habitList: [Habit]
+    @Binding var habitList: [[Habit]]
     var body: some View {
         NavigationView {
             VStack{
                 Grid(){
                             Divider()
                             GridRow {
-                                ForEach($habitList[0...2]) { $habit in
-                                    NavigationLink(destination: habit.name == "" ? AnyView(AddView(habit: $habit)) : AnyView(DetailView(habit: habit))) {
-                                        ButtonView(habit: habit)
-                                    }
-                                }
-                                
-                            }
-                            Divider()
-                            GridRow {
-                                ForEach($habitList[3...5]) { $habit in
-                                    NavigationLink(destination: habit.name == "" ? AnyView(AddView(habit: $habit)) : AnyView(DetailView(habit: habit))) {
-                                        ButtonView(habit: habit)
+                                ForEach($habitList[0]) { $habit in
+                                    if habit.empty {
+                                        NavigationLink(destination:  AnyView(AddView(habit: $habit))) {
+                                            EmptyView()
+                                        }
+                                    } else {
+                                        NavigationLink(destination:  AnyView(DetailView(habit: habit))) {
+                                            ButtonView(habit: habit)
+                                        }
                                     }
                                 }
                             }
                             Divider()
                             GridRow {
-                                ForEach($habitList[6...8]) { $habit in
-                                    NavigationLink(destination: habit.name == "" ? AnyView(AddView(habit: $habit)) : AnyView(DetailView(habit: habit))) {
-                                        ButtonView(habit: habit)
+                                ForEach($habitList[1]) { $habit in
+                                    if habit.empty {
+                                        NavigationLink(destination:  AnyView(AddView(habit: $habit))) {
+                                            EmptyView()
+                                        }
+                                    } else {
+                                        NavigationLink(destination:  AnyView(DetailView(habit: habit))) {
+                                            ButtonView(habit: habit)
+                                        }
+                                    }
+                                }
+                            }
+                            Divider()
+                            GridRow {
+                                ForEach($habitList[2]) { $habit in
+                                    if habit.empty {
+                                        NavigationLink(destination:  AnyView(AddView(habit: $habit))) {
+                                            EmptyView()
+                                        }
+                                    } else {
+                                        NavigationLink(destination:  AnyView(DetailView(habit: habit))) {
+                                            ButtonView(habit: habit)
+                                        }
                                     }
                                 }
                             }
@@ -51,11 +67,7 @@ struct ContentView: View {
                     calendarBtn
                     shopBtn
                 }
-                
                 HStack(spacing: 60.0){
-//                    ButtonView(buttonImage: Image("homeIcon"))
-//                    ButtonView(buttonImage: Image("calendarIcon"))
-//                    ButtonView(buttonImage: Image("calendarIcon"))
                 }
             }
             .navigationTitle("Garden")
@@ -66,9 +78,8 @@ struct ContentView: View {
 }
 
 struct ContentView_Previews: PreviewProvider {
-    static var habitManager = HabitManager()
     static var previews: some View {
-        ContentView(habitList: .constant(habitManager.habits))
+        ContentView(habitList: .constant(Habit.sampleData))
     }
 }
 

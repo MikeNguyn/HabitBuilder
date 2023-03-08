@@ -9,22 +9,22 @@
 import SwiftUI
 
 struct ButtonView: View {
-    let habit: Habit
 //    var widthPercentage: Int
 //    var heightPercentage: Int
+    let habit: Habit
     let screenSize: CGRect = UIScreen.main.bounds
     
     var body: some View {
         VStack {
             habit.plant.image
                 .resizable()
-            .frame(width: screenSize.width/7, height: screenSize.width/7)
+            .frame(width: screenSize.width/5, height: screenSize.width/5)
         }
     }
 }
 
 struct ButtonView_Previews: PreviewProvider {
-    static var habit = Habit.sampleData[0]
+    static var habit = Habit.sampleData[0][0]
     static var previews: some View {
         ButtonView(habit: habit)
     }

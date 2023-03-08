@@ -11,18 +11,14 @@ import SwiftUI
 //The main detail backbones that display a plants information
 struct DetailView: View {
     let habit : Habit
-    let PLANTICONSIZE = 100.0
+    let PLANTICONSIZE = 75.0
     
     
     var body: some View {
-        //HARDCODED THE VALUES FOR FONT SIZE etc. gotta change
         NavigationView{
             VStack(){
-                
                 habit.plant.image.resizable().frame(width: PLANTICONSIZE, height: PLANTICONSIZE)
-                
                 LinearProgressDemoView(habit: habit)
-                
                 List{
                     Section(header: Text("Habit Details")){
                         HStack {
@@ -34,7 +30,7 @@ struct DetailView: View {
                         HStack {
                             Label("Length", systemImage: "timer")
                             Spacer()
-                            Text(String(habit.name) + " days")
+                            Text(String(habit.importance) + " days")
                             
                         }
                         HStack {
@@ -56,10 +52,9 @@ struct DetailView: View {
                             
                         }
                     }
-                    
-                }.listStyle(.plain)
-            }.navigationTitle(habit.name)
-        }
+                }
+            }
+        }.navigationTitle(habit.name)
     }
 }
 
@@ -83,7 +78,7 @@ func evaluateHealth(health: Double)->Color{
 }
 
 struct DetailView_Previews: PreviewProvider {
-    static var habit = Habit.sampleData[2]
+    static var habit = Habit.sampleData[2][1]
     static var previews: some View {
         DetailView(habit: habit)
     }

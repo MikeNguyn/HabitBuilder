@@ -19,6 +19,7 @@
 		7516AEB129A6B2F600ED7D17 /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7516AEB029A6B2F600ED7D17 /* Habit.swift */; };
 		7516AEB329AAB2B400ED7D17 /* HabitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7516AEB229AAB2B400ED7D17 /* HabitManager.swift */; };
 		7516AEB729AAB9A200ED7D17 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7516AEB629AAB9A200ED7D17 /* AddView.swift */; };
+		757758BE29B914F600DD887F /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757758BD29B914F600DD887F /* EmptyView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		7516AEB029A6B2F600ED7D17 /* Habit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
 		7516AEB229AAB2B400ED7D17 /* HabitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitManager.swift; sourceTree = "<group>"; };
 		7516AEB629AAB9A200ED7D17 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
+		757758BD29B914F600DD887F /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				5437606429943C5B006D3E90 /* ContentView.swift */,
 				7516AEB629AAB9A200ED7D17 /* AddView.swift */,
 				7516AEA729A41B0600ED7D17 /* ButtonView.swift */,
+				757758BD29B914F600DD887F /* EmptyView.swift */,
 				7516AEAB29A41FC300ED7D17 /* DetailView.swift */,
 				5437606629943C60006D3E90 /* Assets.xcassets */,
 				5437606829943C60006D3E90 /* Preview Content */,
@@ -284,6 +287,7 @@
 				7516AEB329AAB2B400ED7D17 /* HabitManager.swift in Sources */,
 				5437606529943C5B006D3E90 /* ContentView.swift in Sources */,
 				7516AEB129A6B2F600ED7D17 /* Habit.swift in Sources */,
+				757758BE29B914F600DD887F /* EmptyView.swift in Sources */,
 				7516AEAC29A41FC300ED7D17 /* DetailView.swift in Sources */,
 				5437606329943C5B006D3E90 /* PracticeApp.swift in Sources */,
 				7516AEA829A41B0600ED7D17 /* ButtonView.swift in Sources */,

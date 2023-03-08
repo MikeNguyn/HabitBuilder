@@ -44,18 +44,6 @@ struct AddView: View {
                             .frame(width: screenSize.width/10, height: screenSize.width/10)
                     }
                 }
-    //                Text("Plant")
-    //                Menu(content: {
-    //                    Picker("Select Plant", selection: .constant(listOfPlant)) {
-    //                    ForEach(listOfPlant) { plant in
-    //                        plant.image
-    //                            .resizable()
-    //                            .frame(width: screenSize.width/15, height: screenSize.width/15)
-    //                    }
-    //                    }, label: {
-    //                        Text("Plant")
-    //                    }
-                
                 HStack{
                     DatePicker(
                         "End date",
@@ -90,12 +78,22 @@ struct AddView: View {
                 }
             }
         }.navigationTitle("New Habit")
+            .toolbar{
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    NavigationLink(destination: DetailView(habit: habit)){
+                        Button("Done", action: {
+                            habit.empty = false
+                            habit.health = 1
+                        })
+                    }
+                }
+            }
     }
 }
 
 struct AddView_Previews: PreviewProvider {
     
     static var previews: some View {
-        AddView(habit: .constant(Habit.sampleData[1]))
+        AddView(habit: .constant(Habit.sampleData[0][1]))
     }
 }

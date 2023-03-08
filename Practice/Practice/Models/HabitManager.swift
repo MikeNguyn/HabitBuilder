@@ -11,20 +11,20 @@ import SwiftUI
 
 struct HabitManager: Identifiable{
     var id: UUID
-    var habits: [Habit]
+    var habits: [[Habit]]
     
     init(id: UUID = UUID()) {
         self.id = id
-        self.habits = Array(repeating: Habit(name: "", plant: .trowel, end: Date(), frequency: [false, false, false, false, false, false, false], health: 0, importance: 0), count: 9)
+        self.habits = [[Habit(), Habit(), Habit()], [Habit(), Habit(), Habit()], [Habit(), Habit(), Habit()]]
     }
 }
 
-extension HabitManager {
-    mutating func add(habit: Habit, position: Int) {
-        habits.insert(habit, at: position)
-    }
-    
-    func getData() -> [Habit]{
-        return habits
-    }
-}
+//extension HabitManager {
+//    mutating func add(habit: Habit, position: Int) {
+//        habits.insert(habit, at: position)
+//    }
+//    
+//    func getData() -> [Habit]{
+//        return habits
+//    }
+//}
