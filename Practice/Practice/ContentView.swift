@@ -25,7 +25,7 @@ struct ContentView: View {
                                             EmptyView()
                                         }
                                     } else {
-                                        NavigationLink(destination:  AnyView(DetailView(habit: habit))) {
+                                        NavigationLink(destination:  AnyView(DetailView(habit: $habit))) {
                                             ButtonView(habit: habit)
                                         }
                                     }
@@ -39,7 +39,7 @@ struct ContentView: View {
                                             EmptyView()
                                         }
                                     } else {
-                                        NavigationLink(destination:  AnyView(DetailView(habit: habit))) {
+                                        NavigationLink(destination:  AnyView(DetailView(habit: $habit))) {
                                             ButtonView(habit: habit)
                                         }
                                     }
@@ -53,7 +53,7 @@ struct ContentView: View {
                                             EmptyView()
                                         }
                                     } else {
-                                        NavigationLink(destination:  AnyView(DetailView(habit: habit))) {
+                                        NavigationLink(destination:  AnyView(DetailView(habit: $habit))) {
                                             ButtonView(habit: habit)
                                         }
                                     }

@@ -10,7 +10,7 @@ import SwiftUI
 
 //The main detail backbones that display a plants information
 struct DetailView: View {
-    let habit : Habit
+    @Binding var habit: Habit
     let PLANTICONSIZE = 75.0
     
     
@@ -49,11 +49,14 @@ struct DetailView: View {
                             Label("Example", systemImage: "info.circle")
                             Spacer()
                             Text("filler stuff")
-                            
                         }
                     }
                 }
+                NavigationLink(destination:  AnyView(EditView(habit: $habit))) {
+                    Text("edit")
+                }
             }
+            
         }.navigationTitle(habit.name)
     }
 }
@@ -78,9 +81,9 @@ func evaluateHealth(health: Double)->Color{
 }
 
 struct DetailView_Previews: PreviewProvider {
-    static var habit = Habit.sampleData[2][1]
+//    static var habit = Habit.sampleData[2][1]
     static var previews: some View {
-        DetailView(habit: habit)
+        DetailView(habit: .constant(Habit.sampleData[0][1]))
     }
 }
 

@@ -1,19 +1,17 @@
 //
-//  AddView.swift
+//  EditView.swift
 //  Practice
 //
-//  Created by Minh Nguyen on 2/25/23.
+//  Created by Matthew Mukai on 3/20/23.
 //
-// The add view screen is a page for when a trowel is clicked. Allows users
-// to enter info to create a new habit.
 
 import SwiftUI
 
 //let sizeOfPlantList: Int = listOfPlantImages.count
-let screenSize: CGRect = UIScreen.main.bounds
 
+//let screenSize: CGRect = UIScreen.main.bounds
 //the fill in the information part of the habit
-struct AddView: View {
+struct EditView: View {
     @Binding var habit: Habit
 //    @State var date: Date = Date()
 //    @Binding var listOfPlant: [Habit.Plant]
@@ -77,23 +75,20 @@ struct AddView: View {
                     }
                 }
             }
-        }.navigationTitle("New Habit")
+        }.navigationTitle("Edit Habit")
             .toolbar{
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink(destination: DetailView(habit: $habit)){
-                        Button("Done", action: {
-                            habit.empty = false
-                            habit.health = 1
-                        })
+                        Text("Done")
                     }
                 }
             }
     }
 }
 
-struct AddView_Previews: PreviewProvider {
+struct EditView_Previews: PreviewProvider {
     
     static var previews: some View {
-        AddView(habit: .constant(Habit.sampleData[0][1]))
+        EditView(habit: .constant(Habit.sampleData[0][1]))
     }
 }
