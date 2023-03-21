@@ -27,7 +27,7 @@ struct AddView: View {
                 HStack{
                     Text("Habit name")
                     Spacer()
-                    TextField("Habit", text: $habit.name)
+                    TextField("Habit", text: $habit.name).multilineTextAlignment(.trailing)
                 }
                 HStack {
                     Text("Plant")

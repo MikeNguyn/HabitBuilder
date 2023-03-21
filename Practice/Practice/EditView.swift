@@ -19,13 +19,14 @@ struct EditView: View {
 //    @State var daysOfWeek = [false, false, false, false, false, false, false]
 //    @State var importance = [1, 2, 3]
 //    @State var chosenImportance: Int = 1
+    @Environment(\.dismiss) private var dismiss
     var body: some View {
         NavigationView{
             List{
                 HStack{
                     Text("Habit name")
                     Spacer()
-                    TextField("Habit", text: $habit.name)
+                    TextField("Habit", text: $habit.name).multilineTextAlignment(.trailing)
                 }
                 HStack {
                     Text("Plant")
@@ -76,13 +77,10 @@ struct EditView: View {
                 }
             }
         }.navigationTitle("Edit Habit")
-            .toolbar{
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink(destination: DetailView(habit: $habit)){
-                        Text("Done")
-                    }
-                }
-            }
+        Button("Confirm") {
+                            // Save the article and dismiss.
+                            dismiss()
+                        }
     }
 }
 

@@ -12,6 +12,7 @@ import SwiftUI
 struct DetailView: View {
     @Binding var habit: Habit
     let PLANTICONSIZE = 75.0
+    @State var presentSheet = false
     
     
     var body: some View {
@@ -30,7 +31,7 @@ struct DetailView: View {
                         HStack {
                             Label("Length", systemImage: "timer")
                             Spacer()
-                            Text(String(habit.importance) + " days")
+                            Text(String(calculateLength(endDate: habit.end)) + " days")
                             
                         }
                         HStack {
@@ -52,9 +53,18 @@ struct DetailView: View {
                         }
                     }
                 }
-                NavigationLink(destination:  AnyView(EditView(habit: $habit))) {
-                    Text("edit")
-                }
+//                NavigationLink(destination:  AnyView(EditView(habit: $habit))) {
+//                    Text("edit")
+//                }
+                Button("Edit Habit") {
+                                presentSheet.toggle()
+                            }
+                                /// Present a sheet once `shouldPresentSheet` becomes `true`.
+                                .sheet(isPresented: $presentSheet) {
+                                    print("Sheet dismissed!")
+                                } content: {
+                                    EditView(habit: $habit)
+                                }
             }
             
         }.navigationTitle(habit.name)
@@ -101,3 +111,17 @@ struct LinearProgressDemoView: View {
         }
     }
 }
+
+
+
+//from https://stackoverflow.com/questions/40075850/swift-3-find-number-of-calendar-days-between-two-dates
+func calculateLength(endDate: Date)->String{
+        let date = NSDate() //right now its current date but might have to change for each habit to have a start date
+//        let numberOfDays = dateComponents([.day], from: date, to: endDate)
+    let diffInDays = Calendar.current.dateComponents([.day], from: date as Date, to: endDate).day
+    
+    var answer = String(diffInDays!)
+    return answer
+}
+
+
