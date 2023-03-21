@@ -61,6 +61,7 @@ struct ContentView: View {
                             }
                             Divider()
                 }.padding(80)
+//                    .rotation3DEffect(.degrees(25), axis: (x: 1.0, y: 0.0, z: 0.0))
                 Spacer()
                 ControlGroup {
                     homeBtn

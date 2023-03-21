@@ -19,6 +19,8 @@ struct ButtonView: View {
             habit.plant.image
                 .resizable()
             .frame(width: screenSize.width/5, height: screenSize.width/5)
+            .rotation3DEffect(.degrees(-25), axis: (x: 1.0, y: 0.0, z: 0.0))
+            .shadow(radius: 5.0)
         }
     }
 }
