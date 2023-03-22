@@ -120,7 +120,7 @@ func calculateLength(endDate: Date)->String{
 //        let numberOfDays = dateComponents([.day], from: date, to: endDate)
     let diffInDays = Calendar.current.dateComponents([.day], from: date as Date, to: endDate).day
     
-    var answer = String(diffInDays!)
+    let answer = String(diffInDays!)
     return answer
 }
 

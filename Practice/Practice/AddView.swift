@@ -97,3 +97,11 @@ struct AddView_Previews: PreviewProvider {
         AddView(habit: .constant(Habit.sampleData[0][1]))
     }
 }
+
+struct DatePickerExample: View {
+    @State private var date = Date()
+    var body: some View {
+        DatePicker( "Pick a date", selection: $date, in: Date()..., displayedComponents: [.date]) .padding()
+    }
+    
+}
