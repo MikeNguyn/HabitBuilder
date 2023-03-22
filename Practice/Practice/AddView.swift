@@ -87,6 +87,7 @@ struct AddView: View {
                         Button("Done", action: {
                             habit.empty = false
                             habit.health = 1
+                            habit.start = Date.now
                         })
                     }
                 }

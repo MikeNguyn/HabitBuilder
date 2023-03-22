@@ -13,16 +13,18 @@ struct Habit: Identifiable {
     let id: UUID
     var name: String
     var plant: Plant
+    var start: Date
     var end: Date
     var frequency: [Bool]
     var health: Double
     var importance: Int
     var empty: Bool
     
-    init(id: UUID = UUID(), name: String, plant: Plant, end: Date, frequency: [Bool], health: Double, importance: Int, empty: Bool) {
+    init(id: UUID = UUID(), name: String, plant: Plant, start: Date, end: Date, frequency: [Bool], health: Double, importance: Int, empty: Bool) {
         self.id = id
         self.name = name
         self.plant = plant
+        self.start = start
         self.end = end
         self.health = health
         self.importance = importance
@@ -33,6 +35,7 @@ struct Habit: Identifiable {
         self.id = id
         self.name = ""
         self.plant = .rose
+        self.start = Date()
         self.end = Date()
         self.health = 0
         self.importance = 1
@@ -45,6 +48,7 @@ extension Habit {
     struct Data {
         var name: String
         var plant: Plant
+        var start: Date
         var end: Date
         var frequency: [Bool]
         var health: Double
@@ -52,7 +56,7 @@ extension Habit {
     }
     
     var data: Data {
-        Data(name: name, plant: plant, end: end, frequency: frequency, health: health, importance: importance)
+        Data(name: name, plant: plant, start: start, end: end, frequency: frequency, health: health, importance: importance)
     }
 }
 
@@ -93,15 +97,15 @@ extension Habit {
 
 //Sample data we use to display/test
 extension Habit {
-    static let sampleData: [[Habit]] = [[Habit(name: "Drinking Water", plant: .banana, end: Date(), frequency: [false, false, false, false, false, false, false], health: 1.0, importance: 2, empty: false),
-                                      Habit(name: "Drinking Wine", plant: .tomato, end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.85, importance: 1, empty: false),
-                                      Habit(name: "Exercise", plant: .rose, end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.40, importance: 3, empty: false)],
-                                      [Habit(name: "Water Plants", plant: .cactus, end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.0, importance: 2, empty: false),
-                                      Habit(name: "Shower", plant: .rose, end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.60, importance: 1, empty: false),
-                                      Habit(name: "Wash Laundry", plant: .cactus, end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.29, importance: 1, empty: false)],
-                                      [Habit(name: "Tell a joke", plant: .banana, end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.82, importance: 2, empty: false),
-                                      Habit(name: "Take Medicine", plant: .tomato, end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.90, importance: 3, empty: false),
-                                      Habit(name: "Make bed", plant: .corn, end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.50, importance:1, empty: false)]
+    static let sampleData: [[Habit]] = [[Habit(name: "Drinking Water", plant: .banana, start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 1.0, importance: 2, empty: false),
+                                      Habit(name: "Drinking Wine", plant: .tomato, start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.85, importance: 1, empty: false),
+                                      Habit(name: "Exercise", plant: .rose, start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.40, importance: 3, empty: false)],
+                                      [Habit(name: "Water Plants", plant: .cactus, start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.0, importance: 2, empty: false),
+                                      Habit(name: "Shower", plant: .rose, start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.60, importance: 1, empty: false),
+                                      Habit(name: "Wash Laundry", plant: .cactus, start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.29, importance: 1, empty: false)],
+                                      [Habit(name: "Tell a joke", plant: .banana, start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.82, importance: 2, empty: false),
+                                      Habit(name: "Take Medicine", plant: .tomato, start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.90, importance: 3, empty: false),
+                                      Habit(name: "Make bed", plant: .corn, start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.50, importance:1, empty: false)]
                                       
         ]
 }
