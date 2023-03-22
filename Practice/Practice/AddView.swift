@@ -48,8 +48,11 @@ struct AddView: View {
                     DatePicker(
                         "End date",
                         selection: $habit.end,
+                        in: Date()...,
                         displayedComponents: [.date]
+                        
                     )
+                    
                 }
                 HStack {
                     Spacer()
@@ -84,6 +87,7 @@ struct AddView: View {
                         Button("Done", action: {
                             habit.empty = false
                             habit.health = 1
+                            habit.start = Date.now
                         })
                     }
                 }
@@ -98,10 +102,3 @@ struct AddView_Previews: PreviewProvider {
     }
 }
 
-struct DatePickerExample: View {
-    @State private var date = Date()
-    var body: some View {
-        DatePicker( "Pick a date", selection: $date, in: Date()..., displayedComponents: [.date]) .padding()
-    }
-    
-}
