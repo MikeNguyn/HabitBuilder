@@ -61,7 +61,9 @@ struct ContentView: View {
                             }
                             Divider()
                 }.padding(80)
-//                    .rotation3DEffect(.degrees(25), axis: (x: 1.0, y: 0.0, z: 0.0))
+//                    .rotation3DEffect(.degrees(45), axis: (x: 0.5, y: 0.0, z: 0.0))
+                    .rotationEffect(Angle(degrees: 45), anchor: .center) //I found this online :)
+                                .scaleEffect(x: 1.0, y: 0.5, anchor: .center)
                 Spacer()
                 ControlGroup {
                     homeBtn
