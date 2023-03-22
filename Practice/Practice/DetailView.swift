@@ -14,7 +14,6 @@ struct DetailView: View {
     let PLANTICONSIZE = 75.0
     @State var presentSheet = false
     
-    
     var body: some View {
         NavigationView{
             VStack(){
@@ -31,13 +30,14 @@ struct DetailView: View {
                         HStack {
                             Label("Length", systemImage: "timer")
                             Spacer()
-                            Text(String(calculateLength(endDate: habit.end)) + " days")
+                            Text(String(calculateLength(startDate: habit.start,endDate: habit.end)) + " days")
                             
                         }
+                        //for date formatting
                         HStack {
-                            Label("Example", systemImage: "info.circle")
+                            Label("Started Habit On", systemImage: "info.circle")
                             Spacer()
-                            Text("filler stuff")
+                            Text(stringOfDate(date:habit.start))
                             
                         }
                         HStack {
@@ -115,13 +115,18 @@ struct LinearProgressDemoView: View {
 
 
 //from https://stackoverflow.com/questions/40075850/swift-3-find-number-of-calendar-days-between-two-dates
-func calculateLength(endDate: Date)->String{
-        let date = NSDate() //right now its current date but might have to change for each habit to have a start date
-//        let numberOfDays = dateComponents([.day], from: date, to: endDate)
-    let diffInDays = Calendar.current.dateComponents([.day], from: date as Date, to: endDate).day
+func calculateLength(startDate: Date,endDate: Date)->String{
+    let diffInDays = Calendar.current.dateComponents([.day], from: startDate, to: endDate).day
     
     let answer = String(diffInDays!)
     return answer
 }
 
+
+func stringOfDate(date: Date) -> String{
+        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "yyyy-MM-dd hh:mm:ss"
+        dateFormatter.dateStyle = .short
+    return dateFormatter.string(from: date)
+}
 

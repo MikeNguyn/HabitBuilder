@@ -47,6 +47,7 @@ struct EditView: View {
                     DatePicker(
                         "End date",
                         selection: $habit.end,
+                        in: Date()...,
                         displayedComponents: [.date]
                     )
                 }
