@@ -36,6 +36,7 @@ struct ButtonView: View {
                     show.toggle()
                 }
         )
+        .rotation3DEffect(.degrees(-45), axis: (x: 0.0, y: 0.0, z: 45.0))
         
     }
 }
