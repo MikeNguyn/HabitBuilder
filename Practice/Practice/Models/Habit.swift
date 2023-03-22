@@ -35,7 +35,7 @@ struct Habit: Identifiable {
         self.plant = .rose
         self.end = Date()
         self.health = 0
-        self.importance = 0
+        self.importance = 1
         self.frequency = [false, false, false, false, false, false, false]
         self.empty = true
     }
