@@ -13,6 +13,7 @@ let MENUICONSIZE = 60.0
 //the main Habit display 3x3 grid
 struct ContentView: View {
     @Binding var habitList: [[Habit]]
+    @GestureState var isLongPressed = false
     var body: some View {
         NavigationView {
             VStack{

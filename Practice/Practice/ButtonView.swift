@@ -13,14 +13,27 @@ struct ButtonView: View {
 //    var heightPercentage: Int
     let habit: Habit
     let screenSize: CGRect = UIScreen.main.bounds
+    @GestureState var press = false
+    @State var show = false
     
     var body: some View {
         VStack {
             habit.plant.image
                 .resizable()
             .frame(width: screenSize.width/5, height: screenSize.width/5)
-            .rotation3DEffect(.degrees(-45), axis: (x: 0.0, y: 0.0, z: 45.0))
             .shadow(radius: 5.0)
+            .background(show ? Color.green: Color.white)
+            .scaleEffect(press ? 2: 1)
+            .animation(.spring(response: 0.4, dampingFraction: 0.6))
+            .gesture(
+                LongPressGesture(minimumDuration: 0.5)
+                    .updating($press) {currentState, gestureState, transaction in
+                        gestureState = currentState
+                    }
+                    .onEnded{ value in
+                        show.toggle()
+                    }
+            )
         }
     }
 }
