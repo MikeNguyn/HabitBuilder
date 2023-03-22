@@ -17,24 +17,26 @@ struct ButtonView: View {
     @State var show = false
     
     var body: some View {
-        VStack {
-            habit.plant.image
-                .resizable()
-            .frame(width: screenSize.width/5, height: screenSize.width/5)
-            .shadow(radius: 5.0)
-            .background(show ? Color.green: Color.white)
-            .scaleEffect(press ? 2: 1)
-            .animation(.spring(response: 0.4, dampingFraction: 0.6))
-            .gesture(
-                LongPressGesture(minimumDuration: 0.5)
-                    .updating($press) {currentState, gestureState, transaction in
-                        gestureState = currentState
-                    }
-                    .onEnded{ value in
-                        show.toggle()
-                    }
-            )
-        }
+        habit.plant.image
+        .resizable()
+        .scaledToFit()
+        .aspectRatio(contentMode: .fit)
+        .cornerRadius(15)
+        .frame(width: screenSize.width/5, height: screenSize.width/5)
+        .shadow(radius: 5.0)
+        .background(show ? Color.green.opacity(0.5): Color.white.opacity(0.0))
+        .scaleEffect(press ? 2: 1)
+        .animation(.spring(response: 0.4, dampingFraction: 1))
+        .gesture(
+            LongPressGesture(minimumDuration: 0.5)
+                .updating($press) {currentState, gestureState, transaction in
+                    gestureState = currentState
+                }
+                .onEnded{ value in
+                    show.toggle()
+                }
+        )
+        
     }
 }
 
