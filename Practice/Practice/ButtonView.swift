@@ -23,21 +23,25 @@ struct ButtonView: View {
         .aspectRatio(contentMode: .fit)
         .cornerRadius(15)
         .frame(width: screenSize.width/5, height: screenSize.width/5)
-        .shadow(radius: 5.0)
-        .background(show ? Color.green.opacity(0.5): Color.white.opacity(0.0))
-        .scaleEffect(press ? 2: 1)
+        .shadow(color: show ? Color.green.opacity(1): Color.white.opacity(0.0), radius: 5.0 )
+        .scaleEffect(press ? 1.5: 1)
         .animation(.spring(response: 0.4, dampingFraction: 1))
         .gesture(
-            LongPressGesture(minimumDuration: 0.5)
-                .updating($press) {currentState, gestureState, transaction in
-                    gestureState = currentState
-                }
-                .onEnded{ value in
-                    show.toggle()
+            TapGesture(count: 1)
+                .onEnded{ _ in
+                    print("Tapped")
                 }
         )
+        .highPriorityGesture(
+        LongPressGesture(minimumDuration: 0.5)
+            .updating($press) {currentState, gestureState, transaction in
+                gestureState = currentState
+            }
+            .onEnded{ value in
+                show.toggle()
+            }
+        )
         .rotation3DEffect(.degrees(-45), axis: (x: 0.0, y: 0.0, z: 45.0))
-        
     }
 }
 
