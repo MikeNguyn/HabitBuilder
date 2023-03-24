@@ -13,6 +13,7 @@ let MENUICONSIZE = 60.0
 //the main Habit display 3x3 grid
 struct ContentView: View {
     @Binding var habitList: [[Habit]]
+    @GestureState var isLongPressed = false
     var body: some View {
         NavigationView {
             VStack{
@@ -72,7 +73,9 @@ struct ContentView: View {
                 }
                 HStack(spacing: 60.0){
                 }
+                
             }
+            
             .navigationTitle("Garden")
         }
 
@@ -83,6 +86,56 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView(habitList: .constant(Habit.sampleData))
+    }
+}
+
+struct ExtrudeModifier<Texture: View> : ViewModifier {
+    var depth: CGFloat
+    var texture: Texture
+    
+    func body( content: Content) -> some View {
+        content
+            //Front Left Side
+            .overlay(
+                GeometryReader {geo in
+                    // Step 2
+                    texture
+                        .brightness(-0.05)
+                        // Step 3
+                        .scaleEffect(x: 1, y: geo.size.height * geo.size.height, anchor: .bottom)
+                        // Step 4
+                        .frame(height: depth, alignment: .top)
+                        .mask(Rectangle())
+                        .rotation3DEffect(Angle(degrees: 180), axis: (x: 1.0, y: 0.0, z: 0.0),
+                                          anchor: .center,
+                                          anchorZ: 0.0,
+                                          perspective: 1.0
+                        )
+                        // Step 5
+                        .projectionEffect(ProjectionTransform(CGAffineTransform(a: 1, b: 0, c: 1, d: 1, tx:  0, ty: 0)))
+                        .offset(x: 0, y: geo.size.height)
+                }
+                , alignment: .center)
+        
+            //Front Right Side
+            .overlay(
+                GeometryReader { geo in
+                    texture
+                        .brightness(-0.1)
+                        .scaleEffect(x: geo.size.width * geo.size.width, y: 1.0, anchor: .trailing)
+                        .frame(width: depth, alignment: .leading)
+                        .clipped()
+                        .rotation3DEffect(
+                            Angle(degrees: 180),
+                            axis: (x: 0.0, y: 1.0, z: 0.0),
+                            anchor: .leading,
+                            anchorZ: 0.0,
+                            perspective: 1.0
+                        )
+                        .projectionEffect(ProjectionTransform(CGAffineTransform(a: 1, b: 1, c: 0, d: 1, tx: 0, ty: 0)))
+                        .offset(x: geo.size.width + depth, y: 0 + depth)
+                }
+                , alignment: .center)
     }
 }
 
