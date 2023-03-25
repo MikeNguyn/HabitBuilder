@@ -52,7 +52,7 @@ struct DetailView: View {
                             Text("filler stuff")
                         }
                     }
-                }
+                }.background(CustomColor.homeGreen)
 //                NavigationLink(destination:  AnyView(EditView(habit: $habit))) {
 //                    Text("edit")
 //                }
@@ -65,8 +65,9 @@ struct DetailView: View {
                                 } content: {
                                     EditView(habit: $habit)
                                 }
+                                .background(CustomColor.homeGreen)
             }
-            
+            .background(CustomColor.homeGreen)
         }.navigationTitle(habit.name)
     }
 }
@@ -111,8 +112,6 @@ struct LinearProgressDemoView: View {
         }
     }
 }
-
-
 
 //from https://stackoverflow.com/questions/40075850/swift-3-find-number-of-calendar-days-between-two-dates
 func calculateLength(startDate: Date,endDate: Date)->String{

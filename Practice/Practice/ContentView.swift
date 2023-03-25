@@ -75,7 +75,7 @@ struct ContentView: View {
                 }
                 
             }
-            
+            .background(Color("ColorHomeBackground"))
             .navigationTitle("Garden")
         }
 
