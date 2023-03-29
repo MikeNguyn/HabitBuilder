@@ -27,6 +27,8 @@ struct ContentView: View {
                                         }
                                     } else {
                                         ButtonView(habit: $habit)
+                                            .offset(y:-15)
+                                            .offset(x:-15)
                                     }
                                 }
                             }
@@ -39,6 +41,8 @@ struct ContentView: View {
                                         }
                                     } else {
                                             ButtonView(habit: $habit)
+                                            .offset(y:-15)
+                                            .offset(x:-15)
                                     }
                                 }
                             }
@@ -51,6 +55,8 @@ struct ContentView: View {
                                         }
                                     } else {
                                         ButtonView(habit: $habit)
+                                            .offset(y:-15)
+                                            .offset(x:-15)
                                     }
                                 }
                             }

@@ -21,10 +21,12 @@ struct ButtonView: View {
         VStack{
             habit.plant.image
                 .resizable()
-                .scaledToFit()
+                //.scaledToFit()
                 .aspectRatio(contentMode: .fit)
                 .cornerRadius(15)
                 .frame(width: screenSize.width/5, height: screenSize.width/5)
+                // need to get width and height of original images, or resize all images to have the same w and h
+                .scaleEffect(x: 1.0, y: 1.5, anchor: .center)
                 .shadow(color: show ? Color.green.opacity(1): Color.white.opacity(0.0), radius: 5.0 )
                 .scaleEffect(press ? 1.5: 1)
                 .animation(.spring(response: 0.4, dampingFraction: 1))
