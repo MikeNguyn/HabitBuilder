@@ -53,9 +53,12 @@ struct DetailView: View {
                         }
                     }
                 }.background(CustomColor.homeGreen)
+                    .listStyle(.plain)
 //                NavigationLink(destination:  AnyView(EditView(habit: $habit))) {
 //                    Text("edit")
 //                }
+                LogView(habit: $habit)
+                    .scaleEffect(x: 0.9, y: 0.9)
                 Button("Edit Habit") {
                                 presentSheet.toggle()
                             }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5433B61429D4C95F002252FB /* LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5433B61329D4C95F002252FB /* LogView.swift */; };
 		5437606329943C5B006D3E90 /* PracticeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5437606229943C5B006D3E90 /* PracticeApp.swift */; };
 		5437606529943C5B006D3E90 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5437606429943C5B006D3E90 /* ContentView.swift */; };
 		5437606729943C60006D3E90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5437606629943C60006D3E90 /* Assets.xcassets */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5433B61329D4C95F002252FB /* LogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
 		5437605F29943C5B006D3E90 /* Practice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Practice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5437606229943C5B006D3E90 /* PracticeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeApp.swift; sourceTree = "<group>"; };
 		5437606429943C5B006D3E90 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				7516AEA729A41B0600ED7D17 /* ButtonView.swift */,
 				757758BD29B914F600DD887F /* EmptyView.swift */,
 				7516AEAB29A41FC300ED7D17 /* DetailView.swift */,
+				5433B61329D4C95F002252FB /* LogView.swift */,
 				5437606629943C60006D3E90 /* Assets.xcassets */,
 				5437606829943C60006D3E90 /* Preview Content */,
 			);
@@ -289,6 +292,7 @@
 				7516AEB729AAB9A200ED7D17 /* AddView.swift in Sources */,
 				7516AEB329AAB2B400ED7D17 /* HabitManager.swift in Sources */,
 				5437606529943C5B006D3E90 /* ContentView.swift in Sources */,
+				5433B61429D4C95F002252FB /* LogView.swift in Sources */,
 				7516AEB129A6B2F600ED7D17 /* Habit.swift in Sources */,
 				757758BE29B914F600DD887F /* EmptyView.swift in Sources */,
 				544A9E3329C899E40043CAB2 /* EditView.swift in Sources */,
