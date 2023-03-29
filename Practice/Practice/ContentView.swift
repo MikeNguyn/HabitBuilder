@@ -27,6 +27,8 @@ struct ContentView: View {
                                         }
                                     } else {
                                         ButtonView(habit: $habit)
+                                            .offset(y:-65)
+                                            .offset(x:-65)
                                     }
                                 }
                             }
@@ -39,6 +41,8 @@ struct ContentView: View {
                                         }
                                     } else {
                                             ButtonView(habit: $habit)
+                                            .offset(y:-65)
+                                            .offset(x:-65)
                                     }
                                 }
                             }
@@ -51,6 +55,8 @@ struct ContentView: View {
                                         }
                                     } else {
                                         ButtonView(habit: $habit)
+                                            .offset(y:-65)
+                                            .offset(x:-65)
                                     }
                                 }
                             }
@@ -107,7 +113,7 @@ private extension ContentView{
         Button(action: {
             // What will initiate when the button is pressed
         }) {
-            Image("tomatoemoji").resizable().frame(width: 28.0, height: 28.0)
+            Image("tomatoPlant").resizable().frame(width: 28.0, height: 28.0)
             // What will the button look like
         }
     }
