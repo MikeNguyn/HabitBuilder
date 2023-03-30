@@ -61,7 +61,7 @@ struct ContentView: View {
                                 }
                             }
                             Divider()
-                }.background(Color.brown)
+                }.background(CustomColor.homeSoil)
                  .padding(80)
                  .rotationEffect(Angle(degrees: 45), anchor: .center) //I found this online :)
                  .scaleEffect(x: 1.0, y: 0.5, anchor: .center)
@@ -81,6 +81,11 @@ struct ContentView: View {
 
 
     }
+}
+
+struct CustomColor {
+    static let homeGreen = Color("ColorHomeBackground")
+    static let homeSoil = Color("ColorSoil")
 }
 
 struct ContentView_Previews: PreviewProvider {
