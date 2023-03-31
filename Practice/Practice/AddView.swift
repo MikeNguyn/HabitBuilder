@@ -120,7 +120,3 @@ struct AddView_Previews: PreviewProvider {
     }
 }
 
-struct CustomColor {
-    static let homeGreen = Color("ColorHomeBackground")
-}
-

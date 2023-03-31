@@ -27,6 +27,8 @@ struct ContentView: View {
                                         }
                                     } else {
                                         ButtonView(habit: $habit)
+                                            .offset(y:-65)
+                                            .offset(x:-65)
                                     }
                                 }
                             }
@@ -39,6 +41,8 @@ struct ContentView: View {
                                         }
                                     } else {
                                             ButtonView(habit: $habit)
+                                            .offset(y:-65)
+                                            .offset(x:-65)
                                     }
                                 }
                             }
@@ -51,11 +55,13 @@ struct ContentView: View {
                                         }
                                     } else {
                                         ButtonView(habit: $habit)
+                                            .offset(y:-65)
+                                            .offset(x:-65)
                                     }
                                 }
                             }
                             Divider()
-                }.background(Color.brown)
+                }.background(CustomColor.homeSoil)
                  .padding(80)
                  .rotationEffect(Angle(degrees: 45), anchor: .center) //I found this online :)
                  .scaleEffect(x: 1.0, y: 0.5, anchor: .center)
@@ -75,6 +81,11 @@ struct ContentView: View {
 
 
     }
+}
+
+struct CustomColor {
+    static let homeGreen = Color("ColorHomeBackground")
+    static let homeSoil = Color("ColorSoil")
 }
 
 struct ContentView_Previews: PreviewProvider {
@@ -107,7 +118,7 @@ private extension ContentView{
         Button(action: {
             // What will initiate when the button is pressed
         }) {
-            Image("tomatoemoji").resizable().frame(width: 28.0, height: 28.0)
+            Image("tomatoPlant").resizable().frame(width: 28.0, height: 28.0)
             // What will the button look like
         }
     }
