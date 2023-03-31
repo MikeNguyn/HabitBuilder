@@ -41,16 +41,12 @@ struct DetailView: View {
                             
                         }
                         HStack {
-                            Label("Example", systemImage: "info.circle")
+                            Label("Frequency", systemImage: "info.circle")
                             Spacer()
-                            Text("filler stuff")
+                            Text(getWeekdaysNames(weekDaysBools:habit.frequency))
                             
                         }
-                        HStack {
-                            Label("Example", systemImage: "info.circle")
-                            Spacer()
-                            Text("filler stuff")
-                        }
+                        
                     }
                 }.background(CustomColor.homeGreen)
                     .listStyle(.plain)
@@ -84,6 +80,18 @@ func getImportanceLevel(num: Int)->String{
         return "exclamationmark.2"
     }
     return "exclamationmark.3"
+}
+
+//function that takes in the weekday frequency of the habit and returns the string of MTWThFSaSu
+func getWeekdaysNames(weekDaysBools: [Bool])->String{
+    var weekdayNames = ""
+    let weekdays = ["M","T","W","Th","F","Sa","Su"]
+    for i in 0...6{
+        if weekDaysBools[i] {
+            weekdayNames += weekdays[i] + " "
+        }
+    }
+    return weekdayNames
 }
 
 //Takes in a double for the health and returns green if >=0.5 and red if <0.5 for health bar
