@@ -25,7 +25,6 @@ struct DetailView: View {
                             Label("Priority", systemImage: "exclamationmark.square")
                             Spacer()
                             Label("", systemImage: getImportanceLevel(num: habit.importance))
-                            
                         }
                         HStack {
                             Label("Length", systemImage: "timer")
@@ -52,7 +51,8 @@ struct DetailView: View {
                             Text("filler stuff")
                         }
                     }
-                }.background(CustomColor.homeGreen)
+                }.listStyle(.plain)
+                .background(CustomColor.homeGreen)
 //                NavigationLink(destination:  AnyView(EditView(habit: $habit))) {
 //                    Text("edit")
 //                }
