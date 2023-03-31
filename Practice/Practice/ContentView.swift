@@ -66,8 +66,8 @@ struct ContentView: View {
                  .rotationEffect(Angle(degrees: 45), anchor: .center) //I found this online :)
                  .scaleEffect(x: 1.0, y: 0.5, anchor: .center)
                 Text("One day, or day one? You decide.")
-                          .position(x:200,y:100).foregroundColor(.teal).font(.system(size: 20)
-                              .bold())
+                            .position(x:200,y:100).foregroundColor(.teal).font(.system(size: 20)
+                                .bold())
                 Spacer()
                 ControlGroup {
                     homeBtn
@@ -127,3 +127,4 @@ private extension ContentView{
         }
     }
 }
+

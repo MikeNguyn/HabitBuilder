@@ -52,7 +52,7 @@ struct DetailView: View {
 //                NavigationLink(destination:  AnyView(EditView(habit: $habit))) {
 //                    Text("edit")
 //                }
-                LogView(habit: $habit)
+               //LogView(habit: $habit)
                     .scaleEffect(x: 0.9, y: 0.9)
                 Button("Edit Habit") {
                                 presentSheet.toggle()

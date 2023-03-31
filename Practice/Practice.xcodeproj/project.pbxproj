@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5433B61429D4C95F002252FB /* LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5433B61329D4C95F002252FB /* LogView.swift */; };
+		058744EF29CE2CB9003DDB52 /* motivators.txt in Resources */ = {isa = PBXBuildFile; fileRef = 058744EE29CE2CB9003DDB52 /* motivators.txt */; };
+		058744F129CE2D38003DDB52 /* QuotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058744F029CE2D38003DDB52 /* QuotesView.swift */; };
+		058744F329CF9008003DDB52 /* QuotesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058744F229CF9008003DDB52 /* QuotesManager.swift */; };
 		5437606329943C5B006D3E90 /* PracticeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5437606229943C5B006D3E90 /* PracticeApp.swift */; };
 		5437606529943C5B006D3E90 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5437606429943C5B006D3E90 /* ContentView.swift */; };
 		5437606729943C60006D3E90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5437606629943C60006D3E90 /* Assets.xcassets */; };
@@ -42,7 +44,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5433B61329D4C95F002252FB /* LogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
+		058744EE29CE2CB9003DDB52 /* motivators.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = motivators.txt; sourceTree = "<group>"; };
+		058744F029CE2D38003DDB52 /* QuotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesView.swift; sourceTree = "<group>"; };
+		058744F229CF9008003DDB52 /* QuotesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesManager.swift; sourceTree = "<group>"; };
 		5437605F29943C5B006D3E90 /* Practice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Practice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5437606229943C5B006D3E90 /* PracticeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeApp.swift; sourceTree = "<group>"; };
 		5437606429943C5B006D3E90 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -118,7 +122,7 @@
 				7516AEA729A41B0600ED7D17 /* ButtonView.swift */,
 				757758BD29B914F600DD887F /* EmptyView.swift */,
 				7516AEAB29A41FC300ED7D17 /* DetailView.swift */,
-				5433B61329D4C95F002252FB /* LogView.swift */,
+				058744F029CE2D38003DDB52 /* QuotesView.swift */,
 				5437606629943C60006D3E90 /* Assets.xcassets */,
 				5437606829943C60006D3E90 /* Preview Content */,
 			);
@@ -153,8 +157,10 @@
 		7516AEAF29A6B2E500ED7D17 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				058744EE29CE2CB9003DDB52 /* motivators.txt */,
 				7516AEB029A6B2F600ED7D17 /* Habit.swift */,
 				7516AEB229AAB2B400ED7D17 /* HabitManager.swift */,
+				058744F229CF9008003DDB52 /* QuotesManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -263,6 +269,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				058744EF29CE2CB9003DDB52 /* motivators.txt in Resources */,
 				5437606A29943C60006D3E90 /* Preview Assets.xcassets in Resources */,
 				5437606729943C60006D3E90 /* Assets.xcassets in Resources */,
 			);
@@ -291,14 +298,15 @@
 			files = (
 				7516AEB729AAB9A200ED7D17 /* AddView.swift in Sources */,
 				7516AEB329AAB2B400ED7D17 /* HabitManager.swift in Sources */,
+				058744F329CF9008003DDB52 /* QuotesManager.swift in Sources */,
 				5437606529943C5B006D3E90 /* ContentView.swift in Sources */,
-				5433B61429D4C95F002252FB /* LogView.swift in Sources */,
 				7516AEB129A6B2F600ED7D17 /* Habit.swift in Sources */,
 				757758BE29B914F600DD887F /* EmptyView.swift in Sources */,
 				544A9E3329C899E40043CAB2 /* EditView.swift in Sources */,
 				7516AEAC29A41FC300ED7D17 /* DetailView.swift in Sources */,
 				5437606329943C5B006D3E90 /* PracticeApp.swift in Sources */,
 				7516AEA829A41B0600ED7D17 /* ButtonView.swift in Sources */,
+				058744F129CE2D38003DDB52 /* QuotesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
