@@ -77,7 +77,9 @@ struct EditView: View {
                     }
                 }
             }
-        }.navigationTitle("Edit Habit")
+        }
+        .background(CustomColor.homeGreen)
+        .navigationTitle("Edit Habit")
         Button("Confirm") {
                             // Save the article and dismiss.
                             dismiss()

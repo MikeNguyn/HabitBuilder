@@ -26,9 +26,9 @@ struct ContentView: View {
                                             EmptyView()
                                         }
                                     } else {
-                                        NavigationLink(destination:  AnyView(DetailView(habit: $habit))) {
-                                            ButtonView(habit: habit)
-                                        }
+                                        ButtonView(habit: $habit)
+                                            .offset(y:-65)
+                                            .offset(x:-65)
                                     }
                                 }
                             }
@@ -40,9 +40,9 @@ struct ContentView: View {
                                             EmptyView()
                                         }
                                     } else {
-                                        NavigationLink(destination:  AnyView(DetailView(habit: $habit))) {
-                                            ButtonView(habit: habit)
-                                        }
+                                            ButtonView(habit: $habit)
+                                            .offset(y:-65)
+                                            .offset(x:-65)
                                     }
                                 }
                             }
@@ -54,14 +54,14 @@ struct ContentView: View {
                                             EmptyView()
                                         }
                                     } else {
-                                        NavigationLink(destination:  AnyView(DetailView(habit: $habit))) {
-                                            ButtonView(habit: habit)
-                                        }
+                                        ButtonView(habit: $habit)
+                                            .offset(y:-65)
+                                            .offset(x:-65)
                                     }
                                 }
                             }
                             Divider()
-                }.background(Color.brown)
+                }.background(CustomColor.homeSoil)
                  .padding(80)
                  .rotationEffect(Angle(degrees: 45), anchor: .center) //I found this online :)
                  .scaleEffect(x: 1.0, y: 0.5, anchor: .center)
@@ -75,7 +75,7 @@ struct ContentView: View {
                 }
                 
             }
-            
+            .background(Color("ColorHomeBackground"))
             .navigationTitle("Garden")
         }
 
@@ -83,59 +83,14 @@ struct ContentView: View {
     }
 }
 
+struct CustomColor {
+    static let homeGreen = Color("ColorHomeBackground")
+    static let homeSoil = Color("ColorSoil")
+}
+
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView(habitList: .constant(Habit.sampleData))
-    }
-}
-
-struct ExtrudeModifier<Texture: View> : ViewModifier {
-    var depth: CGFloat
-    var texture: Texture
-    
-    func body( content: Content) -> some View {
-        content
-            //Front Left Side
-            .overlay(
-                GeometryReader {geo in
-                    // Step 2
-                    texture
-                        .brightness(-0.05)
-                        // Step 3
-                        .scaleEffect(x: 1, y: geo.size.height * geo.size.height, anchor: .bottom)
-                        // Step 4
-                        .frame(height: depth, alignment: .top)
-                        .mask(Rectangle())
-                        .rotation3DEffect(Angle(degrees: 180), axis: (x: 1.0, y: 0.0, z: 0.0),
-                                          anchor: .center,
-                                          anchorZ: 0.0,
-                                          perspective: 1.0
-                        )
-                        // Step 5
-                        .projectionEffect(ProjectionTransform(CGAffineTransform(a: 1, b: 0, c: 1, d: 1, tx:  0, ty: 0)))
-                        .offset(x: 0, y: geo.size.height)
-                }
-                , alignment: .center)
-        
-            //Front Right Side
-            .overlay(
-                GeometryReader { geo in
-                    texture
-                        .brightness(-0.1)
-                        .scaleEffect(x: geo.size.width * geo.size.width, y: 1.0, anchor: .trailing)
-                        .frame(width: depth, alignment: .leading)
-                        .clipped()
-                        .rotation3DEffect(
-                            Angle(degrees: 180),
-                            axis: (x: 0.0, y: 1.0, z: 0.0),
-                            anchor: .leading,
-                            anchorZ: 0.0,
-                            perspective: 1.0
-                        )
-                        .projectionEffect(ProjectionTransform(CGAffineTransform(a: 1, b: 1, c: 0, d: 1, tx: 0, ty: 0)))
-                        .offset(x: geo.size.width + depth, y: 0 + depth)
-                }
-                , alignment: .center)
     }
 }
 
@@ -163,7 +118,7 @@ private extension ContentView{
         Button(action: {
             // What will initiate when the button is pressed
         }) {
-            Image("tomatoemoji").resizable().frame(width: 28.0, height: 28.0)
+            Image("tomatoPlant").resizable().frame(width: 28.0, height: 28.0)
             // What will the button look like
         }
     }
