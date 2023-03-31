@@ -21,7 +21,7 @@ struct ButtonView: View {
         VStack{
             habit.plant.image
                 .resizable()
-                //.scaledToFit()
+                .scaledToFit()
                 .aspectRatio(contentMode: .fit)
                 .cornerRadius(15)
                 .frame(width: screenSize.width/4.5, height: screenSize.width/4.5)
