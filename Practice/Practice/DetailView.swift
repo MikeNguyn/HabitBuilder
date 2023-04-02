@@ -49,22 +49,33 @@ struct DetailView: View {
                     }
                 }.background(CustomColor.homeGreen)
                     .listStyle(.plain)
-//                NavigationLink(destination:  AnyView(EditView(habit: $habit))) {
-//                    Text("edit")
-//                }
-               //LogView(habit: $habit)
+                
+                MultiDatePicker(                                     "Start Date",
+                    selection: $habit.log
+                )
+                                        .datePickerStyle(.graphical)
                     .scaleEffect(x: 0.9, y: 0.9)
-                Button("Edit Habit") {
-                                presentSheet.toggle()
-                            }
-                                /// Present a sheet once `shouldPresentSheet` becomes `true`.
-                                .sheet(isPresented: $presentSheet) {
-                                    print("Sheet dismissed!")
-                                } content: {
-                                    EditView(habit: $habit)
+                
+                HStack{
+                    Button("Delete habit"){
+                        habit = Habit()
+                        
+                    }
+                    
+                    Button("Edit Habit") {
+                                    presentSheet.toggle()
                                 }
-                                .background(CustomColor.homeGreen)
-            }
+                                    /// Present a sheet once `shouldPresentSheet` becomes `true`.
+                                    .sheet(isPresented: $presentSheet) {
+                                        print("Sheet dismissed!")
+                                    } content: {
+                                        EditView(habit: $habit)
+                                    }
+                                    .background(CustomColor.homeGreen)
+                }
+                
+                
+            }//end of vstack
             .background(CustomColor.homeGreen)
         }.navigationTitle(habit.name)
     }
