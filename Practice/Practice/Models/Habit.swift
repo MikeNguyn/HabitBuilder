@@ -100,12 +100,12 @@ extension Habit {
     
         var image: Image {
             switch self {
-                case .blueberry: return Image("blueberryPlant")
-                case .orchid: return Image("orchidPlant")
-                case .tomato: return Image("tomatoPlant")
-                case .sunflower: return Image("sunflowerPlant")
-                case .corn: return Image("cornPlant")
-                case .pea: return Image("peaPlant")
+                case .blueberry: return Image("blueberryPlantFull")
+                case .orchid: return Image("orchidPlantFull")
+                case .tomato: return Image("tomatoPlantFull")
+                case .sunflower: return Image("sunflowerPlantFull")
+                case .corn: return Image("cornPlantFull")
+                case .pea: return Image("peaPlantFull")
             }
         }
 
