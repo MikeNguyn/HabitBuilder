@@ -94,7 +94,6 @@ extension Habit {
         case blueberry
         case orchid
         case tomato
-        case banana
         case corn
         case sunflower
         case pea
@@ -104,7 +103,6 @@ extension Habit {
                 case .blueberry: return Image("blueberryPlant")
                 case .orchid: return Image("orchidPlant")
                 case .tomato: return Image("tomatoPlant")
-                case .banana: return Image("bananaemoji")
                 case .sunflower: return Image("sunflowerPlant")
                 case .corn: return Image("cornPlant")
                 case .pea: return Image("peaPlant")
@@ -116,7 +114,7 @@ extension Habit {
         }
         
         var data: [Plant] {
-            return [.blueberry, .orchid, .tomato, .banana, .corn, .sunflower, .pea]
+            return [.blueberry, .orchid, .tomato, .corn, .sunflower, .pea]
         }
     }
 }
@@ -124,15 +122,15 @@ extension Habit {
 
 //Sample data we use to display/test
 extension Habit {
-    static let sampleData: [[Habit]] = [[Habit(name: "Drinking Water", plant: .banana, start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 1.0, importance: 2, empty: false, log: datesForLog),
+    static let sampleData: [[Habit]] = [[Habit(name: "Drinking Water", plant: .sunflower, start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 1.0, importance: 2, empty: false, log: datesForLog),
                                       Habit(name: "Drinking Wine", plant: .tomato, start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.85, importance: 1, empty: false, log: datesForLog),
                                       Habit(name: "Exercise", plant: .blueberry, start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.40, importance: 3, empty: false, log: datesForLog)],
                                       [Habit(name: "Water Plants", plant: .orchid, start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.0, importance: 2, empty: false, log: datesForLog),
                                       Habit(name: "Shower", plant: .blueberry, start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.60, importance: 1, empty: false, log: datesForLog),
                                       Habit(name: "Wash Laundry", plant: .orchid, start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.29, importance: 1, empty: false, log: datesForLog)],
-                                      [Habit(name: "Tell a joke", plant: .banana, start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.82, importance: 2, empty: false, log: datesForLog),
+                                      [Habit(name: "Tell a joke", plant: .corn, start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.82, importance: 2, empty: false, log: datesForLog),
                                       Habit(name: "Take Medicine", plant: .tomato, start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.90, importance: 3, empty: false, log: datesForLog),
-                                      Habit(name: "Make bed", plant: .corn, start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.50, importance:1, empty: false, log: datesForLog)]
+                                      Habit()]
 ]
 }
 

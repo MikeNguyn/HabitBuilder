@@ -24,6 +24,8 @@ struct ContentView: View {
                                     if habit.empty {
                                         NavigationLink(destination:  AnyView(AddView(habit: $habit))) {
                                             EmptyView()
+                                                .offset(y:-5)
+                                                .offset(x:10)
                                         }
                                     } else {
                                         ButtonView(habit: $habit)
@@ -38,6 +40,8 @@ struct ContentView: View {
                                     if habit.empty {
                                         NavigationLink(destination:  AnyView(AddView(habit: $habit))) {
                                             EmptyView()
+                                                .offset(y:-5)
+                                                .offset(x:10)
                                         }
                                     } else {
                                             ButtonView(habit: $habit)
@@ -52,6 +56,8 @@ struct ContentView: View {
                                     if habit.empty {
                                         NavigationLink(destination:  AnyView(AddView(habit: $habit))) {
                                             EmptyView()
+                                                .offset(y:-5)
+                                                .offset(x:10)
                                         }
                                     } else {
                                         ButtonView(habit: $habit)
