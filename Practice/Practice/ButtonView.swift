@@ -37,6 +37,14 @@ struct ButtonView: View {
                         }
                         .onEnded{ value in
                             show.toggle()
+                            print("the user checked off habit")
+//                            print(habit.log)
+                            let now = Date() // get the current date and time
+                            let calendar = Calendar.current // get the current calendar
+                            let todayDate = calendar.dateComponents([.year, .month, .day], from: now) // create a DateComponents object with just the year, month, and day
+                            habit.log.insert(todayDate)
+//                            print(habit.log)
+                            
                         }
                 )
                 .simultaneousGesture(
