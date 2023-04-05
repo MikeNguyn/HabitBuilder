@@ -107,12 +107,20 @@ extension Habit {
             switch self {
                 case .blueberry: return Image("blueberryPlantFull")
                 case .orchid: return Image("orchidPlantFull")
+//                case .tomato: if(habit.tomato.age == 0) {
+//                    return Image("tomatoPlantFull")
+//                }
                 case .tomato: return Image("tomatoPlantFull")
                 case .sunflower: return Image("sunflowerPlantFull")
                 case .corn: return Image("cornPlantFull")
                 case .pea: return Image("peaPlantFull")
             }
         }
+//        var imageHalf: Image {
+//            switch self {
+//            case .tomato: return Image("tomatoPlantMid")
+//            }
+//        }
 
         var id: String{
             return self.rawValue
