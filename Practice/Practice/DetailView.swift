@@ -20,6 +20,11 @@ struct DetailView: View {
         NavigationView{
             VStack(){
                 habit.plant.image.resizable().frame(width: PLANTICONSIZE, height: PLANTICONSIZE)
+                //                if(totalCheckins == 0) {
+                //                    habit.plant.image.resizable().frame(width: PLANTICONSIZE, height: PLANTICONSIZE)
+                //                } else {
+                //                    habit.plant.image = habit.plant.image == "tomatoPlantSmall"
+                //                }
                 LinearProgressDemoView(habit: habit)
                 List{
                     Section(header: Text("Habit Details")){
