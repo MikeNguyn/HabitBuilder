@@ -31,7 +31,7 @@ let dateComponentsArray = [
 
 var datesForLog = Set(dateComponentsArray)
 
-struct Habit: Identifiable {
+struct Habit: Identifiable, Codable {
     let id: UUID
     var name: String
     var plant: Plant
@@ -90,7 +90,7 @@ extension Habit {
 
 //Habit extention is used for making images an identifiable to be used in Pickers
 extension Habit {
-    enum Plant: String, Identifiable, CaseIterable {
+    enum Plant: String, Identifiable, CaseIterable, Codable {
         case blueberry
         case orchid
         case tomato

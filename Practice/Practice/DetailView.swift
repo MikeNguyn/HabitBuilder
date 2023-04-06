@@ -118,7 +118,6 @@ struct LinearProgressDemoView: View {
             ProgressView(value: habit.health).padding(70).frame(height: 10)
                 .accentColor(evaluateHealth(health: habit.health))
                 .scaleEffect(x: 1, y: 3, anchor: .center)
-        
         }
     }
 }

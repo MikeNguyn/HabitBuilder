@@ -14,6 +14,8 @@ let MENUICONSIZE = 60.0
 struct ContentView: View {
     @Binding var habitList: [[Habit]]
     @GestureState var isLongPressed = false
+    @Environment(\.scenePhase) private var scenePhase
+    let saveAction: () -> Void
     var body: some View {
         NavigationView {
             VStack{
@@ -79,11 +81,10 @@ struct ContentView: View {
                 
             }
             .background(Color("ColorHomeBackground"))
-            .navigationTitle("Garden")
-            
         }
-
-
+        .onChange(of: scenePhase) {phase in
+            if phase == .inactive {saveAction()}
+        }
     }
 }
 
@@ -94,7 +95,7 @@ struct CustomColor {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(habitList: .constant(Habit.sampleData))
+        ContentView(habitList: .constant(Habit.sampleData), saveAction: {})
     }
 }
 
