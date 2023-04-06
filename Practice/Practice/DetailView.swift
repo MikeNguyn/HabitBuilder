@@ -14,7 +14,9 @@ struct DetailView: View {
     let PLANTICONSIZE = 75.0
     @State var presentSheet = false
     
+    
     var body: some View {
+        
         NavigationView{
             VStack(){
                 habit.plant.image.resizable().frame(width: PLANTICONSIZE, height: PLANTICONSIZE)
@@ -30,6 +32,13 @@ struct DetailView: View {
                             Label("Length", systemImage: "timer")
                             Spacer()
                             Text(String(calculateLength(startDate: habit.start,endDate: habit.end)) + " days")
+                            
+                        }
+                        HStack {
+                            Label("Z calculation", systemImage: "timer")
+                            Spacer()
+                            var totalCheckins = calculateZ(frequency: habit.frequency, lengthOfHabit: calculateLength(startDate: habit.start,endDate: habit.end))
+                            Text(String(totalCheckins) + " total checkins")
                             
                         }
                         //for date formatting
@@ -135,13 +144,27 @@ struct LinearProgressDemoView: View {
 }
 
 //from https://stackoverflow.com/questions/40075850/swift-3-find-number-of-calendar-days-between-two-dates
-func calculateLength(startDate: Date,endDate: Date)->String{
+func calculateLength(startDate: Date,endDate: Date)->Int{
     let diffInDays = Calendar.current.dateComponents([.day], from: startDate, to: endDate).day
     
-    let answer = String(diffInDays!)
+    let answer = diffInDays!
     return answer
 }
 
+//Z is the number of checkins to reach final goal image.
+func calculateZ(frequency: [Bool], lengthOfHabit: Int)->Int{
+    var freqInt = 0
+    for i in frequency{ //for how many true days in the week
+        if i{
+            freqInt += 1
+        }
+    }
+    var z = 0
+    let numberofweeks = lengthOfHabit / 7
+    z = freqInt  * numberofweeks
+    return z
+    
+}
 
 func stringOfDate(date: Date) -> String{
         let dateFormatter = DateFormatter()
