@@ -22,7 +22,7 @@ struct ContentView: View {
                 Grid(){
                             Divider()
                             GridRow {
-                                ForEach($habitList[0]) { $habit in
+                                ForEach($habitList[1]) { $habit in
                                     if habit.empty {
                                         NavigationLink(destination:  AnyView(AddView(habit: $habit))) {
                                             EmptyView()
@@ -30,19 +30,9 @@ struct ContentView: View {
                                                 .offset(x:10)
                                         }
                                     } else {
-                                        if ((daysBetween(start: habit.start, end: habit.end)) > 10 ) {
                                             ButtonView(habit: $habit)
-                                                .offset(y:-65)
-                                                .offset(x:-65)
-                                        } else if ((daysBetween(start: habit.start, end: habit.end)) > 5) {
-                                            ButtonView(habit: $habit)
-                                                .offset(y:-65)
-                                                .offset(x:-65)
-                                        } else {
-                                            ButtonView(habit: $habit)
-                                                .offset(y:-65)
-                                                .offset(x:-65)
-                                        }
+                                            .offset(y:-65)
+                                            .offset(x:-65)
                                     }
                                 }
                             }
@@ -135,8 +125,8 @@ private extension ContentView{
     }
 
     private var shopBtn: some View{
-        Button("Shop") {
-            /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
+        Button("Reset Garden") {
+            
         }
     }
 
