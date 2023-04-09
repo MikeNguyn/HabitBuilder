@@ -107,9 +107,6 @@ extension Habit {
             switch self {
                 case .blueberry: return Image("blueberryPlantFull")
                 case .orchid: return Image("orchidPlantFull")
-//                case .tomato: if(habit.tomato.age == 0) {
-//                    return Image("tomatoPlantFull")
-//                }
                 case .tomato: return Image("tomatoPlantFull")
                 case .sunflower: return Image("sunflowerPlantFull")
                 case .corn: return Image("cornPlantFull")
