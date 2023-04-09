@@ -19,9 +19,16 @@ struct ButtonView: View {
     
     var body: some View {
         VStack{
+//            if(habit.age == 0) {
+//                habit.plant.image
+//            } else if(habit.age > 5) {
+//                habit.plant.image
+//            } else {
+//                habit.plant.image
+//            }
             habit.plant.image
                 .resizable()
-                //.scaledToFit()
+                .scaledToFit()
                 .aspectRatio(contentMode: .fit)
                 .cornerRadius(15)
                 .frame(width: screenSize.width/4.5, height: screenSize.width/4.5)
@@ -37,6 +44,14 @@ struct ButtonView: View {
                         }
                         .onEnded{ value in
                             show.toggle()
+                            print("the user checked off habit")
+//                            print(habit.log)
+                            let now = Date() // get the current date and time
+                            let calendar = Calendar.current // get the current calendar
+                            let todayDate = calendar.dateComponents([.year, .month, .day], from: now) // create a DateComponents object with just the year, month, and day
+                            habit.log.insert(todayDate)
+//                            print(habit.log)
+                            
                         }
                 )
                 .simultaneousGesture(

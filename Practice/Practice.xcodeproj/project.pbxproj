@@ -23,6 +23,7 @@
 		7516AEB129A6B2F600ED7D17 /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7516AEB029A6B2F600ED7D17 /* Habit.swift */; };
 		7516AEB329AAB2B400ED7D17 /* HabitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7516AEB229AAB2B400ED7D17 /* HabitManager.swift */; };
 		7516AEB729AAB9A200ED7D17 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7516AEB629AAB9A200ED7D17 /* AddView.swift */; };
+		756E1EBA29D9F2E40069971E /* HabitStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756E1EB929D9F2E40069971E /* HabitStore.swift */; };
 		757758BE29B914F600DD887F /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757758BD29B914F600DD887F /* EmptyView.swift */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +64,7 @@
 		7516AEB029A6B2F600ED7D17 /* Habit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
 		7516AEB229AAB2B400ED7D17 /* HabitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitManager.swift; sourceTree = "<group>"; };
 		7516AEB629AAB9A200ED7D17 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
+		756E1EB929D9F2E40069971E /* HabitStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitStore.swift; sourceTree = "<group>"; };
 		757758BD29B914F600DD887F /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -159,6 +161,7 @@
 			children = (
 				058744EE29CE2CB9003DDB52 /* motivators.txt */,
 				7516AEB029A6B2F600ED7D17 /* Habit.swift */,
+				756E1EB929D9F2E40069971E /* HabitStore.swift */,
 				7516AEB229AAB2B400ED7D17 /* HabitManager.swift */,
 				058744F229CF9008003DDB52 /* QuotesManager.swift */,
 			);
@@ -300,6 +303,7 @@
 				7516AEB329AAB2B400ED7D17 /* HabitManager.swift in Sources */,
 				058744F329CF9008003DDB52 /* QuotesManager.swift in Sources */,
 				5437606529943C5B006D3E90 /* ContentView.swift in Sources */,
+				756E1EBA29D9F2E40069971E /* HabitStore.swift in Sources */,
 				7516AEB129A6B2F600ED7D17 /* Habit.swift in Sources */,
 				757758BE29B914F600DD887F /* EmptyView.swift in Sources */,
 				544A9E3329C899E40043CAB2 /* EditView.swift in Sources */,

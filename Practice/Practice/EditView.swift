@@ -41,6 +41,8 @@ struct EditView: View {
                     } label: {
                         habit.plant.image.resizable()
                             .frame(width: screenSize.width/10, height: screenSize.width/10)
+                            .scaledToFit()
+                            .aspectRatio(contentMode: .fit)
                     }
                 }
                 HStack{

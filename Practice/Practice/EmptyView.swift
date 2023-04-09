@@ -13,8 +13,9 @@ struct EmptyView: View {
     var body: some View {
         Image("trowelemoji")
             .resizable()
-        .frame(width: screenSize.width/5, height: screenSize.width/5)
-        .rotation3DEffect(.degrees(-45), axis: (x: 0.0, y: 0.0, z: 45.0))
+            .frame(width: screenSize.width/4.5, height: screenSize.width/4.5)
+        .rotation3DEffect(.degrees(-75), axis: (x: 5.0, y: 5.0, z: 45.0))
+        .scaleEffect(x: 0.75, y: 1.125, anchor: .center)
     }
 }
 
