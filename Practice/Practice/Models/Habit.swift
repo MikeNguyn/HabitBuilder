@@ -61,7 +61,7 @@ struct Habit: Identifiable, Codable {
     init (id: UUID = UUID()){
         self.id = id
         self.name = ""
-        self.plant = .blueberry
+        self.plant = .blueberry3
         self.start = Date()
         self.end = Date()
         self.health = 0
@@ -96,21 +96,49 @@ extension Habit {
 //Habit extention is used for making images an identifiable to be used in Pickers
 extension Habit {
     enum Plant: String, Identifiable, CaseIterable, Codable {
-        case blueberry
-        case orchid
-        case tomato
-        case corn
-        case sunflower
-        case pea
+        case blueberry1
+        case orchid1
+        case tomato1
+        case corn1
+        case sunflower1
+        case pea1
+        
+        case blueberry2
+        case orchid2
+        case tomato2
+        case corn2
+        case sunflower2
+        case pea2
+        
+        case blueberry3
+        case orchid3
+        case tomato3
+        case corn3
+        case sunflower3
+        case pea3
     
         var image: Image {
             switch self {
-                case .blueberry: return Image("blueberryPlantFull")
-                case .orchid: return Image("orchidPlantFull")
-                case .tomato: return Image("tomatoPlantFull")
-                case .sunflower: return Image("sunflowerPlantFull")
-                case .corn: return Image("cornPlantFull")
-                case .pea: return Image("peaPlantFull")
+                case .blueberry1: return Image("blueberryPlantSmall")
+                case .orchid1: return Image("orchidPlantSmall")
+                case .tomato1: return Image("tomatoPlantSmall")
+                case .sunflower1: return Image("sunflowerPlantSmall")
+                case .corn1: return Image("cornPlantSmall")
+                case .pea1: return Image("peaPlantSmall")
+                
+                case .blueberry2: return Image("blueberryPlantMed")
+                case .orchid2: return Image("orchidPlantMed")
+                case .tomato2: return Image("tomatoPlantMed")
+                case .sunflower2: return Image("sunflowerPlantMed")
+                case .corn2: return Image("cornPlantMed")
+                case .pea2: return Image("peaPlantMed")
+                
+                case .blueberry3: return Image("blueberryPlantFull")
+                case .orchid3: return Image("orchidPlantFull")
+                case .tomato3: return Image("tomatoPlantFull")
+                case .sunflower3: return Image("sunflowerPlantFull")
+                case .corn3: return Image("cornPlantFull")
+                case .pea3: return Image("peaPlantFull")
             }
         }
 //        var imageHalf: Image {
@@ -124,7 +152,7 @@ extension Habit {
         }
         
         var data: [Plant] {
-            return [.blueberry, .orchid, .tomato, .corn, .sunflower, .pea]
+            return [.blueberry1, .orchid1, .tomato1, .corn1, .sunflower1, .pea1,.blueberry2, .orchid2, .tomato2, .corn2, .sunflower2, .pea2,.blueberry3, .orchid3, .tomato3, .corn3, .sunflower3, .pea3]
         }
     }
 }
@@ -132,14 +160,14 @@ extension Habit {
 
 //Sample data we use to display/test
 extension Habit {
-    static let sampleData: [[Habit]] = [[Habit(name: "Drinking Water", plant: .sunflower, start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 1.0, importance: 2, empty: false, log: datesForLog, age: 0),
-                                      Habit(name: "Drinking Wine", plant: .tomato, start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.85, importance: 1, empty: false, log: datesForLog, age: 0),
-                                      Habit(name: "Exercise", plant: .blueberry, start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.40, importance: 3, empty: false, log: datesForLog, age: 0)],
-                                      [Habit(name: "Water Plants", plant: .orchid, start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.0, importance: 2, empty: false, log: datesForLog, age: 0),
-                                      Habit(name: "Shower", plant: .blueberry, start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.60, importance: 1, empty: false, log: datesForLog, age: 0),
-                                      Habit(name: "Wash Laundry", plant: .orchid, start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.29, importance: 1, empty: false, log: datesForLog, age: 0)],
-                                      [Habit(name: "Tell a joke", plant: .corn, start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.82, importance: 2, empty: false, log: datesForLog, age: 0),
-                                      Habit(name: "Take Medicine", plant: .tomato, start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.90, importance: 3, empty: false, log: datesForLog, age: 0),
+    static let sampleData: [[Habit]] = [[Habit(name: "Drinking Water", plant: .sunflower3, start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 1.0, importance: 2, empty: false, log: datesForLog, age: 0),
+                                      Habit(name: "Drinking Wine", plant: .tomato3, start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.85, importance: 1, empty: false, log: datesForLog, age: 0),
+                                      Habit(name: "Exercise", plant: .blueberry3, start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.40, importance: 3, empty: false, log: datesForLog, age: 0)],
+                                      [Habit(name: "Water Plants", plant: .orchid3, start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.0, importance: 2, empty: false, log: datesForLog, age: 0),
+                                      Habit(name: "Shower", plant: .blueberry3, start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.60, importance: 1, empty: false, log: datesForLog, age: 0),
+                                      Habit(name: "Wash Laundry", plant: .orchid3, start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.29, importance: 1, empty: false, log: datesForLog, age: 0)],
+                                      [Habit(name: "Tell a joke", plant: .corn3, start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.82, importance: 2, empty: false, log: datesForLog, age: 0),
+                                      Habit(name: "Take Medicine", plant: .tomato3, start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.90, importance: 3, empty: false, log: datesForLog, age: 0),
                                       Habit()]
 ]
 }
