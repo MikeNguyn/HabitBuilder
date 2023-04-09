@@ -19,13 +19,6 @@ struct ButtonView: View {
     
     var body: some View {
         VStack{
-//            if(habit.age == 0) {
-//                habit.plant.image
-//            } else if(habit.age > 5) {
-//                habit.plant.image
-//            } else {
-//                habit.plant.image
-//            }
             habit.plant.image
                 .resizable()
                 .scaledToFit()
