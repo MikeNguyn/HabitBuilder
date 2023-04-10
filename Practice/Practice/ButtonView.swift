@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+
 struct ButtonView: View {
 //    var widthPercentage: Int
 //    var heightPercentage: Int
@@ -42,8 +43,12 @@ struct ButtonView: View {
                             let now = Date() // get the current date and time
                             let calendar = Calendar.current // get the current calendar
                             let todayDate = calendar.dateComponents([.year, .month, .day], from: now) // create a DateComponents object with just the year, month, and day
-                            habit.log.insert(todayDate)
+//                            habit.log.insert(todayDate)
+                            checkPlantGrowth(habit: habit)
 //                            print(habit.log)
+                            
+                            //going to check for plant growth
+//                            if (habit .log.length)
                             
                         }
                 )
@@ -66,4 +71,27 @@ struct ButtonView_Previews: PreviewProvider {
     static var previews: some View {
         ButtonView(habit: .constant(habit))
     }
+}
+
+
+//This function will return 1 if habit is still a small plant, 2 if it should be a med plant and 3 if it should be a large plant.
+func checkPlantGrowth(habit: Habit)->Void{
+    var totalCheckins = habit.age
+    var currentNumofCheckins = habit.log.count
+    var secondStageThreshold = totalCheckins / 3
+    var thirdStageThreshold = secondStageThreshold * 2
+    
+    var imageStage = 1 //initalize to small size image
+    if (currentNumofCheckins >= thirdStageThreshold){ //if they have checked in more than 2/3 of total checkins
+        imageStage = 3
+    } else if (currentNumofCheckins >= secondStageThreshold){ //plant should be on second stage
+        imageStage = 2
+    }
+    
+    //now change habit image to size it should be on
+    var habitString: String = habit.plant.id
+    habitString.dropLast()
+    habitString = habitString + String(imageStage)
+    //so now habitString should be the new image name like .blueberry2
+    habit.plant = Habit.Plant(rawValue: habitString) ?? <#default value#>!
 }
