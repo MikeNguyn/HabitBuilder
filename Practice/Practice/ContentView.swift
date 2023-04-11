@@ -23,7 +23,7 @@ struct ContentView: View {
                 Grid(){
                     Divider()
                     GridRow {
-                        ForEach($habitList[1]) { $habit in
+                        ForEach($habitList[0]) { $habit in
                             if habit.empty {
                                 NavigationLink(destination:  AnyView(AddView(habit: $habit))) {
                                     EmptyView()
