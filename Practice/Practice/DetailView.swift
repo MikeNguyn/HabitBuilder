@@ -66,16 +66,21 @@ struct DetailView: View {
                                         .datePickerStyle(.graphical)
                     .scaleEffect(x: 0.9, y: 0.9)
                 
-                HStack{
+                HStack(spacing: 75){
                     Button("Delete habit", role: .destructive){
                         isPresentingConfirm = true
-                    }
+                    }.padding()
+                        .cornerRadius(4.0)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 4).stroke(Color(.systemRed), lineWidth: 2)
+                        )
                             .confirmationDialog("Are you sure?",
                               isPresented: $isPresentingConfirm) {
                               Button("Delete this plant?", role: .destructive) {
                                   habit = Habit()
                                 }
                             }
+                    
                         
                     
                     
@@ -89,6 +94,11 @@ struct DetailView: View {
                                         EditView(habit: $habit)
                                     }
                                     .background(CustomColor.homeGreen)
+                                    .padding()
+                                        .cornerRadius(4.0)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 4).stroke(Color(.systemBlue), lineWidth: 2)
+                                        )
                 }
                 
                 
