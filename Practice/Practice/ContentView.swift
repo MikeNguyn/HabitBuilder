@@ -13,6 +13,7 @@ let MENUICONSIZE = 60.0
 //the main Habit display 3x3 grid
 struct ContentView: View {
     @Binding var habitList: [[Habit]]
+    @State var confirmationShow = false
     @GestureState var isLongPressed = false
     @Environment(\.scenePhase) private var scenePhase
     let saveAction: () -> Void
@@ -20,55 +21,55 @@ struct ContentView: View {
         NavigationView {
             VStack{
                 Grid(){
-                            Divider()
-                            GridRow {
-                                ForEach($habitList[1]) { $habit in
-                                    if habit.empty {
-                                        NavigationLink(destination:  AnyView(AddView(habit: $habit))) {
-                                            EmptyView()
-                                                .offset(y:-5)
-                                                .offset(x:10)
-                                        }
-                                    } else {
-                                            ButtonView(habit: $habit)
-                                            .offset(y:-65)
-                                            .offset(x:-65)
-                                    }
+                    Divider()
+                    GridRow {
+                        ForEach($habitList[1]) { $habit in
+                            if habit.empty {
+                                NavigationLink(destination:  AnyView(AddView(habit: $habit))) {
+                                    EmptyView()
+                                        .offset(y:-5)
+                                        .offset(x:10)
                                 }
+                            } else {
+                                    ButtonView(habit: $habit)
+                                    .offset(y:-65)
+                                    .offset(x:-65)
                             }
-                            Divider()
-                            GridRow {
-                                ForEach($habitList[1]) { $habit in
-                                    if habit.empty {
-                                        NavigationLink(destination:  AnyView(AddView(habit: $habit))) {
-                                            EmptyView()
-                                                .offset(y:-5)
-                                                .offset(x:10)
-                                        }
-                                    } else {
-                                            ButtonView(habit: $habit)
-                                            .offset(y:-65)
-                                            .offset(x:-65)
-                                    }
+                        }
+                    }
+                    Divider()
+                    GridRow {
+                        ForEach($habitList[1]) { $habit in
+                            if habit.empty {
+                                NavigationLink(destination:  AnyView(AddView(habit: $habit))) {
+                                    EmptyView()
+                                        .offset(y:-5)
+                                        .offset(x:10)
                                 }
+                            } else {
+                                    ButtonView(habit: $habit)
+                                    .offset(y:-65)
+                                    .offset(x:-65)
                             }
-                            Divider()
-                            GridRow {
-                                ForEach($habitList[2]) { $habit in
-                                    if habit.empty {
-                                        NavigationLink(destination:  AnyView(AddView(habit: $habit))) {
-                                            EmptyView()
-                                                .offset(y:-5)
-                                                .offset(x:10)
-                                        }
-                                    } else {
-                                        ButtonView(habit: $habit)
-                                            .offset(y:-65)
-                                            .offset(x:-65)
-                                    }
+                        }
+                    }
+                    Divider()
+                    GridRow {
+                        ForEach($habitList[2]) { $habit in
+                            if habit.empty {
+                                NavigationLink(destination:  AnyView(AddView(habit: $habit))) {
+                                    EmptyView()
+                                        .offset(y:-5)
+                                        .offset(x:10)
                                 }
+                            } else {
+                                ButtonView(habit: $habit)
+                                    .offset(y:-65)
+                                    .offset(x:-65)
                             }
-                            Divider()
+                        }
+                    }
+                    Divider()
                 }.background(CustomColor.homeSoil)
                  .padding(80)
                  .rotationEffect(Angle(degrees: 45), anchor: .center) //I found this online :)
@@ -80,7 +81,7 @@ struct ContentView: View {
                 ControlGroup {
                     homeBtn
                     calendarBtn
-                    shopBtn
+                    resetGarden
                 }
                 HStack(spacing: 60.0){
                 }
@@ -124,11 +125,21 @@ private extension ContentView{
         }
     }
 
-    private var shopBtn: some View{
+    private var resetGarden: some View{
         Button("Reset Garden") {
-            
+            habitList =
+               [[Habit(), Habit(), Habit()],
+                [Habit(), Habit(), Habit()],
+                [Habit(), Habit(), Habit()]]
         }
-    }
+       .confirmationDialog( //this isn't quite working rn. Dialog isn't showing up.
+           "Are you sure?",
+           isPresented: $confirmationShow,
+           titleVisibility: .visible
+       ) {
+           Button("YES", role: .destructive) {}
+       }
+    } // end of resetGarden
 
     private var plantBtn: some View{
         Button(action: {
