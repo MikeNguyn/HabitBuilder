@@ -13,6 +13,7 @@ struct DetailView: View {
     @Binding var habit: Habit
     let PLANTICONSIZE = 75.0
     @State var presentSheet = false
+    @State private var isPresentingConfirm: Bool = false
     
     
     var body: some View {
@@ -66,10 +67,17 @@ struct DetailView: View {
                     .scaleEffect(x: 0.9, y: 0.9)
                 
                 HStack{
-                    Button("Delete habit"){
-                        habit = Habit()
-                        
+                    Button("Delete habit", role: .destructive){
+                        isPresentingConfirm = true
                     }
+                            .confirmationDialog("Are you sure?",
+                              isPresented: $isPresentingConfirm) {
+                              Button("Delete this plant?", role: .destructive) {
+                                  habit = Habit()
+                                }
+                            }
+                        
+                    
                     
                     Button("Edit Habit") {
                                     presentSheet.toggle()
@@ -171,4 +179,21 @@ func stringOfDate(date: Date) -> String{
         dateFormatter.dateStyle = .short
     return dateFormatter.string(from: date)
 }
+
+//struct DeleteButton: View {
+//  @EnvironmentObject var store: Store
+//  @State private var isPresentingConfirm: Bool = false
+//
+//  var body: some View {
+//    Button("Delete", role: .destructive) {
+//      isPresentingConfirm = true
+//    }
+//   .confirmationDialog("Are you sure?",
+//     isPresented: $isPresentingConfirm) {
+//     Button("Delete all items?", role: .destructive) {
+//       store.deleteAll()
+//      }
+//    }
+//  }
+//}
 

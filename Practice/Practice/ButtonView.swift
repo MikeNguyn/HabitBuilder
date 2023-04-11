@@ -17,6 +17,7 @@ struct ButtonView: View {
     @GestureState var press = false
     @State var show = false
     @State var isShowingDetailView = false
+//    @State var plant: Habit.Plant = Habit.Plant.tomato3
     
     var body: some View {
         VStack{
@@ -45,6 +46,7 @@ struct ButtonView: View {
                             let todayDate = calendar.dateComponents([.year, .month, .day], from: now) // create a DateComponents object with just the year, month, and day
 //                            habit.log.insert(todayDate)
                             checkPlantGrowth(habit: habit)
+                            $habit.plant
 //                            print(habit.log)
                             
                             //going to check for plant growth
@@ -93,5 +95,4 @@ func checkPlantGrowth(habit: Habit)->Void{
     habitString.dropLast()
     habitString = habitString + String(imageStage)
     //so now habitString should be the new image name like .blueberry2
-    habit.plant = Habit.Plant(rawValue: habitString) ?? <#default value#>!
 }
