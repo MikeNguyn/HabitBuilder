@@ -22,6 +22,7 @@ struct ContentView: View {
         NavigationView {
             VStack{
                 Button("Request Permission") {
+                    // requests permission from the user to send notifications. Click this first
                     UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
                         if success {
                             print("All set!")
@@ -32,6 +33,7 @@ struct ContentView: View {
                 }
                 
                 Button("Schedule Notification") {
+                    // creates the notification and schedules it to appear in 5 seconds. click this button second.
                     let content = UNMutableNotificationContent()
                     content.title = "Feed the cat"
                     content.subtitle = "It looks hungry"
