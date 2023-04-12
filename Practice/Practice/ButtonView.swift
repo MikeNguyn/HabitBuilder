@@ -46,7 +46,8 @@ struct ButtonView: View {
                             let todayDate = calendar.dateComponents([.year, .month, .day], from: now) // create a DateComponents object with just the year, month, and day
 //                            habit.log.insert(todayDate)
                             checkPlantGrowth(habit: habit)
-                            $habit.plant
+//                            habit.plant = plant
+                            
 //                            print(habit.log)
                             
                             //going to check for plant growth
@@ -77,7 +78,7 @@ struct ButtonView_Previews: PreviewProvider {
 
 
 //This function will return 1 if habit is still a small plant, 2 if it should be a med plant and 3 if it should be a large plant.
-func checkPlantGrowth(habit: Habit)->Void{
+func checkPlantGrowth(habit: Habit)->Habit.Plant{
     var totalCheckins = habit.age
     var currentNumofCheckins = habit.log.count
     var secondStageThreshold = totalCheckins / 3
@@ -93,6 +94,9 @@ func checkPlantGrowth(habit: Habit)->Void{
     //now change habit image to size it should be on
     var habitString: String = habit.plant.id
     habitString.dropLast()
-    habitString = habitString + String(imageStage)
+    habitString = "." + habitString + String(imageStage)
+//    var enum habitEnum = habitString
+    var returnplant: Habit.Plant = .blueberry1
+    return returnplant
     //so now habitString should be the new image name like .blueberry2
 }
