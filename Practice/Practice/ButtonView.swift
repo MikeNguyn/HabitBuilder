@@ -45,7 +45,8 @@ struct ButtonView: View {
                             let calendar = Calendar.current // get the current calendar
                             let todayDate = calendar.dateComponents([.year, .month, .day], from: now) // create a DateComponents object with just the year, month, and day
 //                            habit.log.insert(todayDate)
-                            checkPlantGrowth(habit: habit)
+//                            checkPlantGrowth(habit: habit)
+                            habit.plant = checkPlantGrowth(habit: habit)
 //                            habit.plant = plant
                             
 //                            print(habit.log)
@@ -94,9 +95,42 @@ func checkPlantGrowth(habit: Habit)->Habit.Plant{
     //now change habit image to size it should be on
     var habitString: String = habit.plant.id
     habitString.dropLast()
-    habitString = "." + habitString + String(imageStage)
+    habitString =  habitString + String(imageStage)
 //    var enum habitEnum = habitString
-    var returnplant: Habit.Plant = .blueberry1
-    return returnplant
+//    var returnplant: Habit.Plant = .blueberry1
+    var enumPlant: Habit.Plant = Habit.Plant(rawValue: habitString)
+    
+    //ERROR BC IF THERE's NOT A CHECK IN THE VALUE IS NULL
+    
+    
+    
+    return enumPlant
     //so now habitString should be the new image name like .blueberry2
 }
+
+//enum ExampleEnum: String {
+//    case blueberry1
+//    case orchid1
+//    case tomato1
+//    case corn1
+//    case sunflower1
+//    case pea1
+//
+//    case blueberry2
+//    case orchid2
+//    case tomato2
+//    case corn2
+//    case sunflower2
+//    case pea2
+//
+//    case blueberry3
+//    case orchid3
+//    case tomato3
+//    case corn3
+//    case sunflower3
+//    case pea3
+//}
+
+//func convertStringToEnum(string: String) -> Habit.Plant{
+//    return Habit.Plant(rawValue: string)
+//}
