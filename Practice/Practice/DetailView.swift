@@ -122,7 +122,7 @@ func getImportanceLevel(num: Int)->String{
 //function that takes in the weekday frequency of the habit and returns the string of MTWThFSaSu
 func getWeekdaysNames(weekDaysBools: [Bool])->String{
     var weekdayNames = ""
-    let weekdays = ["M","T","W","Th","F","Sa","Su"]
+    let weekdays = ["Su","M","T","W","Th","F","Sa"]
     for i in 0...6{
         if weekDaysBools[i] {
             weekdayNames += weekdays[i] + " "

@@ -72,8 +72,8 @@ struct Habit: Identifiable, Codable {
         self.importance = 1
         self.frequency = [false, false, false, false, false, false, false]
         self.empty = true
-        self.log = [DateComponents(year: 2023, month: 3, day: 29)]
-        self.age = 3
+        self.log = []
+        self.age = 0
         self.stage = 1
     }
     
@@ -188,6 +188,7 @@ extension Date {
         
         return numberOfDays.day! + 1 // <1>
     }
+}
  
 func checkPlantGrowth(plantName: String, plantStage: Int)->Image{
     var suffix = "Small"
@@ -213,4 +214,5 @@ extension Habit {
                                       Habit()]
 ]
 }
+    
 
