@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+//var globalImageNumber: Int = 1
 
 struct ButtonView: View {
 //    var widthPercentage: Int
@@ -46,7 +47,8 @@ struct ButtonView: View {
                             let todayDate = calendar.dateComponents([.year, .month, .day], from: now) // create a DateComponents object with just the year, month, and day
 //                            habit.log.insert(todayDate)
 //                            checkPlantGrowth(habit: habit)
-                            habit.plant = checkPlantGrowth(habit: habit)
+                            stageGlobal = checkPlantGrowth(habit: habit)
+                            print(stageGlobal)
 //                            habit.plant = plant
                             
 //                            print(habit.log)
@@ -79,7 +81,7 @@ struct ButtonView_Previews: PreviewProvider {
 
 
 //This function will return 1 if habit is still a small plant, 2 if it should be a med plant and 3 if it should be a large plant.
-func checkPlantGrowth(habit: Habit)->Habit.Plant{
+func checkPlantGrowth(habit: Habit)->Int{
     var totalCheckins = habit.age
     var currentNumofCheckins = habit.log.count
     var secondStageThreshold = totalCheckins / 3
@@ -91,20 +93,21 @@ func checkPlantGrowth(habit: Habit)->Habit.Plant{
     } else if (currentNumofCheckins >= secondStageThreshold){ //plant should be on second stage
         imageStage = 2
     }
+    return imageStage
     
-    //now change habit image to size it should be on
-    var habitString: String = habit.plant.id
-    habitString.dropLast()
-    habitString =  habitString + String(imageStage)
-//    var enum habitEnum = habitString
-//    var returnplant: Habit.Plant = .blueberry1
-    var enumPlant: Habit.Plant = Habit.Plant(rawValue: habitString)
-    
-    //ERROR BC IF THERE's NOT A CHECK IN THE VALUE IS NULL
-    
-    
-    
-    return enumPlant
+//    //now change habit image to size it should be on
+//    var habitString: String = habit.plant.id
+//    habitString.dropLast()
+//    habitString =  habitString + String(imageStage)
+////    var enum habitEnum = habitString
+////    var returnplant: Habit.Plant = .blueberry1
+//    var enumPlant: Habit.Plant = Habit.Plant(rawValue: habitString)
+//
+//    //ERROR BC IF THERE's NOT A CHECK IN THE VALUE IS NULL
+//
+//
+//
+//    return enumPlant
     //so now habitString should be the new image name like .blueberry2
 }
 

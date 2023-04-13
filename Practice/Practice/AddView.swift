@@ -16,10 +16,11 @@ let screenSize: CGRect = UIScreen.main.bounds
 struct AddView: View {
     @Binding var habit: Habit
     @State var name: String = ""
-    @State var plant: Habit.Plant = Habit.Plant.tomato3
+    @State var plant: Habit.Plant = Habit.Plant.tomato
     @State var end: Date = Date()
     @State var frequency = [false, false, false, false, false, false, false]
     @State var importance = 1
+    var starterImages: [Image] = [Image("blueberryPlantSmall"),Image("orchidPlantSmall"),Image("tomatoPlantSmall"),Image("sunflowerPlantSmall"),Image("cornPlantSmall"),Image("peaPlantSmall") ]
 //    @State var date: Date = Date()
 //    @Binding var listOfPlant: [Habit.Plant]
 //    @State var chosenPlant = Habit.Plant.tomato
