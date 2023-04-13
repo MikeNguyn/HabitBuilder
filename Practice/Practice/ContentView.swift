@@ -15,6 +15,7 @@ let MENUICONSIZE = 60.0
 struct ContentView: View {
     @Binding var habitList: [[Habit]]
     @State var confirmationShow = false
+    @State private var isPresentingConfirm: Bool = false
     @GestureState var isLongPressed = false
     @Environment(\.scenePhase) private var scenePhase
     let saveAction: () -> Void
@@ -22,6 +23,7 @@ struct ContentView: View {
         NavigationView {
             VStack{
                 Button("Request Permission") {
+                    // requests permission from the user to send notifications. Click this first
                     UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
                         if success {
                             print("All set!")
@@ -32,6 +34,7 @@ struct ContentView: View {
                 }
                 
                 Button("Schedule Notification") {
+                    // creates the notification and schedules it to appear in 5 seconds. click this button second.
                     let content = UNMutableNotificationContent()
                     content.title = "Feed the cat"
                     content.subtitle = "It looks hungry"
@@ -151,20 +154,19 @@ private extension ContentView{
         }
     }
 
-    private var resetGarden: some View{
-        Button("Reset Garden") {
-            habitList =
-               [[Habit(), Habit(), Habit()],
-                [Habit(), Habit(), Habit()],
-                [Habit(), Habit(), Habit()]]
+    private var resetGarden: some View{ //Still isn't working :/
+        Button("Reset Garden", role: .destructive) {
+            isPresentingConfirm = true
         }
-       .confirmationDialog( //this isn't quite working rn. Dialog isn't showing up.
-           "Are you sure?",
-           isPresented: $confirmationShow,
-           titleVisibility: .visible
-       ) {
-           Button("YES", role: .destructive) {}
-       }
+        .confirmationDialog("Are you sure?",
+          isPresented: $isPresentingConfirm) {
+          Button("Delete this plant?", role: .destructive) {
+              habitList =
+                 [[Habit(), Habit(), Habit()],
+                  [Habit(), Habit(), Habit()],
+                  [Habit(), Habit(), Habit()]]
+            }
+        }
     } // end of resetGarden
 
     private var plantBtn: some View{
