@@ -131,7 +131,23 @@ extension Habit {
         }
     }
 }
- 
+
+extension Date {
+    func dayNumberOfWeek() -> Int? {
+        return Calendar.current.dateComponents([.weekday], from: self).weekday
+    }
+    
+    func shiftDate(shift: Int) -> Date? {
+        return Calendar.current.date(byAdding: .day, value: shift, to: self)
+    }
+    func numberOfDaysBetween(_ from: Date, and to: Date) -> Int {
+        let fromDate = Calendar.current.startOfDay(for: from)
+        let toDate = Calendar.current.startOfDay(for: to)
+        let numberOfDays = Calendar.current.dateComponents([.day], from: fromDate, to: toDate)
+        
+        return numberOfDays.day! + 1 // <1>
+    }
+}
 
 //Sample data we use to display/test
 extension Habit {

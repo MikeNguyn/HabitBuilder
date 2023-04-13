@@ -97,6 +97,7 @@ struct ContentView: View {
                 
             }
             .background(Color("ColorHomeBackground"))
+            .navigationTitle("Your Garden")
         }
         .onChange(of: scenePhase) {phase in
             if phase == .inactive {saveAction()}

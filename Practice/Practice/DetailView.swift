@@ -36,8 +36,8 @@ struct DetailView: View {
                         HStack {
                             Label("Length", systemImage: "timer")
                             Spacer()
-                            Text(String(calculateLength(startDate: habit.start,endDate: habit.end)) + " days")
-                            
+//                            Text(String(calculateLength(startDate: habit.start,endDate: habit.end)) + " days")
+                            Text(String(habit.age) + " checkins")
                         }
                         HStack {
                             Label("Z calculation", systemImage: "timer")
