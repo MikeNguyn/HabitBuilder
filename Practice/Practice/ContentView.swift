@@ -7,78 +7,98 @@
 //The main front screen/page. It displays the main grid of plants and other icons.
 
 import SwiftUI
+import UserNotifications
 let MENUICONSIZE = 60.0
 
 
 //the main Habit display 3x3 grid
 struct ContentView: View {
     @Binding var habitList: [[Habit]]
+    @State var confirmationShow = false
+    @State private var isPresentingConfirm: Bool = false
     @GestureState var isLongPressed = false
     @Environment(\.scenePhase) private var scenePhase
     let saveAction: () -> Void
     var body: some View {
         NavigationView {
             VStack{
+                Button("Request Permission") {
+                    // requests permission from the user to send notifications. Click this first
+                    UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+                        if success {
+                            print("All set!")
+                        } else if let error = error {
+                            print(error.localizedDescription)
+                        }
+                    }
+                }
+                
+                Button("Schedule Notification") {
+                    // creates the notification and schedules it to appear in 5 seconds. click this button second.
+                    let content = UNMutableNotificationContent()
+                    content.title = "Feed the cat"
+                    content.subtitle = "It looks hungry"
+                    content.sound = UNNotificationSound.default
+                    
+                    // show this notification five seconds from now
+                    let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+                    
+                    //choose a random identifier
+                    let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+                    
+                    // add our notification request
+                    UNUserNotificationCenter.current().add(request)
+                }
                 Grid(){
-                            Divider()
-                            GridRow {
-                                ForEach($habitList[0]) { $habit in
-                                    if habit.empty {
-                                        NavigationLink(destination:  AnyView(AddView(habit: $habit))) {
-                                            EmptyView()
-                                                .offset(y:-5)
-                                                .offset(x:10)
-                                        }
-                                    } else {
-                                        if ((daysBetween(start: habit.start, end: habit.end)) > 10 ) {
-                                            ButtonView(habit: $habit)
-                                                .offset(y:-65)
-                                                .offset(x:-65)
-                                        } else if ((daysBetween(start: habit.start, end: habit.end)) > 5) {
-                                            ButtonView(habit: $habit)
-                                                .offset(y:-65)
-                                                .offset(x:-65)
-                                        } else {
-                                            ButtonView(habit: $habit)
-                                                .offset(y:-65)
-                                                .offset(x:-65)
-                                        }
-                                    }
+                    Divider()
+                    GridRow {
+                        ForEach($habitList[0]) { $habit in
+                            if habit.empty {
+                                NavigationLink(destination:  AnyView(AddView(habit: $habit))) {
+                                    EmptyView()
+                                        .offset(y:-5)
+                                        .offset(x:10)
                                 }
+                            } else {
+                                    ButtonView(habit: $habit)
+                                    .offset(y:-65)
+                                    .offset(x:-65)
                             }
-                            Divider()
-                            GridRow {
-                                ForEach($habitList[1]) { $habit in
-                                    if habit.empty {
-                                        NavigationLink(destination:  AnyView(AddView(habit: $habit))) {
-                                            EmptyView()
-                                                .offset(y:-5)
-                                                .offset(x:10)
-                                        }
-                                    } else {
-                                            ButtonView(habit: $habit)
-                                            .offset(y:-65)
-                                            .offset(x:-65)
-                                    }
+                        }
+                    }
+                    Divider()
+                    GridRow {
+                        ForEach($habitList[1]) { $habit in
+                            if habit.empty {
+                                NavigationLink(destination:  AnyView(AddView(habit: $habit))) {
+                                    EmptyView()
+                                        .offset(y:-5)
+                                        .offset(x:10)
                                 }
+                            } else {
+                                    ButtonView(habit: $habit)
+                                    .offset(y:-65)
+                                    .offset(x:-65)
                             }
-                            Divider()
-                            GridRow {
-                                ForEach($habitList[2]) { $habit in
-                                    if habit.empty {
-                                        NavigationLink(destination:  AnyView(AddView(habit: $habit))) {
-                                            EmptyView()
-                                                .offset(y:-5)
-                                                .offset(x:10)
-                                        }
-                                    } else {
-                                        ButtonView(habit: $habit)
-                                            .offset(y:-65)
-                                            .offset(x:-65)
-                                    }
+                        }
+                    }
+                    Divider()
+                    GridRow {
+                        ForEach($habitList[2]) { $habit in
+                            if habit.empty {
+                                NavigationLink(destination:  AnyView(AddView(habit: $habit))) {
+                                    EmptyView()
+                                        .offset(y:-5)
+                                        .offset(x:10)
                                 }
+                            } else {
+                                ButtonView(habit: $habit)
+                                    .offset(y:-65)
+                                    .offset(x:-65)
                             }
-                            Divider()
+                        }
+                    }
+                    Divider()
                 }.background(CustomColor.homeSoil)
                  .padding(80)
                  .rotationEffect(Angle(degrees: 45), anchor: .center) //I found this online :)
@@ -90,7 +110,7 @@ struct ContentView: View {
                 ControlGroup {
                     homeBtn
                     calendarBtn
-                    shopBtn
+                    resetGarden
                 }
                 HStack(spacing: 60.0){
                 }
@@ -135,11 +155,20 @@ private extension ContentView{
         }
     }
 
-    private var shopBtn: some View{
-        Button("Shop") {
-            /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
+    private var resetGarden: some View{ //Still isn't working :/
+        Button("Reset Garden", role: .destructive) {
+            isPresentingConfirm = true
         }
-    }
+        .confirmationDialog("Are you sure?",
+          isPresented: $isPresentingConfirm) {
+          Button("Delete this plant?", role: .destructive) {
+              habitList =
+                 [[Habit(), Habit(), Habit()],
+                  [Habit(), Habit(), Habit()],
+                  [Habit(), Habit(), Habit()]]
+            }
+        }
+    } // end of resetGarden
 
     private var plantBtn: some View{
         Button(action: {

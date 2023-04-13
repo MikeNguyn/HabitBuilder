@@ -13,6 +13,7 @@ struct DetailView: View {
     @Binding var habit: Habit
     let PLANTICONSIZE = 75.0
     @State var presentSheet = false
+    @State private var isPresentingConfirm: Bool = false
     
     
     var body: some View {
@@ -20,11 +21,6 @@ struct DetailView: View {
         NavigationView{
             VStack(){
                 habit.plant.image.resizable().frame(width: PLANTICONSIZE, height: PLANTICONSIZE)
-                //                if(totalCheckins == 0) {
-                //                    habit.plant.image.resizable().frame(width: PLANTICONSIZE, height: PLANTICONSIZE)
-                //                } else {
-                //                    habit.plant.image = habit.plant.image == "tomatoPlantSmall"
-                //                }
                 LinearProgressDemoView(habit: habit)
                 List{
                     Section(header: Text("Habit Details")){
@@ -70,11 +66,23 @@ struct DetailView: View {
                                         .datePickerStyle(.graphical)
                     .scaleEffect(x: 0.9, y: 0.9)
                 
-                HStack{
-                    Button("Delete habit"){
-                        habit = Habit()
+                HStack(spacing: 75){
+                    Button("Delete habit", role: .destructive){
+                        isPresentingConfirm = true
+                    }.padding()
+                        .cornerRadius(4.0)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 4).stroke(Color(.systemRed), lineWidth: 2)
+                        )
+                            .confirmationDialog("Are you sure?",
+                              isPresented: $isPresentingConfirm) {
+                              Button("Delete this plant?", role: .destructive) {
+                                  habit = Habit()
+                                }
+                            }
+                    
                         
-                    }
+                    
                     
                     Button("Edit Habit") {
                                     presentSheet.toggle()
@@ -86,6 +94,11 @@ struct DetailView: View {
                                         EditView(habit: $habit)
                                     }
                                     .background(CustomColor.homeGreen)
+                                    .padding()
+                                        .cornerRadius(4.0)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 4).stroke(Color(.systemBlue), lineWidth: 2)
+                                        )
                 }
                 
                 
@@ -176,4 +189,21 @@ func stringOfDate(date: Date) -> String{
         dateFormatter.dateStyle = .short
     return dateFormatter.string(from: date)
 }
+
+//struct DeleteButton: View {
+//  @EnvironmentObject var store: Store
+//  @State private var isPresentingConfirm: Bool = false
+//
+//  var body: some View {
+//    Button("Delete", role: .destructive) {
+//      isPresentingConfirm = true
+//    }
+//   .confirmationDialog("Are you sure?",
+//     isPresented: $isPresentingConfirm) {
+//     Button("Delete all items?", role: .destructive) {
+//       store.deleteAll()
+//      }
+//    }
+//  }
+//}
 
