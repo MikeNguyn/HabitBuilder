@@ -118,11 +118,11 @@ struct ContentView: View {
             }
             .background(Color("ColorHomeBackground"))
             .navigationTitle("Your Garden")
-        }
+        } // end of navigation view
         .onChange(of: scenePhase) {phase in
             if phase == .inactive {saveAction()}
         }
-    }
+    } // end of body
 }
 
 struct CustomColor {
