@@ -14,10 +14,11 @@ struct DetailView: View {
     let PLANTICONSIZE = 75.0
     @State var presentSheet = false
     @State private var isPresentingConfirm: Bool = false
-    
+    let screenSize: CGRect = UIScreen.main.bounds
+
     
     var body: some View {
-        
+        var calendarClicked: Bool = false
         NavigationView{
             VStack(){
                 habit.plant.image.resizable().frame(width: PLANTICONSIZE, height: PLANTICONSIZE)
@@ -60,9 +61,23 @@ struct DetailView: View {
                 }.background(CustomColor.homeGreen)
                     .listStyle(.plain)
                 
-                MultiDatePicker(                                     "Start Date",
-                    selection: $habit.log
-                )
+                ZStack{
+                    MultiDatePicker(                                     "Start Date",
+                        selection: $habit.log
+                    ).disabled(calendarClicked)
+                    
+                    Rectangle()
+                        .fill(.clear)
+                        .frame(width: screenSize.width*1.1, height: screenSize.height*0.35)
+                        .position(x:screenSize.width/2,y:screenSize.height * 0.24)
+                        .onTapGesture{
+                            calendarClicked = true
+                        }
+//                        calendarClicked = false
+                }
+//                MultiDatePicker(                                     "Start Date",
+//                    selection: $habit.log
+//                )
                                         .datePickerStyle(.graphical)
                     .scaleEffect(x: 0.9, y: 0.9)
                 
