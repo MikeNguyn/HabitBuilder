@@ -102,17 +102,27 @@ struct ContentView: View {
                 }.background(CustomColor.homeSoil)
                  .padding(80)
                  .rotationEffect(Angle(degrees: 45), anchor: .center) //I found this online :)
-                 .scaleEffect(x: 1.0, y: 0.5, anchor: .center)
+                 .scaleEffect(x: 1.0, y: 0.65, anchor: .center)
+                //  the frame is an attempt to make the rectangle a proper square instead of a rectangle. it didn't work.
+//                 .frame(width: screenSize.width/4.5, height: screenSize.width/1.2, alignment: .top)
                 Text("One day, or day one? You decide.")
                             .position(x:200,y:100).foregroundColor(.teal).font(.system(size: 20)
                                 .bold())
+                
                 Spacer()
-                ControlGroup {
-                    homeBtn
-                    calendarBtn
-                    resetGarden
-                }
                 HStack(spacing: 60.0){
+                    Button("Reset Garden", role: .destructive) {
+                        isPresentingConfirm = true
+                    }
+                    .confirmationDialog("Are you sure?",
+                      isPresented: $isPresentingConfirm) {
+                      Button("Delete this plant?", role: .destructive) {
+                          habitList =
+                             [[Habit(), Habit(), Habit()],
+                              [Habit(), Habit(), Habit()],
+                              [Habit(), Habit(), Habit()]]
+                        }
+                    }
                 }
                 
             }
@@ -141,42 +151,5 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
-//Some bottom bar buttons that don't yet have functionality. TODO
-private extension ContentView{
-    private var homeBtn: some View{
-        Button("Home") {
-            /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
-        }
-    }
 
-    private var calendarBtn: some View{
-        Button("Calendar") {
-            /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
-        }
-    }
-
-    private var resetGarden: some View{ //Still isn't working :/
-        Button("Reset Garden", role: .destructive) {
-            isPresentingConfirm = true
-        }
-        .confirmationDialog("Are you sure?",
-          isPresented: $isPresentingConfirm) {
-          Button("Delete this plant?", role: .destructive) {
-              habitList =
-                 [[Habit(), Habit(), Habit()],
-                  [Habit(), Habit(), Habit()],
-                  [Habit(), Habit(), Habit()]]
-            }
-        }
-    } // end of resetGarden
-
-    private var plantBtn: some View{
-        Button(action: {
-            // What will initiate when the button is pressed
-        }) {
-            Image("tomatoPlant").resizable().frame(width: 28.0, height: 28.0)
-            // What will the button look like
-        }
-    }
-}
 
