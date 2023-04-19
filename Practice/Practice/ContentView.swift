@@ -22,6 +22,9 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack{
+                NavigationLink("Tutorial"){
+                    ImageSlideShow(images: ["Tutss1", "Tutss1", "Tutss2", "Tutss3", "Tutss4","Tutss5", "Tutss6", "Tutss7", "Tutss8", "Tutss9", "Tutss10", "Tutss11", "Tutss12", "Tutss15", "Tutss16"])
+                }
                 Button("Request Permission") {
                     // requests permission from the user to send notifications. Click this first
                     UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
