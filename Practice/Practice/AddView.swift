@@ -145,6 +145,7 @@ func ScheduleNotification (endDate: Date) {
     content.sound = UNNotificationSound.default
     
     // show this notification five seconds from now
+    //this needs to trigger on end date
     let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
     
     //choose a random identifier
