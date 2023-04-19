@@ -128,6 +128,7 @@ struct AddView: View {
                             let count = frequency.filter{$0 == true}.count
                             age = age + Int(weeksCorrected) * count
                             habit.age = age
+                            habit.log = []
                         })
                     }
                 }

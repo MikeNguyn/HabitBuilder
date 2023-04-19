@@ -30,7 +30,20 @@ struct ButtonView: View {
                 .frame(width: screenSize.width/4.5, height: screenSize.width/4.5)
                 // need to get width and height of original images, or resize all images to have the same w and h
                 .scaleEffect(x: 1.5, y: 2.5, anchor: .center)
-                .shadow(color: show ? Color.green.opacity(1): Color.white.opacity(0.0), radius: 5.0 )
+                .shadow(color: {
+                    let now = Date()
+                    let calendar = Calendar.current
+                    if (habit.frequency[now.dayNumberOfWeek()! - 1]){
+                        if (habit.log.contains(calendar.dateComponents([.year, .month, .day], from: now))) {
+                            return Color.green
+                        } else {
+                            return Color.red
+                        }
+                    }
+                    else {
+                        return Color.yellow
+                    }
+                }(), radius: 5.0 )
                 .scaleEffect(press ? 1.5: 1)
                 .animation(.spring(response: 0.4, dampingFraction: 1))
                 .highPriorityGesture(
@@ -39,13 +52,18 @@ struct ButtonView: View {
                             gestureState = currentState
                         }
                         .onEnded{ value in
-                            show.toggle()
                             print("the user checked off habit")
 //                            print(habit.log)
                             let now = Date() // get the current date and time
                             let calendar = Calendar.current // get the current calendar
                             let todayDate = calendar.dateComponents([.year, .month, .day], from: now) // create a DateComponents object with just the year, month, and day
-//                            habit.log.insert(todayDate)
+                            if (habit.frequency[now.dayNumberOfWeek()! - 1]) {
+                                if (!habit.log.contains(todayDate)) {
+                                    habit.log.insert(todayDate)
+                                } else {
+                                    habit.log.remove(todayDate)
+                                }
+                            }
 //                            checkPlantGrowth(habit: habit)
                             stageGlobal = checkPlantGrowth(habit: habit)
                             print(stageGlobal)
