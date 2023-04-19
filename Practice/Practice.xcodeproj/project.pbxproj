@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05652B8D29E4A578002169AB /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05652B8C29E4A578002169AB /* TutorialView.swift */; };
+		05652B8F29F053F5002169AB /* ImageSlideShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05652B8E29F053F5002169AB /* ImageSlideShow.swift */; };
 		058744EF29CE2CB9003DDB52 /* motivators.txt in Resources */ = {isa = PBXBuildFile; fileRef = 058744EE29CE2CB9003DDB52 /* motivators.txt */; };
 		058744F129CE2D38003DDB52 /* QuotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058744F029CE2D38003DDB52 /* QuotesView.swift */; };
 		058744F329CF9008003DDB52 /* QuotesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058744F229CF9008003DDB52 /* QuotesManager.swift */; };
@@ -45,6 +47,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		05652B8C29E4A578002169AB /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
+		05652B8E29F053F5002169AB /* ImageSlideShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSlideShow.swift; sourceTree = "<group>"; };
 		058744EE29CE2CB9003DDB52 /* motivators.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = motivators.txt; sourceTree = "<group>"; };
 		058744F029CE2D38003DDB52 /* QuotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesView.swift; sourceTree = "<group>"; };
 		058744F229CF9008003DDB52 /* QuotesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesManager.swift; sourceTree = "<group>"; };
@@ -119,6 +123,8 @@
 				5437606229943C5B006D3E90 /* PracticeApp.swift */,
 				7516AEAF29A6B2E500ED7D17 /* Models */,
 				5437606429943C5B006D3E90 /* ContentView.swift */,
+				05652B8E29F053F5002169AB /* ImageSlideShow.swift */,
+				05652B8C29E4A578002169AB /* TutorialView.swift */,
 				7516AEB629AAB9A200ED7D17 /* AddView.swift */,
 				544A9E3229C899E40043CAB2 /* EditView.swift */,
 				7516AEA729A41B0600ED7D17 /* ButtonView.swift */,
@@ -300,10 +306,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				7516AEB729AAB9A200ED7D17 /* AddView.swift in Sources */,
+				05652B8D29E4A578002169AB /* TutorialView.swift in Sources */,
 				7516AEB329AAB2B400ED7D17 /* HabitManager.swift in Sources */,
 				058744F329CF9008003DDB52 /* QuotesManager.swift in Sources */,
 				5437606529943C5B006D3E90 /* ContentView.swift in Sources */,
 				756E1EBA29D9F2E40069971E /* HabitStore.swift in Sources */,
+				05652B8F29F053F5002169AB /* ImageSlideShow.swift in Sources */,
 				7516AEB129A6B2F600ED7D17 /* Habit.swift in Sources */,
 				757758BE29B914F600DD887F /* EmptyView.swift in Sources */,
 				544A9E3329C899E40043CAB2 /* EditView.swift in Sources */,
