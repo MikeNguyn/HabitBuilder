@@ -32,7 +32,7 @@ struct ContentView: View {
                         }
                     }
                 }
-                //Schedule button HAS BEEN MOVED TO ADDVIEW              
+                //Schedule button HAS BEEN MOVED TO ADDVIEW
                 Grid(){
                     Divider()
                     GridRow {
