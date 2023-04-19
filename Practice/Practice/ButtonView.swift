@@ -82,7 +82,7 @@ struct ButtonView: View {
                             isShowingDetailView.toggle()
                         }
                 )
-            
+                // rotates the plants to be in line with the plant box in content view
                 .rotation3DEffect(.degrees(-45), axis: (x: 0.0, y: 0.0, z: 45.0))
             NavigationLink(destination: DetailView(habit: $habit), isActive: $isShowingDetailView) {
             }
