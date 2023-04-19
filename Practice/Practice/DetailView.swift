@@ -14,8 +14,8 @@ struct DetailView: View {
     let PLANTICONSIZE = 75.0
     @State var presentSheet = false
     @State private var isPresentingConfirm: Bool = false
+    @State var day = Date()
     let screenSize: CGRect = UIScreen.main.bounds
-
     
     var body: some View {
         var calendarClicked: Bool = false
@@ -43,6 +43,11 @@ struct DetailView: View {
                             Text(String(totalCheckins) + " total checkins")
                             
                         }
+                        HStack {
+                            Label("Checkins in log", systemImage: "info.circle")
+                            Spacer()
+                            Text(String(habit.log.count) + " total checkins")
+                        }
                         //for date formatting
                         HStack {
                             Label("Started Habit On", systemImage: "info.circle")
@@ -56,7 +61,18 @@ struct DetailView: View {
                             Text(getWeekdaysNames(weekDaysBools:habit.frequency))
                             
                         }
-                        
+                        HStack
+                        {
+                            Label("Check-ins allowed", systemImage:  "info.circle")
+                            Spacer()
+                            Text(String(habit.frequency[day.dayNumberOfWeek()! - 1]))
+                        }
+//                        HStack
+//                        {
+//                            Label("Log", systemImage:  "info.circle")
+//                            Spacer()
+//                            Text(String(habit.log))
+//                        }
                     }
                 }.background(CustomColor.homeGreen)
                     .listStyle(.plain)
@@ -91,7 +107,7 @@ struct DetailView: View {
                         )
                             .confirmationDialog("Are you sure?",
                               isPresented: $isPresentingConfirm) {
-                              Button("Delete this plant?", role: .destructive) {
+                              Button("Delete this plant", role: .destructive) {
                                   habit = Habit()
                                 }
                             }
