@@ -65,7 +65,7 @@ struct Habit: Identifiable, Codable {
     init (id: UUID = UUID()){
         self.id = id
         self.name = ""
-        self.plant = .blueberry
+        self.plant = .blueberry(stage: 1)
         self.start = Date()
         self.end = Date()
         self.health = 0
@@ -98,19 +98,30 @@ extension Habit {
     var data: Data {
         Data(name: name, plant: plant, start: start, end: end, frequency: frequency, health: health, importance: importance, empty: empty, log: log, age: age, stage: stage)
     }
+    
 }
+
+//extension Habit{
+//    func updatePlantStage {
+//        self.plant.plantStage = self.stage
+//    }
+//}
 
 
 //Habit extention is used for making images an identifiable to be used in Pickers
 extension Habit {
 //    var imageStage = stage
-    enum Plant: String, Identifiable, CaseIterable, Codable {
-        case blueberry
-        case orchid
-        case tomato
-        case corn
-        case sunflower
-        case pea
+    
+    enum Plant: CaseIterable, Codable {
+        
+        static var allCases: [Habit.Plant] = [.blueberry(stage: 1), .orchid(stage: 1), .tomato(stage: 1), .corn(stage: 1), .sunflower(stage: 1), .pea(stage: 1)]
+        
+        case blueberry(stage: Int)
+        case orchid(stage: Int)
+        case tomato(stage: Int)
+        case corn(stage: Int)
+        case sunflower(stage: Int)
+        case pea(stage: Int)
         
 //        case blueberry2
 //        case orchid2
@@ -126,15 +137,36 @@ extension Habit {
 //        case sunflower3
 //        case pea3
         
+        
     
         var image: Image {
             switch self {
-                case .blueberry: return checkPlantGrowth(plantName: "blueberryPlant", plantStage: stageGlobal)
-            case .orchid: return checkPlantGrowth(plantName: "orchidPlant", plantStage: stageGlobal)
-            case .tomato: return checkPlantGrowth(plantName: "tomatoPlant", plantStage: stageGlobal)
-            case .sunflower: return checkPlantGrowth(plantName: "sunflowerPlant", plantStage: stageGlobal)
-            case .corn: return checkPlantGrowth(plantName: "cornPlant", plantStage: stageGlobal)
-            case .pea: return checkPlantGrowth(plantName: "peaPlant", plantStage: stageGlobal)
+            case .blueberry(stage: let stage): return checkPlantGrowth(plantName: "blueberryPlant", plantStage: stage)
+            case .orchid(stage: let stage): return checkPlantGrowth(plantName: "orchidPlant", plantStage: stage)
+            case .tomato(stage: let stage): return checkPlantGrowth(plantName: "tomatoPlant", plantStage: stage)
+            case .sunflower(stage: let stage): return checkPlantGrowth(plantName: "sunflowerPlant", plantStage: stage)
+            case .corn(stage: let stage): return checkPlantGrowth(plantName: "cornPlant", plantStage: stage)
+            case .pea(stage: let stage): return checkPlantGrowth(plantName: "peaPlant", plantStage: stage)
+
+                
+//            case .blueberry(stage: 1): return checkPlantGrowth(plantName: "blueberryPlant", plantStage: 1)
+//            case .blueberry(stage: 2): return checkPlantGrowth(plantName: "blueberryPlant", plantStage: 2)
+//            case .blueberry(stage: 3): return checkPlantGrowth(plantName: "blueberryPlant", plantStage: 3)
+//            case .orchid(stage: 1): return checkPlantGrowth(plantName: "orchidPlant", plantStage: 1)
+//            case .orchid(stage: 2): return checkPlantGrowth(plantName: "orchidPlant", plantStage: 2)
+//            case .orchid(stage: 3): return checkPlantGrowth(plantName: "orchidPlant", plantStage: 3)
+//            case .tomato(stage: 1): return checkPlantGrowth(plantName: "tomatoPlant", plantStage: 1)
+//            case .tomato(stage: 2): return checkPlantGrowth(plantName: "tomatoPlant", plantStage: 2)
+//            case .tomato(stage: 3): return checkPlantGrowth(plantName: "tomatoPlant", plantStage: 3)
+//            case .sunflower(stage: 1): return checkPlantGrowth(plantName: "sunflowerPlant", plantStage: 1)
+//            case .sunflower(stage: 2): return checkPlantGrowth(plantName: "sunflowerPlant", plantStage: 2)
+//            case .sunflower(stage: 3): return checkPlantGrowth(plantName: "sunflowerPlant", plantStage: 3)
+//            case .corn(stage: 1): return checkPlantGrowth(plantName: "cornPlant", plantStage: 1)
+//            case .corn(stage: 2): return checkPlantGrowth(plantName: "cornPlant", plantStage: 2)
+//            case .corn(stage: 3): return checkPlantGrowth(plantName: "cornPlant", plantStage: 3)
+//            case .pea(stage: 1): return checkPlantGrowth(plantName: "peaPlant", plantStage: 1)
+//            case .pea(stage: 2): return checkPlantGrowth(plantName: "peaPlant", plantStage: 2)
+//            case .pea(stage: 3): return checkPlantGrowth(plantName: "peaPlant", plantStage: 3)
 //                case .blueberry: return Image("blueberryPlantSmall")
 //                case .orchid: return Image("orchidPlantSmall")
 //                case .tomato: return Image("tomatoPlantSmall")
@@ -154,7 +186,7 @@ extension Habit {
 //                case .tomato3: return Image("tomatoPlantFull")
 //                case .sunflower3: return Image("sunflowerPlantFull")
 //                case .corn3: return Image("cornPlantFull")
-//                case .pea3: return Image("peaPlantFull")
+//                case .pea3: return Image("peaPlantFull")<#code#>
             }
         }
 //        var imageHalf: Image {
@@ -162,14 +194,6 @@ extension Habit {
 //            case .tomato: return Image("tomatoPlantMid")
 //            }
 //        }
-
-        var id: String{
-            return self.rawValue
-        }
-        
-        var data: [Plant] {
-            return [.blueberry, .orchid, .tomato, .corn, .sunflower, .pea]
-        }
     }
 }
 
@@ -203,16 +227,17 @@ func checkPlantGrowth(plantName: String, plantStage: Int)->Image{
 
 //Sample data we use to display/test
 extension Habit {
-    static let sampleData: [[Habit]] = [[Habit(name: "Drinking Water", plant: .sunflower, start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 1.0, importance: 2, empty: false, log: datesForLog, age: 0, stage:1),
-                                         Habit(name: "Drinking Wine", plant: .tomato, start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.85, importance: 1, empty: false, log: datesForLog, age: 0,stage: 1),
-                                      Habit(name: "Exercise", plant: .blueberry, start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.40, importance: 3, empty: false, log: datesForLog, age: 0,stage: 2)],
-                                      [Habit(name: "Water Plants", plant: .orchid, start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.0, importance: 2, empty: false, log: datesForLog, age: 0,stage: 2),
-                                      Habit(name: "Shower", plant: .blueberry, start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.60, importance: 1, empty: false, log: datesForLog, age: 0,stage: 2),
-                                      Habit(name: "Wash Laundry", plant: .orchid, start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.29, importance: 1, empty: false, log: datesForLog, age: 0,stage: 3)],
-                                      [Habit(name: "Tell a joke", plant: .corn, start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.82, importance: 2, empty: false, log: datesForLog, age: 0,stage: 3),
-                                      Habit(name: "Take Medicine", plant: .tomato, start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.90, importance: 3, empty: false, log: datesForLog, age: 0,stage: 3),
+    static let sampleData: [[Habit]] = [[Habit(name: "Drinking Water", plant: .sunflower(stage: 1), start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 1.0, importance: 2, empty: false, log: datesForLog, age: 0, stage:1),
+                                         Habit(name: "Drinking Wine", plant: .tomato(stage: 1), start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.85, importance: 1, empty: false, log: datesForLog, age: 0,stage: 1),
+                                      Habit(name: "Exercise", plant: .blueberry(stage: 1), start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.40, importance: 3, empty: false, log: datesForLog, age: 0,stage: 2)],
+                                      [Habit(name: "Water Plants", plant: .orchid(stage: 2), start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.0, importance: 2, empty: false, log: datesForLog, age: 0,stage: 2),
+                                      Habit(name: "Shower", plant: .blueberry(stage: 2), start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.60, importance: 1, empty: false, log: datesForLog, age: 0,stage: 2),
+                                      Habit(name: "Wash Laundry", plant: .orchid(stage: 2), start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.29, importance: 1, empty: false, log: datesForLog, age: 0,stage: 3)],
+                                      [Habit(name: "Tell a joke", plant: .corn(stage: 3), start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.82, importance: 2, empty: false, log: datesForLog, age: 0,stage: 3),
+                                      Habit(name: "Take Medicine", plant: .tomato(stage: 2), start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.90, importance: 3, empty: false, log: datesForLog, age: 0,stage: 3),
                                       Habit()]
 ]
 }
     
+
 
