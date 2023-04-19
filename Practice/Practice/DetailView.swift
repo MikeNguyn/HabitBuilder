@@ -13,18 +13,15 @@ struct DetailView: View {
     @Binding var habit: Habit
     let PLANTICONSIZE = 75.0
     @State var presentSheet = false
-    
+    @State private var isPresentingConfirm: Bool = false
+    @State var day = Date()
+    let screenSize: CGRect = UIScreen.main.bounds
     
     var body: some View {
-        
+        var calendarClicked: Bool = false
         NavigationView{
             VStack(){
                 habit.plant.image.resizable().frame(width: PLANTICONSIZE, height: PLANTICONSIZE)
-                //                if(totalCheckins == 0) {
-                //                    habit.plant.image.resizable().frame(width: PLANTICONSIZE, height: PLANTICONSIZE)
-                //                } else {
-                //                    habit.plant.image = habit.plant.image == "tomatoPlantSmall"
-                //                }
                 LinearProgressDemoView(habit: habit)
                 List{
                     Section(header: Text("Habit Details")){
@@ -36,8 +33,8 @@ struct DetailView: View {
                         HStack {
                             Label("Length", systemImage: "timer")
                             Spacer()
-                            Text(String(calculateLength(startDate: habit.start,endDate: habit.end)) + " days")
-                            
+//                            Text(String(calculateLength(startDate: habit.start,endDate: habit.end)) + " days")
+                            Text(String(habit.age) + " checkins")
                         }
                         HStack {
                             Label("Z calculation", systemImage: "timer")
@@ -45,6 +42,11 @@ struct DetailView: View {
                             var totalCheckins = calculateZ(frequency: habit.frequency, lengthOfHabit: calculateLength(startDate: habit.start,endDate: habit.end))
                             Text(String(totalCheckins) + " total checkins")
                             
+                        }
+                        HStack {
+                            Label("Checkins in log", systemImage: "info.circle")
+                            Spacer()
+                            Text(String(habit.log.count) + " total checkins")
                         }
                         //for date formatting
                         HStack {
@@ -59,22 +61,59 @@ struct DetailView: View {
                             Text(getWeekdaysNames(weekDaysBools:habit.frequency))
                             
                         }
-                        
+                        HStack
+                        {
+                            Label("Check-ins allowed", systemImage:  "info.circle")
+                            Spacer()
+                            Text(String(habit.frequency[day.dayNumberOfWeek()! - 1]))
+                        }
+//                        HStack
+//                        {
+//                            Label("Log", systemImage:  "info.circle")
+//                            Spacer()
+//                            Text(String(habit.log))
+//                        }
                     }
                 }.background(CustomColor.homeGreen)
                     .listStyle(.plain)
                 
-                MultiDatePicker(                                     "Start Date",
-                    selection: $habit.log
-                )
+                ZStack{
+                    MultiDatePicker(                                     "Start Date",
+                        selection: $habit.log
+                    ).disabled(calendarClicked)
+                    
+                    Rectangle()
+                        .fill(.clear)
+                        .frame(width: screenSize.width*1.1, height: screenSize.height*0.35)
+                        .position(x:screenSize.width/2,y:screenSize.height * 0.24)
+                        .onTapGesture{
+                            calendarClicked = true
+                        }
+//                        calendarClicked = false
+                }
+//                MultiDatePicker(                                     "Start Date",
+//                    selection: $habit.log
+//                )
                                         .datePickerStyle(.graphical)
                     .scaleEffect(x: 0.9, y: 0.9)
                 
-                HStack{
-                    Button("Delete habit"){
-                        habit = Habit()
+                HStack(spacing: 75){
+                    Button("Delete habit", role: .destructive){
+                        isPresentingConfirm = true
+                    }.padding()
+                        .cornerRadius(4.0)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 4).stroke(Color(.systemRed), lineWidth: 2)
+                        )
+                            .confirmationDialog("Are you sure?",
+                              isPresented: $isPresentingConfirm) {
+                              Button("Delete this plant", role: .destructive) {
+                                  habit = Habit()
+                                }
+                            }
+                    
                         
-                    }
+                    
                     
                     Button("Edit Habit") {
                                     presentSheet.toggle()
@@ -86,6 +125,11 @@ struct DetailView: View {
                                         EditView(habit: $habit)
                                     }
                                     .background(CustomColor.homeGreen)
+                                    .padding()
+                                        .cornerRadius(4.0)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 4).stroke(Color(.systemBlue), lineWidth: 2)
+                                        )
                 }
                 
                 
@@ -109,7 +153,7 @@ func getImportanceLevel(num: Int)->String{
 //function that takes in the weekday frequency of the habit and returns the string of MTWThFSaSu
 func getWeekdaysNames(weekDaysBools: [Bool])->String{
     var weekdayNames = ""
-    let weekdays = ["M","T","W","Th","F","Sa","Su"]
+    let weekdays = ["Su","M","T","W","Th","F","Sa"]
     for i in 0...6{
         if weekDaysBools[i] {
             weekdayNames += weekdays[i] + " "
@@ -176,4 +220,21 @@ func stringOfDate(date: Date) -> String{
         dateFormatter.dateStyle = .short
     return dateFormatter.string(from: date)
 }
+
+//struct DeleteButton: View {
+//  @EnvironmentObject var store: Store
+//  @State private var isPresentingConfirm: Bool = false
+//
+//  var body: some View {
+//    Button("Delete", role: .destructive) {
+//      isPresentingConfirm = true
+//    }
+//   .confirmationDialog("Are you sure?",
+//     isPresented: $isPresentingConfirm) {
+//     Button("Delete all items?", role: .destructive) {
+//       store.deleteAll()
+//      }
+//    }
+//  }
+//}
 

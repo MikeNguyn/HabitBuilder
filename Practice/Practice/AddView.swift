@@ -20,6 +20,7 @@ struct AddView: View {
     @State var end: Date = Date()
     @State var frequency = [false, false, false, false, false, false, false]
     @State var importance = 1
+    var starterImages: [Image] = [Image("blueberryPlantSmall"),Image("orchidPlantSmall"),Image("tomatoPlantSmall"),Image("sunflowerPlantSmall"),Image("cornPlantSmall"),Image("peaPlantSmall") ]
 //    @State var date: Date = Date()
 //    @Binding var listOfPlant: [Habit.Plant]
 //    @State var chosenPlant = Habit.Plant.tomato
@@ -98,6 +99,7 @@ struct AddView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink(destination: DetailView(habit: $habit)){
                         Button("Done", action: {
+                            
                             habit.name = name
                             habit.plant = plant
                             habit.end = end
@@ -106,11 +108,51 @@ struct AddView: View {
                             habit.health = 1
                             habit.start = Date.now
                             habit.importance = importance
+                            var startDOW = habit.start.dayNumberOfWeek()
+                            var endDOW = habit.end.dayNumberOfWeek()
+                            var adjStart = habit.start.shiftDate(shift: 8 - startDOW!)
+                            var adjEnd = habit.end.shiftDate(shift: -(endDOW! - 1))
+                            var weeks = Double((Calendar.current.dateComponents([.day], from: adjStart!, to: adjEnd!).day! + 1)/7)
+                            var weeksCorrected = weeks.rounded(.toNearestOrAwayFromZero)
+                            var age = 0
+                            for i in (startDOW! ... 7) {
+                                if habit.frequency[i - 1] == true {
+                                    age = age + 1
+                                }
+                            }
+                            for i in (1 ... endDOW!) {
+                                if habit.frequency[i - 1] == true {
+                                    age = age + 1
+                                }
+                            }
+                            let count = frequency.filter{$0 == true}.count
+                            age = age + Int(weeksCorrected) * count
+                            habit.age = age
+                            habit.log = []
+                            ScheduleNotification(endDate: end)
                         })
                     }
                 }
             }
     }
+}
+
+func ScheduleNotification (endDate: Date) {
+    // creates the notification and schedules it to appear in 5 seconds. click this button second.
+    let content = UNMutableNotificationContent()
+    content.title = "Feed the cat"
+    content.subtitle = "It looks hungry"
+    content.sound = UNNotificationSound.default
+    
+    // show this notification five seconds from now
+    let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+    
+    //choose a random identifier
+    let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+    
+    // add our notification request
+    UNUserNotificationCenter.current().add(request)
+    print("IT WORKED")
 }
 
 struct AddView_Previews: PreviewProvider {

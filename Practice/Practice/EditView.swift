@@ -45,47 +45,48 @@ struct EditView: View {
                             .aspectRatio(contentMode: .fit)
                     }
                 }
-                HStack{
-                    DatePicker(
-                        "End date",
-                        selection: $habit.end,
-                        in: Date()...,
-                        displayedComponents: [.date]
-                    )
-                }
-                HStack {
-                    Spacer()
-                    VStack(alignment: .center){
-                        Text("Days of week")
-                        HStack(alignment: .center){
-                            Toggle("Sun", isOn: $habit.frequency[0])
-                            Toggle("Mon", isOn: $habit.frequency[1])
-                            Toggle("Tue", isOn: $habit.frequency[2])
-                            Toggle("Wed", isOn: $habit.frequency[3])
-                        }.toggleStyle(.button)
-                        HStack(alignment: .center){
-                            Toggle("Thu", isOn: $habit.frequency[4])
-                            Toggle("Fri", isOn: $habit.frequency[5])
-                            Toggle("Sat", isOn: $habit.frequency[6])
-                        }.toggleStyle(.button)
-                    }
-                    Spacer()
-                }.frame(alignment: .center)
+//                HStack{
+//                    DatePicker(
+//                        "End date",
+//                        selection: $habit.end,
+//                        in: Date()...,
+//                        displayedComponents: [.date]
+//                    )
+//                }
+//                HStack {
+//                    Spacer()
+//                    VStack(alignment: .center){
+//                        Text("Days of week")
+//                        HStack(alignment: .center){
+//                            Toggle("Sun", isOn: $habit.frequency[0])
+//                            Toggle("Mon", isOn: $habit.frequency[1])
+//                            Toggle("Tue", isOn: $habit.frequency[2])
+//                            Toggle("Wed", isOn: $habit.frequency[3])
+//                        }.toggleStyle(.button)
+//                        HStack(alignment: .center){
+//                            Toggle("Thu", isOn: $habit.frequency[4])
+//                            Toggle("Fri", isOn: $habit.frequency[5])
+//                            Toggle("Sat", isOn: $habit.frequency[6])
+//                        }.toggleStyle(.button)
+//                    }
+//                    Spacer()
+//                }.frame(alignment: .center)
                 HStack{
                     Picker("Importance", selection: $habit.importance) {
-                        Label("", systemImage: "exclamationmark").tag(1)
-                        Label("", systemImage: "exclamationmark.2").tag(2)
-                        Label("", systemImage: "exclamationmark.3").tag(3)
+                        Label("", systemImage: "exclamationmark")
+                            .foregroundStyle(.yellow, .black)
+                            .tag(1)
+                        Label("", systemImage: "exclamationmark.2")
+                            .foregroundStyle(.orange, .black)
+                            .tag(2)
+                        Label("", systemImage: "exclamationmark.3")
+                            .foregroundStyle(.red, .black)
+                            .tag(3)
                     }
                 }
             }
         }
-        .background(CustomColor.homeGreen)
         .navigationTitle("Edit Habit")
-        Button("Confirm") {
-                            // Save the article and dismiss.
-                            dismiss()
-                        }
     }
 }
 

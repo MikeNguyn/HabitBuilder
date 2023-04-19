@@ -8,6 +8,8 @@
 
 import SwiftUI
 
+//var globalImageNumber: Int = 1
+
 struct ButtonView: View {
 //    var widthPercentage: Int
 //    var heightPercentage: Int
@@ -16,16 +18,10 @@ struct ButtonView: View {
     @GestureState var press = false
     @State var show = false
     @State var isShowingDetailView = false
+//    @State var plant: Habit.Plant = Habit.Plant.tomato3
     
     var body: some View {
         VStack{
-//            if(habit.age == 0) {
-//                habit.plant.image
-//            } else if(habit.age > 5) {
-//                habit.plant.image
-//            } else {
-//                habit.plant.image
-//            }
             habit.plant.image
                 .resizable()
                 .scaledToFit()
@@ -33,8 +29,21 @@ struct ButtonView: View {
                 .cornerRadius(15)
                 .frame(width: screenSize.width/4.5, height: screenSize.width/4.5)
                 // need to get width and height of original images, or resize all images to have the same w and h
-                .scaleEffect(x: 2.0, y: 3, anchor: .center)
-                .shadow(color: show ? Color.green.opacity(1): Color.white.opacity(0.0), radius: 5.0 )
+                .scaleEffect(x: 1.5, y: 2.5, anchor: .center)
+                .shadow(color: {
+                    let now = Date()
+                    let calendar = Calendar.current
+                    if (habit.frequency[now.dayNumberOfWeek()! - 1]){
+                        if (habit.log.contains(calendar.dateComponents([.year, .month, .day], from: now))) {
+                            return Color.green
+                        } else {
+                            return Color.red
+                        }
+                    }
+                    else {
+                        return Color.yellow
+                    }
+                }(), radius: 5.0 )
                 .scaleEffect(press ? 1.5: 1)
                 .animation(.spring(response: 0.4, dampingFraction: 1))
                 .highPriorityGesture(
@@ -43,14 +52,27 @@ struct ButtonView: View {
                             gestureState = currentState
                         }
                         .onEnded{ value in
-                            show.toggle()
                             print("the user checked off habit")
 //                            print(habit.log)
                             let now = Date() // get the current date and time
                             let calendar = Calendar.current // get the current calendar
                             let todayDate = calendar.dateComponents([.year, .month, .day], from: now) // create a DateComponents object with just the year, month, and day
-                            habit.log.insert(todayDate)
+                            if (habit.frequency[now.dayNumberOfWeek()! - 1]) {
+                                if (!habit.log.contains(todayDate)) {
+                                    habit.log.insert(todayDate)
+                                } else {
+                                    habit.log.remove(todayDate)
+                                }
+                            }
+//                            checkPlantGrowth(habit: habit)
+                            stageGlobal = checkPlantGrowth(habit: habit)
+                            print(stageGlobal)
+//                            habit.plant = plant
+                            
 //                            print(habit.log)
+                            
+                            //going to check for plant growth
+//                            if (habit .log.length)
                             
                         }
                 )
@@ -60,7 +82,7 @@ struct ButtonView: View {
                             isShowingDetailView.toggle()
                         }
                 )
-            
+                // rotates the plants to be in line with the plant box in content view
                 .rotation3DEffect(.degrees(-45), axis: (x: 0.0, y: 0.0, z: 45.0))
             NavigationLink(destination: DetailView(habit: $habit), isActive: $isShowingDetailView) {
             }
@@ -74,3 +96,62 @@ struct ButtonView_Previews: PreviewProvider {
         ButtonView(habit: .constant(habit))
     }
 }
+
+
+//This function will return 1 if habit is still a small plant, 2 if it should be a med plant and 3 if it should be a large plant.
+func checkPlantGrowth(habit: Habit)->Int{
+    var totalCheckins = habit.age
+    var currentNumofCheckins = habit.log.count
+    var secondStageThreshold = totalCheckins / 3
+    var thirdStageThreshold = secondStageThreshold * 2
+    
+    var imageStage = 1 //initalize to small size image
+    if (currentNumofCheckins >= thirdStageThreshold){ //if they have checked in more than 2/3 of total checkins
+        imageStage = 3
+    } else if (currentNumofCheckins >= secondStageThreshold){ //plant should be on second stage
+        imageStage = 2
+    }
+    return imageStage
+    
+//    //now change habit image to size it should be on
+//    var habitString: String = habit.plant.id
+//    habitString.dropLast()
+//    habitString =  habitString + String(imageStage)
+////    var enum habitEnum = habitString
+////    var returnplant: Habit.Plant = .blueberry1
+//    var enumPlant: Habit.Plant = Habit.Plant(rawValue: habitString)
+//
+//    //ERROR BC IF THERE's NOT A CHECK IN THE VALUE IS NULL
+//
+//
+//
+//    return enumPlant
+    //so now habitString should be the new image name like .blueberry2
+}
+
+//enum ExampleEnum: String {
+//    case blueberry1
+//    case orchid1
+//    case tomato1
+//    case corn1
+//    case sunflower1
+//    case pea1
+//
+//    case blueberry2
+//    case orchid2
+//    case tomato2
+//    case corn2
+//    case sunflower2
+//    case pea2
+//
+//    case blueberry3
+//    case orchid3
+//    case tomato3
+//    case corn3
+//    case sunflower3
+//    case pea3
+//}
+
+//func convertStringToEnum(string: String) -> Habit.Plant{
+//    return Habit.Plant(rawValue: string)
+//}
