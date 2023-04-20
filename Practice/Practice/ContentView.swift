@@ -22,6 +22,9 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack{
+                NavigationLink("Tutorial"){
+                    ImageSlideShow(images: ["Tutss1", "Tutss1", "Tutss2", "Tutss3", "Tutss4","Tutss5", "Tutss6", "Tutss7", "Tutss8", "Tutss9", "Tutss10", "Tutss11", "Tutss12", "Tutss15", "Tutss16"])
+                }
                 Button("Request Permission") {
                     // requests permission from the user to send notifications. Click this first
                     UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
@@ -32,7 +35,7 @@ struct ContentView: View {
                         }
                     }
                 }
-                //Schedule button HAS BEEN MOVED TO ADDVIEW              
+                //Schedule button HAS BEEN MOVED TO ADDVIEW
                 Grid(){
                     Divider()
                     GridRow {
@@ -45,8 +48,8 @@ struct ContentView: View {
                                 }
                             } else {
                                     ButtonView(habit: $habit)
-                                    .offset(y:-65)
-                                    .offset(x:-65)
+                                    .offset(y:-30)
+                                    .offset(x:-30)
                             }
                         }
                     }
@@ -61,8 +64,8 @@ struct ContentView: View {
                                 }
                             } else {
                                     ButtonView(habit: $habit)
-                                    .offset(y:-65)
-                                    .offset(x:-65)
+                                    .offset(y:-30)
+                                    .offset(x:-30)
                             }
                         }
                     }
@@ -77,8 +80,8 @@ struct ContentView: View {
                                 }
                             } else {
                                 ButtonView(habit: $habit)
-                                    .offset(y:-65)
-                                    .offset(x:-65)
+                                    .offset(y:-30)
+                                    .offset(x:-30)
                             }
                         }
                     }
@@ -90,7 +93,7 @@ struct ContentView: View {
                 //  the frame is an attempt to make the rectangle a proper square instead of a rectangle. it didn't work.
 //                 .frame(width: screenSize.width/4.5, height: screenSize.width/1.2, alignment: .top)
                 Text("One day, or day one? You decide.")
-                            .position(x:200,y:100).foregroundColor(.teal).font(.system(size: 20)
+                            .position(x:200,y:0).foregroundColor(.black).font(.system(size: 20)
                                 .bold())
                 
                 Spacer()

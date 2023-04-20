@@ -18,7 +18,7 @@ struct ImageSlideShow: View {
                 .resizable()
                 .scaledToFit()
                 .onAppear {
-                    let timer = Timer.scheduledTimer(withTimeInterval: 3, repeats: true) { _ in
+                    let timer = Timer.scheduledTimer(withTimeInterval: 4, repeats: true) { _ in
                         if currentImageIndex < images.count - 1 {
                             currentImageIndex += 1
                         } else {

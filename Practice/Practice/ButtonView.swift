@@ -27,7 +27,7 @@ struct ButtonView: View {
                 .scaledToFit()
                 .aspectRatio(contentMode: .fit)
                 .cornerRadius(15)
-                .frame(width: screenSize.width/4.5, height: screenSize.width/4.5)
+                .frame(width: screenSize.width/6, height: screenSize.width/6)
                 // need to get width and height of original images, or resize all images to have the same w and h
                 .scaleEffect(x: 1.5, y: 2.5, anchor: .center)
                 .shadow(color: {
@@ -52,13 +52,14 @@ struct ButtonView: View {
                             gestureState = currentState
                         }
                         .onEnded{ value in
-                            print("the user checked off habit")
+                            
 //                            print(habit.log)
                             let now = Date() // get the current date and time
                             let calendar = Calendar.current // get the current calendar
                             let todayDate = calendar.dateComponents([.year, .month, .day], from: now) // create a DateComponents object with just the year, month, and day
                             if (habit.frequency[now.dayNumberOfWeek()! - 1]) {
                                 if (!habit.log.contains(todayDate)) {
+                                    print("the user checked off habit")
                                     habit.log.insert(todayDate)
                                 } else {
                                     habit.log.remove(todayDate)
@@ -101,9 +102,9 @@ struct ButtonView_Previews: PreviewProvider {
 //This function will return 1 if habit is still a small plant, 2 if it should be a med plant and 3 if it should be a large plant.
 func checkPlantGrowth(habit: Habit)->Int{
     var totalCheckins = habit.age
-    var currentNumofCheckins = habit.log.count
-    var secondStageThreshold = totalCheckins / 3
-    var thirdStageThreshold = secondStageThreshold * 2
+    var currentNumofCheckins = Double(habit.log.count)
+    var secondStageThreshold: Double = Double(totalCheckins / 3)
+    var thirdStageThreshold: Double = secondStageThreshold * 2
     
     var imageStage = 1 //initalize to small size image
     if (currentNumofCheckins >= thirdStageThreshold){ //if they have checked in more than 2/3 of total checkins
