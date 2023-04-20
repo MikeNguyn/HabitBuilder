@@ -51,6 +51,20 @@ struct Plant: Hashable, Identifiable, Codable {
         return Image("Error")
         
     }
+    func checkPlantGrowth(plantName: String, plantStage: Int)->Image{
+        var suffix = "Small"
+        if (plantStage == 2){
+            suffix = "Med"
+        } else if (plantStage == 3){
+            suffix = "Full"
+        }
+        var imageName = plantName + suffix
+        return Image(imageName)
+    }
+    
+//    func updatePlantImage(name: String, newstage: Int)-> Void{
+//        self.image = checkPlantGrowth(plantName: name, plantStage: newstage)
+//    }
     
 //        case blueberry2
 //        case orchid2

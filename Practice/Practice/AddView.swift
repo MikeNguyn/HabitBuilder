@@ -41,15 +41,12 @@ struct AddView: View {
                     Menu{
                         Picker("Select Plant", selection: $habit.plant) {
                             ForEach(plantCasesforPicker) { plant in
-                                plant.image
-                                    .tag(plant)
+                                plant.image.tag(plant)
                             }
                         }
                     } label: {
-                        self.plant.image.resizable()
+                        self.habit.plant.image.resizable()
                             .frame(width: screenSize.width/10, height: screenSize.width/10)
-                            .scaledToFit()
-                            .aspectRatio(contentMode: .fit)
                     }
                 }
                 HStack{
@@ -99,9 +96,9 @@ struct AddView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink(destination: DetailView(habit: $habit)){
                         Button("Done", action: {
-                            
+//                            print(habit.plant.plant)
                             habit.name = name
-                            habit.plant = plant
+//                            habit.plant = plant
                             habit.end = end
                             habit.frequency = frequency
                             habit.empty = false

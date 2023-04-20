@@ -30,6 +30,10 @@ let dateComponentsArray = [
 ]
 var plantCasesforPicker = [Plant(plant: "sunflower", stage: 1),Plant(plant: "blueberry", stage: 1),Plant(plant: "pea", stage: 1),Plant(plant: "orchid", stage: 1),Plant(plant: "corn", stage: 1),Plant(plant: "tomato", stage: 1)]
 
+var plantCasesforPicker2 = [Plant(plant: "sunflower", stage: 2),Plant(plant: "blueberry", stage: 2),Plant(plant: "pea", stage: 2),Plant(plant: "orchid", stage: 2),Plant(plant: "corn", stage: 2),Plant(plant: "tomato", stage: 2)]
+
+var plantCasesforPicker3 = [Plant(plant: "sunflower", stage: 3),Plant(plant: "blueberry", stage: 3),Plant(plant: "pea", stage: 3),Plant(plant: "orchid", stage: 3),Plant(plant: "corn", stage: 3),Plant(plant: "tomato", stage: 3)]
+
 var datesForLog = Set(dateComponentsArray)
 
 var stageGlobal = 1
@@ -129,16 +133,16 @@ extension Date {
     }
 }
  
-func checkPlantGrowth(plantName: String, plantStage: Int)->Image{
-    var suffix = "Small"
-    if (plantStage == 2){
-        suffix = "Med"
-    } else if (plantStage == 3){
-        suffix = "Full"
-    }
-    var imageName = plantName + suffix
-    return Image(imageName)
-}
+//func checkPlantGrowth(plantName: String, plantStage: Int)->Image{
+//    var suffix = "Small"
+//    if (plantStage == 2){
+//        suffix = "Med"
+//    } else if (plantStage == 3){
+//        suffix = "Full"
+//    }
+//    var imageName = plantName + suffix
+//    return Image(imageName)
+//}
 
 //Sample data we use to display/test
 extension Habit {

@@ -61,13 +61,18 @@ struct ButtonView: View {
                                 if (!habit.log.contains(todayDate)) {
                                     print("the user checked off habit")
                                     habit.log.insert(todayDate)
+                                    habit.plant = Plant(plant: habit.plant.plant, stage: checkPlantGrowth(age: habit.age, log: habit.log.count))
+                                    print(habit.plant.stage)
                                 } else {
                                     habit.log.remove(todayDate)
+                                    habit.plant = Plant(plant: habit.plant.plant, stage: checkPlantGrowth(age: habit.age, log: habit.log.count))
+                                    print(habit.plant.stage)
                                 }
                             }
 //                            checkPlantGrowth(habit: habit)
-                            stageGlobal = checkPlantGrowth(habit: habit)
-                            print(stageGlobal)
+                            
+//                            stageGlobal = checkPlantGrowth(habit: habit)
+//                            print(stageGlobal)
 //                            habit.plant = plant
                             
 //                            print(habit.log)
@@ -100,9 +105,9 @@ struct ButtonView_Previews: PreviewProvider {
 
 
 //This function will return 1 if habit is still a small plant, 2 if it should be a med plant and 3 if it should be a large plant.
-func checkPlantGrowth(habit: Habit)->Int{
-    var totalCheckins = habit.age
-    var currentNumofCheckins = Double(habit.log.count)
+func checkPlantGrowth(age: Int, log: Int)->Int{
+    var totalCheckins = Double(age)
+    var currentNumofCheckins = Double(log)
     var secondStageThreshold: Double = Double(totalCheckins / 3)
     var thirdStageThreshold: Double = secondStageThreshold * 2
     
