@@ -72,6 +72,7 @@
 		7516AEB629AAB9A200ED7D17 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 		756E1EB929D9F2E40069971E /* HabitStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitStore.swift; sourceTree = "<group>"; };
 		757758BD29B914F600DD887F /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
+		75EA3C5E29F193F7009973A9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				5437606229943C5B006D3E90 /* PracticeApp.swift */,
+				75EA3C5E29F193F7009973A9 /* Info.plist */,
 				7516AEAF29A6B2E500ED7D17 /* Models */,
 				5437606429943C5B006D3E90 /* ContentView.swift */,
 				05652B8E29F053F5002169AB /* ImageSlideShow.swift */,

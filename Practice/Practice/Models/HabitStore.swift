@@ -15,7 +15,7 @@ class HabitStore: ObservableObject {
     private static func fileURL() throws -> URL {
         try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil,
         create: false)
-        .appendingPathComponent("habits1.data")
+        .appendingPathComponent("habits2.data")
        }
     
     static func load(completion: @escaping (Result<[[Habit]], Error>)->Void) {
