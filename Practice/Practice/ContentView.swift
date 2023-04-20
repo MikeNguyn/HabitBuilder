@@ -48,8 +48,8 @@ struct ContentView: View {
                                 }
                             } else {
                                     ButtonView(habit: $habit)
-                                    .offset(y:-65)
-                                    .offset(x:-65)
+                                    .offset(y:-30)
+                                    .offset(x:-30)
                             }
                         }
                     }
@@ -64,8 +64,8 @@ struct ContentView: View {
                                 }
                             } else {
                                     ButtonView(habit: $habit)
-                                    .offset(y:-65)
-                                    .offset(x:-65)
+                                    .offset(y:-30)
+                                    .offset(x:-30)
                             }
                         }
                     }
@@ -80,8 +80,8 @@ struct ContentView: View {
                                 }
                             } else {
                                 ButtonView(habit: $habit)
-                                    .offset(y:-65)
-                                    .offset(x:-65)
+                                    .offset(y:-30)
+                                    .offset(x:-30)
                             }
                         }
                     }
@@ -93,7 +93,7 @@ struct ContentView: View {
                 //  the frame is an attempt to make the rectangle a proper square instead of a rectangle. it didn't work.
 //                 .frame(width: screenSize.width/4.5, height: screenSize.width/1.2, alignment: .top)
                 Text("One day, or day one? You decide.")
-                            .position(x:200,y:100).foregroundColor(.teal).font(.system(size: 20)
+                            .position(x:200,y:0).foregroundColor(.black).font(.system(size: 20)
                                 .bold())
                 
                 Spacer()
