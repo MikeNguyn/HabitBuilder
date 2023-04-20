@@ -41,7 +41,7 @@ struct ButtonView: View {
                         }
                     }
                     else {
-                        return Color.yellow
+                        return Color.yellow.opacity(0.0)
                     }
                 }(), radius: 5.0 )
                 .scaleEffect(press ? 1.5: 1)

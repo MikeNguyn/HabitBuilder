@@ -13,13 +13,13 @@ struct PracticeApp: App {
     @StateObject private var store = HabitStore()
     var body: some Scene {
         WindowGroup {
-                ContentView(habitList: $store.habits) {
-                    HabitStore.save(habits: store.habits) { result in
-                        if case .failure(let error) = result {
-                            fatalError(error.localizedDescription)
-                        }
+            ContentView(habitList: $store.habits) {
+                HabitStore.save(habits: store.habits) { result in
+                    if case .failure(let error) = result {
+                        fatalError(error.localizedDescription)
                     }
                 }
+            }
             .onAppear {
                 HabitStore.load { result in
                     switch result {
