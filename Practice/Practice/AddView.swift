@@ -16,7 +16,7 @@ let screenSize: CGRect = UIScreen.main.bounds
 struct AddView: View {
     @Binding var habit: Habit
     @State var name: String = ""
-    @State var plant: Habit.Plant = Habit.Plant.tomato
+    @State var plant: Plant = Plant(plant: "tomato", stage: 1)
     @State var end: Date = Date()
     @State var frequency = [false, false, false, false, false, false, false]
     @State var importance = 1
@@ -39,8 +39,8 @@ struct AddView: View {
                     Text("Plant")
                     Spacer()
                     Menu{
-                        Picker("Select Plant", selection: $plant) {
-                            ForEach(Habit.Plant.allCases) { plant in
+                        Picker("Select Plant", selection: $habit.plant) {
+                            ForEach(plantCasesforPicker) { plant in
                                 plant.image
                                     .tag(plant)
                             }

@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct Plant: Identifiable, Codable {
+struct Plant: Hashable, Identifiable, Codable {
     var plant: String
 //    var image: Image
     var stage: Int

@@ -28,6 +28,7 @@ let dateComponentsArray = [
     DateComponents(year: 2023, month: 3, day: 24),
     DateComponents(year: 2023, month: 3, day: 31)
 ]
+var plantCasesforPicker = [Plant(plant: "sunflower", stage: 1),Plant(plant: "blueberry", stage: 1),Plant(plant: "pea", stage: 1),Plant(plant: "orchid", stage: 1),Plant(plant: "corn", stage: 1),Plant(plant: "tomato", stage: 1)]
 
 var datesForLog = Set(dateComponentsArray)
 

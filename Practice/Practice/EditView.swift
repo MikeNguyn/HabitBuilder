@@ -33,7 +33,7 @@ struct EditView: View {
                     Spacer()
                     Menu{
                         Picker("Select Plant", selection: $habit.plant) {
-                            ForEach(Habit.Plant.allCases) { plant in
+                            ForEach(plantCasesforPicker) { plant in
                                 plant.image
                                     .tag(plant)
                             }
