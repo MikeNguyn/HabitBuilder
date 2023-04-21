@@ -23,6 +23,25 @@ struct DetailView: View {
             VStack(){
                 habit.plant.image.resizable().frame(width: PLANTICONSIZE, height: PLANTICONSIZE)
                 LinearProgressDemoView(habit: habit)
+                Spacer()
+                Button("Check off Habit") {
+                    let now = Date() // get the current date and time
+                    let calendar = Calendar.current // get the current calendar
+                    let todayDate = calendar.dateComponents([.year, .month, .day], from: now) // create a DateComponents object with just the year, month, and day
+                    if (habit.frequency[now.dayNumberOfWeek()! - 1]) {
+                        if (!habit.log.contains(todayDate)) {
+                            print("the user checked off habit")
+                            habit.log.insert(todayDate)
+                            habit.plant = Plant(plant: habit.plant.plant, stage: checkPlantGrowth(age: habit.age, log: habit.log.count))
+                            print(habit.plant.stage)
+                        } else {
+                            habit.log.remove(todayDate)
+                            habit.plant = Plant(plant:        habit.plant.plant, stage: checkPlantGrowth(age: habit.age, log: habit.log.count))
+                            print(habit.plant.stage)
+                        }
+                    }
+                }
+
                 List{
                     Section(header: Text("Habit Details")){
                         HStack {
