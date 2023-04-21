@@ -33,7 +33,7 @@ struct EditView: View {
                     Spacer()
                     Menu{
                         Picker("Select Plant", selection: $habit.plant) {
-                            ForEach(plantCasesforPicker) { plant in
+                            ForEach(whichPickertoUse(stage: habit.plant.stage)) { plant in
                                 plant.image
                                     .tag(plant)
                             }
@@ -95,4 +95,19 @@ struct EditView_Previews: PreviewProvider {
     static var previews: some View {
         EditView(habit: .constant(Habit.sampleData[0][1]))
     }
+}
+
+
+func whichPickertoUse(stage: Int) -> [Plant]{
+    var picker: [Plant] = plantCasesforPicker
+    if (stage == 2){
+        picker = plantCasesforPicker2
+//        print("using second picker")
+    }
+    if (stage == 3){
+        picker = plantCasesforPicker3
+//        print("using third picker")
+    }
+    return picker
+    
 }
