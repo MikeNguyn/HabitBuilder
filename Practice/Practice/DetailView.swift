@@ -73,24 +73,25 @@ struct DetailView: View {
 //                            Spacer()
 //                            Text(String(habit.log))
 //                        }
+                        ZStack{
+                            MultiDatePicker(                                     "Start Date",
+                                selection: $habit.log
+                            ).disabled(true)
+                            
+                            Rectangle()
+                                .fill(.clear)
+                                .frame(width: screenSize.width*1.1, height: screenSize.height*0.35)
+                                .position(x:screenSize.width/2,y:screenSize.height * 0.24)
+                                .onTapGesture{
+                                    calendarClicked = true
+                                }
+        //                        calendarClicked = false
+                        }
                     }
                 }.background(CustomColor.homeGreen)
                     .listStyle(.plain)
                 
-                ZStack{
-                    MultiDatePicker(                                     "Start Date",
-                        selection: $habit.log
-                    ).disabled(calendarClicked)
-                    
-                    Rectangle()
-                        .fill(.clear)
-                        .frame(width: screenSize.width*1.1, height: screenSize.height*0.35)
-                        .position(x:screenSize.width/2,y:screenSize.height * 0.24)
-                        .onTapGesture{
-                            calendarClicked = true
-                        }
-//                        calendarClicked = false
-                }
+                
 //                MultiDatePicker(                                     "Start Date",
 //                    selection: $habit.log
 //                )
