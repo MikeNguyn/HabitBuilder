@@ -127,11 +127,6 @@ struct CustomColor {
     static let homeSoil = Color("ColorSoil")
 }
 
-// found the following function from this site: https://iostutorialjunction.com/2019/09/get-number-of-days-between-two-dates-swift.html
-func daysBetween(start: Date, end: Date) -> Int {
-        return Calendar.current.dateComponents([.day], from: start, to: end).day!
-    }
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView(habitList: .constant(Habit.sampleData), saveAction: {})
