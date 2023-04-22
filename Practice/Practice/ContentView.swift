@@ -44,7 +44,7 @@ struct ContentView: View {
                                 NavigationLink(destination:  AnyView(AddView(habit: $habit))) {
                                     EmptyView()
                                         .offset(y:-5)
-                                        .offset(x:10)
+//                                        .offset(x:10)
                                 }
                             } else {
                                     ButtonView(habit: $habit)
@@ -60,7 +60,7 @@ struct ContentView: View {
                                 NavigationLink(destination:  AnyView(AddView(habit: $habit))) {
                                     EmptyView()
                                         .offset(y:-5)
-                                        .offset(x:10)
+//                                        .offset(x:10)
                                 }
                             } else {
                                     ButtonView(habit: $habit)
@@ -76,7 +76,7 @@ struct ContentView: View {
                                 NavigationLink(destination:  AnyView(AddView(habit: $habit))) {
                                     EmptyView()
                                         .offset(y:-5)
-                                        .offset(x:10)
+//                                        .offset(x:10)
                                 }
                             } else {
                                 ButtonView(habit: $habit)
@@ -133,11 +133,6 @@ struct CustomColor {
     static let homeGreen = Color("ColorHomeBackground")
     static let homeSoil = Color("ColorSoil")
 }
-
-// found the following function from this site: https://iostutorialjunction.com/2019/09/get-number-of-days-between-two-dates-swift.html
-func daysBetween(start: Date, end: Date) -> Int {
-        return Calendar.current.dateComponents([.day], from: start, to: end).day!
-    }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

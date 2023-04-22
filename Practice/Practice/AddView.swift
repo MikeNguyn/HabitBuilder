@@ -40,7 +40,7 @@ struct AddView: View {
                     Spacer()
                     Menu{
                         Picker("Select Plant", selection: $habit.plant) {
-                            ForEach(plantCasesforPicker) { plant in
+                            ForEach(plantCasesforPicker3) { plant in
                                 plant.image.tag(plant)
                             }
                         }
@@ -98,7 +98,7 @@ struct AddView: View {
                         Button("Done", action: {
 //                            print(habit.plant.plant)
                             habit.name = name
-//                            habit.plant = plant
+                            habit.plant.stage = 1
                             habit.end = end
                             habit.frequency = frequency
                             habit.empty = false
