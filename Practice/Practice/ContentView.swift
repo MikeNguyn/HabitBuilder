@@ -97,20 +97,27 @@ struct ContentView: View {
                                 .bold())
                 
                 Spacer()
-                HStack(spacing: 60.0){
-                    Button("Reset Garden", role: .destructive) {
+                HStack{
+                    Spacer()
+                    Button("X", role: .destructive) {
                         isPresentingConfirm = true
                     }
+                    .padding(25)
+                        .background(Color.blue)
+                        .clipShape(Circle())
+                        .padding(.trailing, 20)
+                    
                     .confirmationDialog("Are you sure?",
                       isPresented: $isPresentingConfirm) {
-                      Button("Delete this plant?", role: .destructive) {
+                      Button("Delete the entire garden?", role: .destructive) {
                           habitList =
                              [[Habit(), Habit(), Habit()],
                               [Habit(), Habit(), Habit()],
                               [Habit(), Habit(), Habit()]]
                         }
                     }
-                }
+                    
+                }.edgesIgnoringSafeArea(.all)
                 
             }
             .background(Color("ColorHomeBackground"))
