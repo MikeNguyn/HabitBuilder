@@ -70,7 +70,7 @@ struct Habit: Identifiable, Codable {
     init (id: UUID = UUID()){
         self.id = id
         self.name = ""
-        self.plant = Plant()
+        self.plant = Plant(plant: "tomato", stage: 3)
         self.start = Date()
         self.end = Date()
         self.health = 0

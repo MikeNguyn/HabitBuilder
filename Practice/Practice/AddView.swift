@@ -45,7 +45,7 @@ struct AddView: View {
                             }
                         }
                     } label: {
-                        plant.image.resizable()
+                        habit.plant.image.resizable()
                             .frame(width: screenSize.width/10, height: screenSize.width/10)
                     }
                 }
