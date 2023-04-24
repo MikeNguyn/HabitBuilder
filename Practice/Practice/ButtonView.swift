@@ -107,4 +107,4 @@ func checkPlantGrowth(age: Int, log: Int)->Int{
         imageStage = 2
     }
     return imageStage
-    
+}
