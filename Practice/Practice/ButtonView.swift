@@ -69,17 +69,6 @@ struct ButtonView: View {
                                     print(habit.plant.stage)
                                 }
                             }
-//                            checkPlantGrowth(habit: habit)
-                            
-//                            stageGlobal = checkPlantGrowth(habit: habit)
-//                            print(stageGlobal)
-//                            habit.plant = plant
-                            
-//                            print(habit.log)
-                            
-                            //going to check for plant growth
-//                            if (habit .log.length)
-                            
                         }
                 )
                 .simultaneousGesture(
@@ -119,45 +108,3 @@ func checkPlantGrowth(age: Int, log: Int)->Int{
     }
     return imageStage
     
-//    //now change habit image to size it should be on
-//    var habitString: String = habit.plant.id
-//    habitString.dropLast()
-//    habitString =  habitString + String(imageStage)
-////    var enum habitEnum = habitString
-////    var returnplant: Habit.Plant = .blueberry1
-//    var enumPlant: Habit.Plant = Habit.Plant(rawValue: habitString)
-//
-//    //ERROR BC IF THERE's NOT A CHECK IN THE VALUE IS NULL
-//
-//
-//
-//    return enumPlant
-    //so now habitString should be the new image name like .blueberry2
-}
-
-//enum ExampleEnum: String {
-//    case blueberry1
-//    case orchid1
-//    case tomato1
-//    case corn1
-//    case sunflower1
-//    case pea1
-//
-//    case blueberry2
-//    case orchid2
-//    case tomato2
-//    case corn2
-//    case sunflower2
-//    case pea2
-//
-//    case blueberry3
-//    case orchid3
-//    case tomato3
-//    case corn3
-//    case sunflower3
-//    case pea3
-//}
-
-//func convertStringToEnum(string: String) -> Habit.Plant{
-//    return Habit.Plant(rawValue: string)
-//}
