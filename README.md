@@ -35,10 +35,10 @@
 ## Custom Assets
 * all plants were made in illustrator by Curran and Francesca \
 ![image](./Practice/Practice/Assets.xcassets/sunflowerPlantFull.imageset/Sunflower.png)
-![image](./Practice/Practice/Assets.xcassets/cornPlantFull.imageset/CornPlantFull.png)
-![image](./Practice/Practice/Assets.xcassets/tomatoPlantFull.imageset/Tomato1.png)
+![corn](./Practice/Practice/Assets.xcassets/cornPlantFull.imageset/CornPlantFull.png)
+![hello](./Practice/Practice/Assets.xcassets/tomatoPlantFull.imageset/Tomato1.png)
 
-<img src="./Practice/Practice/Assets.xcassets/cornPlantFull.imageset/CornPlantFull.png" alt= “Corn image” width="250" height="250">
+
 
 ## CREDITS
 -made by ...
