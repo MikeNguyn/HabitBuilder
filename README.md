@@ -34,7 +34,7 @@
 
 ## Custom Assets
 * all plants were made in illustrator by Curran and Francesca
-![image](./Practice/Assets.xcassets/sunflowerPlantFull.imageset/Sunflower.png)
+![image](./Practice/Practice/Assets.xcassets/sunflowerPlantFull.imageset/Sunflower.png)
 
 
 CREDITS
