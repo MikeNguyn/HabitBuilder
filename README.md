@@ -32,14 +32,10 @@
     + TBD
 
 
-
-
--Habit and Plant clases
--Views of the app
--Button and empty view
-
 ## Custom Assets
 * all plants were made in illustrator by Curran and Francesca
+![image](/Users/matt3mukai/Desktop/COMP225/HabitBuilder/Practice/Practice/Assets.xcassets/sunflowerPlantFull.imageset/Sunflower.png)
+
 
 CREDITS
 -made by ...
