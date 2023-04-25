@@ -1,12 +1,13 @@
 # HABIT GARDEN PROJECT
 --------------
+![logo](./Practice/Practice/Assets.xcassets/AppIcon.appiconset/logoSQUARE.png)
+
+
+
 * What did we build?
     + A Garden-themed Habit App to help people "plant" and "nuture" their good habits.
     + We built this phone app for people interested in building better habits and self-improvement.
     + App was built using SwiftUI and Xcode.
-
-
-![logo](./Practice/Practice/Assets.xcassets/AppIcon.appiconset/logoSQUARE.png)
 
 
 ## UNDERSTANDING THE CODE
