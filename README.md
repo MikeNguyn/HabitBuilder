@@ -33,11 +33,14 @@
 
 
 ## Custom Assets
-* all plants were made in illustrator by Curran and Francesca
+* all plants were made in illustrator by Curran and Francesca \
 ![image](./Practice/Practice/Assets.xcassets/sunflowerPlantFull.imageset/Sunflower.png)
+![image](./Practice/Practice/Assets.xcassets/cornPlantFull.imageset/CornPlantFull.png)
+![image](./Practice/Practice/Assets.xcassets/tomatoPlantFull.imageset/Tomato1.png)
 
 
-CREDITS
+
+## CREDITS
 -made by ...
 -made for...
 
