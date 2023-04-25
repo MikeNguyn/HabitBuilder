@@ -4,10 +4,10 @@
 
 
 
-* What did we build?
-    + A Garden-themed Habit App to help people "plant" and "nuture" their good habits.
-    + We built this phone app for people interested in building better habits and self-improvement.
-    + App was built using SwiftUI and Xcode.
+## What did we build?
+* A Garden-themed Habit App to help people "plant" and "nuture" their good habits.
+* We built this phone app for people interested in building better habits and self-improvement.
+* App was built using SwiftUI and Xcode.
 
 
 ## UNDERSTANDING THE CODE
