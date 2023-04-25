@@ -1,7 +1,16 @@
 # HABIT GARDEN PROJECT
-* short explanation of project
+--------------
+* What did we build?
+    + A Garden-themed Habit App to help people "plant" and "nuture" their good habits.
+    + We built this phone app for people interested in building better habits and self-improvement.
+    + App was built using SwiftUI and Xcode.
+
+
+![logo](./Practice/Practice/Assets.xcassets/AppIcon.appiconset/logoSQUARE.png)
+
 
 ## UNDERSTANDING THE CODE
+--------------
 
 ### Models
 * Habit Data Class
@@ -33,14 +42,17 @@
 
 
 ## Custom Assets
+--------------
 * all plants were made in illustrator by Curran and Francesca \
-![image](./Practice/Practice/Assets.xcassets/sunflowerPlantFull.imageset/Sunflower.png)
+!sunflower(./Practice/Practice/Assets.xcassets/sunflowerPlantFull.imageset/Sunflower.png)
 ![corn](./Practice/Practice/Assets.xcassets/cornPlantFull.imageset/CornPlantFull.png)
-![hello](./Practice/Practice/Assets.xcassets/tomatoPlantFull.imageset/Tomato1.png)
+![tomato](./Practice/Practice/Assets.xcassets/tomatoPlantFull.imageset/Tomato1.png)
+
 
 
 
 ## CREDITS
+--------------
 -made by ...
 -made for...
 
