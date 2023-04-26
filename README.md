@@ -58,6 +58,6 @@
 
 ## CREDITS
 --------------
--made by ...
--made for...
+-made by Curran Middleton, Matthew Mukai, Michael Nguyen, Francesca Brown
+-made for people interested in building better habits and self-improvement
 
