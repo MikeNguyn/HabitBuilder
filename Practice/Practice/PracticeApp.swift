@@ -11,15 +11,16 @@ import SwiftUI
 struct PracticeApp: App {
     //    @State var habitManager = HabitManager()
     @StateObject private var store = HabitStore()
+    @State private var notificationsAllowed = false
     var body: some Scene {
         WindowGroup {
-                ContentView(habitList: $store.habits) {
-                    HabitStore.save(habits: store.habits) { result in
-                        if case .failure(let error) = result {
-                            fatalError(error.localizedDescription)
-                        }
+            ContentView(habitList: $store.habits) {
+                HabitStore.save(habits: store.habits) { result in
+                    if case .failure(let error) = result {
+                        fatalError(error.localizedDescription)
                     }
                 }
+            }
             .onAppear {
                 HabitStore.load { result in
                     switch result {
@@ -27,6 +28,16 @@ struct PracticeApp: App {
                         fatalError(error.localizedDescription)
                     case .success(let habits):
                         store.habits = habits
+                    }
+                }
+                if (notificationsAllowed == false){
+                    UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+                        if success {
+                            print("All set!")
+                            notificationsAllowed = true
+                        } else if let error = error {
+                            print(error.localizedDescription)
+                        }
                     }
                 }
             }

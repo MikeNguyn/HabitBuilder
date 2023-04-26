@@ -23,6 +23,25 @@ struct DetailView: View {
             VStack(){
                 habit.plant.image.resizable().frame(width: PLANTICONSIZE, height: PLANTICONSIZE)
                 LinearProgressDemoView(habit: habit)
+                Spacer()
+                Button("Check off Habit") {
+                    let now = Date() // get the current date and time
+                    let calendar = Calendar.current // get the current calendar
+                    let todayDate = calendar.dateComponents([.year, .month, .day], from: now) // create a DateComponents object with just the year, month, and day
+                    if (habit.frequency[now.dayNumberOfWeek()! - 1]) {
+                        if (!habit.log.contains(todayDate)) {
+                            print("the user checked off habit")
+                            habit.log.insert(todayDate)
+                            habit.plant = Plant(plant: habit.plant.plant, stage: checkPlantGrowth(age: habit.age, log: habit.log.count))
+                            print(habit.plant.stage)
+                        } else {
+                            habit.log.remove(todayDate)
+                            habit.plant = Plant(plant:        habit.plant.plant, stage: checkPlantGrowth(age: habit.age, log: habit.log.count))
+                            print(habit.plant.stage)
+                        }
+                    }
+                }
+
                 List{
                     Section(header: Text("Habit Details")){
                         HStack {
@@ -73,24 +92,25 @@ struct DetailView: View {
 //                            Spacer()
 //                            Text(String(habit.log))
 //                        }
+                        ZStack{
+                            MultiDatePicker(                                     "Start Date",
+                                selection: $habit.log
+                            ).disabled(true)
+                            
+                            Rectangle()
+                                .fill(.clear)
+                                .frame(width: screenSize.width*1.1, height: screenSize.height*0.35)
+                                .position(x:screenSize.width/2,y:screenSize.height * 0.24)
+                                .onTapGesture{
+                                    calendarClicked = true
+                                }
+        //                        calendarClicked = false
+                        }
                     }
                 }.background(CustomColor.homeGreen)
                     .listStyle(.plain)
                 
-                ZStack{
-                    MultiDatePicker(                                     "Start Date",
-                        selection: $habit.log
-                    ).disabled(calendarClicked)
-                    
-                    Rectangle()
-                        .fill(.clear)
-                        .frame(width: screenSize.width*1.1, height: screenSize.height*0.35)
-                        .position(x:screenSize.width/2,y:screenSize.height * 0.24)
-                        .onTapGesture{
-                            calendarClicked = true
-                        }
-//                        calendarClicked = false
-                }
+                
 //                MultiDatePicker(                                     "Start Date",
 //                    selection: $habit.log
 //                )
@@ -183,9 +203,10 @@ struct LinearProgressDemoView: View {
 
     var body: some View {
         VStack {
-            Text("Health:").foregroundColor(evaluateHealth(health: habit.health))
-            ProgressView(value: habit.health).padding(70).frame(height: 10)
-                .accentColor(evaluateHealth(health: habit.health))
+            Text("Progress:")
+                .foregroundColor(Color.black)
+            ProgressView(value: Double(habit.log.count)/Double(habit.age)).padding(70).frame(height: 10)
+                .accentColor(evaluateHealth(health: Double(habit.log.count)/Double(habit.age)))
                 .scaleEffect(x: 1, y: 3, anchor: .center)
         }
     }

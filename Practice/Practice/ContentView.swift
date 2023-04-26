@@ -25,16 +25,16 @@ struct ContentView: View {
                 NavigationLink("Tutorial"){
                     ImageSlideShow(images: ["Tutss1", "Tutss1", "Tutss2", "Tutss3", "Tutss4","Tutss5", "Tutss6", "Tutss7", "Tutss8", "Tutss9", "Tutss10", "Tutss11", "Tutss12", "Tutss15", "Tutss16"])
                 }
-                Button("Request Permission") {
-                    // requests permission from the user to send notifications. Click this first
-                    UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
-                        if success {
-                            print("All set!")
-                        } else if let error = error {
-                            print(error.localizedDescription)
-                        }
-                    }
-                }
+//                Button("Request Permission") {
+//                    // requests permission from the user to send notifications. Click this first
+//                    UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+//                        if success {
+//                            print("All set!")
+//                        } else if let error = error {
+//                            print(error.localizedDescription)
+//                        }
+//                    }
+//                }
                 //Schedule button HAS BEEN MOVED TO ADDVIEW
                 Grid(){
                     Divider()
@@ -45,11 +45,12 @@ struct ContentView: View {
                                     EmptyView()
                                         .offset(y:-5)
                                         .offset(x:-5)
+//                                        .offset(x:10)
                                 }
                             } else {
                                     ButtonView(habit: $habit)
-                                    .offset(y:-65)
-                                    .offset(x:-65)
+                                    .offset(y:-30)
+                                    .offset(x:-30)
                             }
                         }
                     }
@@ -64,8 +65,8 @@ struct ContentView: View {
                                 }
                             } else {
                                     ButtonView(habit: $habit)
-                                    .offset(y:-65)
-                                    .offset(x:-65)
+                                    .offset(y:-30)
+                                    .offset(x:-30)
                             }
                         }
                     }
@@ -80,8 +81,8 @@ struct ContentView: View {
                                 }
                             } else {
                                 ButtonView(habit: $habit)
-                                    .offset(y:-65)
-                                    .offset(x:-65)
+                                    .offset(y:-30)
+                                    .offset(x:-30)
                             }
                         }
                     }
@@ -93,24 +94,31 @@ struct ContentView: View {
                 //  the frame is an attempt to make the rectangle a proper square instead of a rectangle. it didn't work.
 //                 .frame(width: screenSize.width/4.5, height: screenSize.width/1.2, alignment: .top)
                 Text("One day, or day one? You decide.")
-                            .position(x:200,y:100).foregroundColor(.teal).font(.system(size: 20)
+                            .position(x:200,y:0).foregroundColor(.black).font(.system(size: 20)
                                 .bold())
                 
                 Spacer()
-                HStack(spacing: 60.0){
-                    Button("Reset Garden", role: .destructive) {
+                HStack{
+                    Spacer()
+                    Button("X", role: .destructive) {
                         isPresentingConfirm = true
                     }
+                    .padding(25)
+                        .background(Color.blue)
+                        .clipShape(Circle())
+                        .padding(.trailing, 20)
+                    
                     .confirmationDialog("Are you sure?",
                       isPresented: $isPresentingConfirm) {
-                      Button("Delete this plant?", role: .destructive) {
+                      Button("Delete the entire garden?", role: .destructive) {
                           habitList =
                              [[Habit(), Habit(), Habit()],
                               [Habit(), Habit(), Habit()],
                               [Habit(), Habit(), Habit()]]
                         }
                     }
-                }
+                    
+                }.edgesIgnoringSafeArea(.all)
                 
             }
             .background(Color("ColorHomeBackground"))
@@ -126,11 +134,6 @@ struct CustomColor {
     static let homeGreen = Color("ColorHomeBackground")
     static let homeSoil = Color("ColorSoil")
 }
-
-// found the following function from this site: https://iostutorialjunction.com/2019/09/get-number-of-days-between-two-dates-swift.html
-func daysBetween(start: Date, end: Date) -> Int {
-        return Calendar.current.dateComponents([.day], from: start, to: end).day!
-    }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
