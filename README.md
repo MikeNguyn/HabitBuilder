@@ -44,21 +44,20 @@
 
 ## Custom Assets
 --------------
-* all plants were made in illustrator by Curran and Francesca \
-<div style = "width:70px; height:70px">
-![sunflower](./Practice/Practice/Assets.xcassets/sunflowerPlantFull.imageset/Sunflower.png)
-</div>
-<div style = "width:70px; height:70px">
-![corn](./Practice/Practice/Assets.xcassets/cornPlantFull.imageset/CornPlantFull.png)
-</div>
-<div style = "width:70px; height:70px">
-![tomato](./Practice/Practice/Assets.xcassets/tomatoPlantFull.imageset/Tomato1.png)
-</div>
+* all plants were made in illustrator by Curran and Francesca
+--------------
+![sunflower](./ReadmeImages/SunflowerReadme1.png)
+![corn](./ReadmeImages/CornReadme1.png)
+![tomato](./ReadmeImages/TomatoReadme1.png)
+![blueberry](./ReadmeImages/BlueberryReadme1.png)
+![pea](./ReadmeImages/PeaReadme1.png)
+![orchid](./ReadmeImages/OrchidReadme1.png)
+![trowel](./ReadmeImages/TrowelReadme1.png)
 
 
 
 ## CREDITS
 --------------
--made by ...
--made for...
+* made by Curran Middleton, Matthew Mukai, Michael Nguyen, Francesca Brown
+* made for people interested in building better habits and self-improvement
 

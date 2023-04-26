@@ -8,16 +8,19 @@
 import SwiftUI
 
 struct QuotesView: View {
-    let myQuote: QuotesManager
-
-    init(myQuote: QuotesManager){
-        self.myQuote = myQuote
-    
-    }
+//    let myQuote: QuotesManager
+//
+//    init(myQuote: QuotesManager){
+//        self.myQuote = myQuote
+//
+//    }
 
     var body: some View {
-        Text(myQuote.quote)
-            .position(x:100,y:100).foregroundColor(.black)
+        Text(randomQuote())
+            .position(x:200,y:100).foregroundColor(.teal)
+            .font(.system(size: 20)
+                .bold())
+                  
 
 //        Text(printLine())
 //            .position(x:100,y:100).foregroundColor(.teal).font(.system(size: 20)
@@ -26,21 +29,21 @@ struct QuotesView: View {
     }
     
     
-    func printLine() -> String {
-        let filename = "motivations.txt"
-        var str1: String
-        var myCounter: Int
-        do {
-            let contents = try String(contentsOfFile: filename)
-            let lines = contents.split(separator:"\n")
-            myCounter = lines.count
-            str1 = String(myCounter)
-            } catch {
-                return (error.localizedDescription)
-            }
-            return str1
-    }
-    
+//    func printLine() -> String {
+//        let filename = "motivations.txt"
+//        var str1: String
+//        var myCounter: Int
+//        do {
+//            let contents = try String(contentsOfFile: filename)
+//            let lines = contents.split(separator:"\n")
+//            myCounter = lines.count
+//            str1 = String(myCounter)
+//            } catch {
+//                return (error.localizedDescription)
+//            }
+//            return str1
+//    }
+//
     
     
 //    func getText() -> String{
@@ -127,9 +130,9 @@ struct QuotesView: View {
 
 struct QuotesView_Previews: PreviewProvider {
     static var previews: some View {
-        let myQuote = QuotesManager()
-        QuotesView(myQuote: myQuote)
-//        QuotesView()
+//        let myQuote: QuotesManager = QuotesManager()
+//        QuotesView(myQuote: myQuote)
+        QuotesView()
     }
 
 

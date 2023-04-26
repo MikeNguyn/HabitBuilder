@@ -11,6 +11,7 @@ import SwiftUI
 struct PracticeApp: App {
     //    @State var habitManager = HabitManager()
     @StateObject private var store = HabitStore()
+    @State private var notificationsAllowed = false
     var body: some Scene {
         @State var loading = true
         WindowGroup {
