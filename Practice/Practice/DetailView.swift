@@ -203,9 +203,10 @@ struct LinearProgressDemoView: View {
 
     var body: some View {
         VStack {
-            Text("Health:").foregroundColor(evaluateHealth(health: habit.health))
-            ProgressView(value: habit.health).padding(70).frame(height: 10)
-                .accentColor(evaluateHealth(health: habit.health))
+            Text("Progress:")
+                .foregroundColor(Color.black)
+            ProgressView(value: Double(habit.log.count)/Double(habit.age)).padding(70).frame(height: 10)
+                .accentColor(evaluateHealth(health: Double(habit.log.count)/Double(habit.age)))
                 .scaleEffect(x: 1, y: 3, anchor: .center)
         }
     }
