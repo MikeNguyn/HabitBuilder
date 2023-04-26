@@ -21,6 +21,7 @@ struct AddView: View {
     @State var end: Date = Date()
     @State var frequency = [false, false, false, false, false, false, false]
     @State var importance = 1
+    @State private var showingAlert = false
     var starterImages: [Image] = [Image("blueberryPlantSmall"),Image("orchidPlantSmall"),Image("tomatoPlantSmall"),Image("sunflowerPlantSmall"),Image("cornPlantSmall"),Image("peaPlantSmall") ]
 //    @State var date: Date = Date()
 //    @Binding var listOfPlant: [Habit.Plant]
@@ -168,6 +169,7 @@ struct AddView: View {
             }
     }
 }
+
 
 func ScheduleNotification (endDate: Date) {
     // creates the notification and schedules it to appear in 5 seconds. click this button second.
