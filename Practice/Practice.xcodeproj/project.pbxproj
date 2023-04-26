@@ -26,6 +26,7 @@
 		7516AEB729AAB9A200ED7D17 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7516AEB629AAB9A200ED7D17 /* AddView.swift */; };
 		756E1EBA29D9F2E40069971E /* HabitStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756E1EB929D9F2E40069971E /* HabitStore.swift */; };
 		757758BE29B914F600DD887F /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757758BD29B914F600DD887F /* EmptyView.swift */; };
+		75EA3C6129F9BBA8009973A9 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EA3C6029F9BBA8009973A9 /* SplashView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		756E1EB929D9F2E40069971E /* HabitStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitStore.swift; sourceTree = "<group>"; };
 		757758BD29B914F600DD887F /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		75EA3C5E29F193F7009973A9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		75EA3C6029F9BBA8009973A9 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 				7516AEA729A41B0600ED7D17 /* ButtonView.swift */,
 				757758BD29B914F600DD887F /* EmptyView.swift */,
 				7516AEAB29A41FC300ED7D17 /* DetailView.swift */,
+				75EA3C6029F9BBA8009973A9 /* SplashView.swift */,
 				058744F029CE2D38003DDB52 /* QuotesView.swift */,
 				5437606629943C60006D3E90 /* Assets.xcassets */,
 				5437606829943C60006D3E90 /* Preview Content */,
@@ -317,6 +320,7 @@
 				5437606329943C5B006D3E90 /* PracticeApp.swift in Sources */,
 				7516AEA829A41B0600ED7D17 /* ButtonView.swift in Sources */,
 				058744F129CE2D38003DDB52 /* QuotesView.swift in Sources */,
+				75EA3C6129F9BBA8009973A9 /* SplashView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

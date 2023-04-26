@@ -147,7 +147,7 @@ extension Date {
 //Sample data we use to display/test
 extension Habit {
     static let sampleData: [[Habit]] = [[Habit(name: "Drinking Water", plant: Plant(plant: "sunflower", stage: 1), start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 1.0, importance: 2, empty: false, log: datesForLog, age: 0, stage:1),
-                                         Habit(name: "Drinking Wine", plant: Plant(plant: "sunflower", stage: 1), start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.85, importance: 1, empty: false, log: datesForLog, age: 0,stage: 1),
+                                         Habit(name: "Drinking Wine", plant: Plant(plant: "sunflower", stage: 1), start: Date(), end: Date(), frequency: [false, true, true, true, false, false, false], health: 0.85, importance: 1, empty: false, log: datesForLog, age: 0,stage: 1),
                                       Habit(name: "Exercise", plant: Plant(plant: "sunflower", stage: 1), start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.40, importance: 3, empty: false, log: datesForLog, age: 0,stage: 2)],
                                       [Habit(name: "Water Plants", plant: Plant(plant: "sunflower", stage: 1), start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.0, importance: 2, empty: false, log: datesForLog, age: 0,stage: 2),
                                       Habit(name: "Shower", plant: Plant(plant: "sunflower", stage: 1), start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.60, importance: 1, empty: false, log: datesForLog, age: 0,stage: 2),

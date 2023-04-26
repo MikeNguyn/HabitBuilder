@@ -12,24 +12,41 @@ struct PracticeApp: App {
     //    @State var habitManager = HabitManager()
     @StateObject private var store = HabitStore()
     var body: some Scene {
+        @State var loading = true
         WindowGroup {
-            ContentView(habitList: $store.habits) {
-                HabitStore.save(habits: store.habits) { result in
-                    if case .failure(let error) = result {
-                        fatalError(error.localizedDescription)
-                    }
-                }
-            }
-            .onAppear {
-                HabitStore.load { result in
-                    switch result {
-                    case .failure(let error):
-                        fatalError(error.localizedDescription)
-                    case .success(let habits):
-                        store.habits = habits
-                    }
-                }
-            }
+            SplashView()
+//            if loading {
+//                SplashView()
+//                    .onAppear {
+//                        HabitStore.load { result in
+//                            switch result {
+//                            case .failure(let error):
+//                                fatalError(error.localizedDescription)
+//                            case .success(let habits):
+//                                store.habits = habits
+//                            }
+//                        }
+//                        loading = false
+//                    }
+//            } else {
+//                ContentView(habitList: $store.habits) {
+//                    HabitStore.save(habits: store.habits) { result in
+//                        if case .failure(let error) = result {
+//                            fatalError(error.localizedDescription)
+//                        }
+//                    }
+//                }
+//                //            .onAppear {
+//                //                HabitStore.load { result in
+//                //                    switch result {
+//                //                    case .failure(let error):
+//                //                        fatalError(error.localizedDescription)
+//                //                    case .success(let habits):
+//                //                        store.habits = habits
+//                //                    }
+//                //                }
+//                //            }
+//            }
         }
     }
 }

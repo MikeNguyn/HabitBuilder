@@ -184,8 +184,10 @@ func getWeekdaysNames(weekDaysBools: [Bool])->String{
 
 //Takes in a double for the health and returns green if >=0.5 and red if <0.5 for health bar
 func evaluateHealth(health: Double)->Color{
-    if (health >= 0.5){
+    if (health >= 0.67){
         return Color.green
+    } else if (health >= 0.33) {
+        return Color.yellow
     }
     return Color.red
 }
