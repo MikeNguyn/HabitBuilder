@@ -101,7 +101,7 @@ struct ContentView: View {
                 HStack{
                     NavigationLink(destination: ImageSlideShow(images: ["Tutss1", "Tutss1", "Tutss2", "Tutss3", "Tutss4","Tutss5", "Tutss6", "Tutss7", "Tutss8", "Tutss9", "Tutss10", "Tutss11", "Tutss12", "Tutss15", "Tutss16"])) {
 //                        Text(systemImage: "gear")
-                        Label("", systemImage: "questionmark.circle")
+                        Label("", systemImage: "questionmark.circle").padding(.leading, 8)
                     }
                     .buttonStyle(.borderedProminent)
                     .padding(.leading, 20)
@@ -110,7 +110,7 @@ struct ContentView: View {
                     
                     NavigationLink(destination: SettingsView(habitList: $habitList)) {
 //                        Text(systemImage: "gear")
-                        Label("", systemImage: "gear")
+                        Label("", systemImage: "gear").padding(.leading, 8)
                     }
                     .buttonStyle(.borderedProminent)
                     .padding(.trailing, 20)
