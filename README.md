@@ -47,7 +47,6 @@
 * all plants were made in illustrator by Curran and Francesca 
 ![sunflower](./ReadmeImages/SunflowerReadme.png)
 ![corn](./ReadmeImages/CornReadme.png)
-
 ![tomato](./ReadmeImages/TomatoReadme.png)
 
 
