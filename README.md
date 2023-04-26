@@ -44,7 +44,7 @@
 
 ## Custom Assets
 --------------
-* all plants were made in illustrator by Curran and Francesca 
+* all plants were made in illustrator by Curran and Francesca\ 
 ![sunflower](./ReadmeImages/SunflowerReadme1.png)
 ![corn](./ReadmeImages/CornReadme1.png)
 ![tomato](./ReadmeImages/TomatoReadme1.png)
