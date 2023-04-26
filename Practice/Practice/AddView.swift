@@ -14,6 +14,7 @@ let screenSize: CGRect = UIScreen.main.bounds
 
 //the fill in the information part of the habit
 struct AddView: View {
+    @State private var showAlert = false
     @Binding var habit: Habit
     @State var name: String = ""
     @State var plant: Plant = Plant(plant: "tomato", stage: 3)
@@ -46,6 +47,8 @@ struct AddView: View {
                         }
                     } label: {
                         habit.plant.image.resizable()
+                            .scaledToFit()
+                            .aspectRatio(contentMode: .fit)
                             .frame(width: screenSize.width/10, height: screenSize.width/10)
                     }
                 }
@@ -96,38 +99,70 @@ struct AddView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink(destination: DetailView(habit: $habit)){
                         Button("Done", action: {
-//                            print(habit.plant.plant)
-                            habit.name = name
-                            habit.plant.stage = 1
-                            habit.end = end
-                            habit.frequency = frequency
-                            habit.empty = false
-                            habit.health = 1
-                            habit.start = Date.now
-                            habit.importance = importance
-                            var startDOW = habit.start.dayNumberOfWeek()
-                            var endDOW = habit.end.dayNumberOfWeek()
-                            var adjStart = habit.start.shiftDate(shift: 8 - startDOW!)
-                            var adjEnd = habit.end.shiftDate(shift: -(endDOW! - 1))
+                            var start = Date()
+                            var startDOW = start.dayNumberOfWeek()
+                            var endDOW = end.dayNumberOfWeek()
+                            var adjStart = start.shiftDate(shift: 8 - startDOW!)
+                            var adjEnd = end.shiftDate(shift: -(endDOW! - 1))
                             var weeks = Double((Calendar.current.dateComponents([.day], from: adjStart!, to: adjEnd!).day! + 1)/7)
+                            print(weeks)
                             var weeksCorrected = weeks.rounded(.toNearestOrAwayFromZero)
                             var age = 0
                             for i in (startDOW! ... 7) {
-                                if habit.frequency[i - 1] == true {
+                                if frequency[i - 1] == true {
                                     age = age + 1
                                 }
                             }
                             for i in (1 ... endDOW!) {
-                                if habit.frequency[i - 1] == true {
+                                if frequency[i - 1] == true {
                                     age = age + 1
                                 }
                             }
                             let count = frequency.filter{$0 == true}.count
                             age = age + Int(weeksCorrected) * count
-                            habit.age = age
-                            habit.log = []
-                            ScheduleNotification(endDate: end)
+                            print(age)
+                            if (name != "" && frequency != [false, false, false, false, false, false, false] && age > 0) {
+                                habit.name = name
+                                habit.plant.stage = 1
+                                habit.end = end
+                                habit.frequency = frequency
+                                habit.empty = false
+                                habit.health = 1
+                                habit.start = Date.now
+                                habit.importance = importance
+//                                var startDOW = habit.start.dayNumberOfWeek()
+//                                var endDOW = habit.end.dayNumberOfWeek()
+//                                var adjStart = habit.start.shiftDate(shift: 8 - startDOW!)
+//                                var adjEnd = habit.end.shiftDate(shift: -(endDOW! - 1))
+//                                var weeks = Double((Calendar.current.dateComponents([.day], from: adjStart!, to: adjEnd!).day! + 1)/7)
+//                                var weeksCorrected = weeks.rounded(.toNearestOrAwayFromZero)
+//                                var age = 0
+//                                for i in (startDOW! ... 7) {
+//                                    if habit.frequency[i - 1] == true {
+//                                        age = age + 1
+//                                    }
+//                                }
+//                                for i in (1 ... endDOW!) {
+//                                    if habit.frequency[i - 1] == true {
+//                                        age = age + 1
+//                                    }
+//                                }
+//                                let count = frequency.filter{$0 == true}.count
+//                                age = age + Int(weeksCorrected) * count
+                                habit.age = age
+                                habit.log = []
+                                ScheduleNotification(endDate: end)
+                            } else {
+                                print(showAlert)
+                                showAlert.toggle()
+                            }
                         })
+                        .alert(isPresented: $showAlert) {
+                            Alert(
+                                title: Text("Habit not valid"),
+                                message: name == "" ? Text("No name for habit") : frequency == [false, false, false, false, false, false, false] ? Text("No day chosen for check in") : Text("Period too short for any check in. Change frequency or end date")
+                                )
+                        }
                     }
                 }
             }
