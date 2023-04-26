@@ -99,23 +99,14 @@ struct ContentView: View {
                 Spacer()
                 HStack{
                     Spacer()
-                    Button("X", role: .destructive) {
-                        isPresentingConfirm = true
-                    }
-                    .padding(25)
-                        .background(Color.blue)
-                        .clipShape(Circle())
-                        .padding(.trailing, 20)
                     
-                    .confirmationDialog("Are you sure?",
-                      isPresented: $isPresentingConfirm) {
-                      Button("Delete the entire garden?", role: .destructive) {
-                          habitList =
-                             [[Habit(), Habit(), Habit()],
-                              [Habit(), Habit(), Habit()],
-                              [Habit(), Habit(), Habit()]]
-                        }
+                    NavigationLink(destination: SettingsView(habitList: $habitList)) {
+                        Label("", systemImage: "gear")
                     }
+                    .buttonStyle(.borderedProminent)
+                    
+                    
+                    //Below i will save to show in a settings page
                     
                 }.edgesIgnoringSafeArea(.all)
                 
