@@ -49,7 +49,10 @@
 ![sunflower](./ReadmeImages/SunflowerReadme1.png)
 ![corn](./ReadmeImages/CornReadme1.png)
 ![tomato](./ReadmeImages/TomatoReadme1.png)
-
+![blueberry](./ReadmeImages/BlueberryReadme1.png)
+![pea](./ReadmeImages/PeaReadme1.png)
+![orchid](./ReadmeImages/OrchidReadme1.png)
+![trowel](./ReadmeImages/TrowelReadme1.png)
 
 
 
