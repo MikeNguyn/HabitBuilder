@@ -44,16 +44,11 @@
 
 ## Custom Assets
 --------------
-* all plants were made in illustrator by Curran and Francesca \
-<div style = "width:70px; height:70px">
-![sunflower](./Practice/Practice/Assets.xcassets/sunflowerPlantFull.imageset/Sunflower.png)
-</div>
-<div style = "width:70px; height:70px">
-![corn](./Practice/Practice/Assets.xcassets/cornPlantFull.imageset/CornPlantFull.png)
-</div>
-<div style = "width:70px; height:70px">
-![tomato](./Practice/Practice/Assets.xcassets/tomatoPlantFull.imageset/Tomato1.png)
-</div>
+* all plants were made in illustrator by Curran and Francesca 
+![sunflower](./ReadmeImages/SunflowerReadme.png)
+![corn](./ReadmeImages/CornReadme.png)
+![tomato](./ReadmeImages/TomatoReadme.png)
+
 
 
 
