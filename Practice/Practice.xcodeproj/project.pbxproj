@@ -11,7 +11,6 @@
 		058744EF29CE2CB9003DDB52 /* motivators.txt in Resources */ = {isa = PBXBuildFile; fileRef = 058744EE29CE2CB9003DDB52 /* motivators.txt */; };
 		058744F129CE2D38003DDB52 /* QuotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058744F029CE2D38003DDB52 /* QuotesView.swift */; };
 		058744F329CF9008003DDB52 /* QuotesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058744F229CF9008003DDB52 /* QuotesManager.swift */; };
-		36B31CF429F715D7007FD255 /* README in Resources */ = {isa = PBXBuildFile; fileRef = 36B31CF329F715D7007FD255 /* README */; };
 		5437606329943C5B006D3E90 /* PracticeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5437606229943C5B006D3E90 /* PracticeApp.swift */; };
 		5437606529943C5B006D3E90 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5437606429943C5B006D3E90 /* ContentView.swift */; };
 		5437606729943C60006D3E90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5437606629943C60006D3E90 /* Assets.xcassets */; };
@@ -51,7 +50,6 @@
 		058744EE29CE2CB9003DDB52 /* motivators.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = motivators.txt; sourceTree = "<group>"; };
 		058744F029CE2D38003DDB52 /* QuotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesView.swift; sourceTree = "<group>"; };
 		058744F229CF9008003DDB52 /* QuotesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesManager.swift; sourceTree = "<group>"; };
-		36B31CF329F715D7007FD255 /* README */ = {isa = PBXFileReference; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		5437605F29943C5B006D3E90 /* Practice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Practice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5437606229943C5B006D3E90 /* PracticeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeApp.swift; sourceTree = "<group>"; };
 		5437606429943C5B006D3E90 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -101,7 +99,6 @@
 		5437605629943C5B006D3E90 = {
 			isa = PBXGroup;
 			children = (
-				36B31CF329F715D7007FD255 /* README */,
 				5437606129943C5B006D3E90 /* Practice */,
 				5437607229943C60006D3E90 /* PracticeTests */,
 				5437607C29943C60006D3E90 /* PracticeUITests */,
@@ -280,7 +277,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				36B31CF429F715D7007FD255 /* README in Resources */,
 				058744EF29CE2CB9003DDB52 /* motivators.txt in Resources */,
 				5437606A29943C60006D3E90 /* Preview Assets.xcassets in Resources */,
 				5437606729943C60006D3E90 /* Assets.xcassets in Resources */,
