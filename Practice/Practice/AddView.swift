@@ -135,7 +135,7 @@ struct AddView: View {
                                 habit.log = []
                                 
                                 //THIS BELOW IS FOR NOTIFICATIONS
-                                checkForPermission(habitName: habit.name)
+                                checkForPermission(habitName: habit.name, daysOfWeek: habit.frequency)
                             } else {
                                 print(showAlert)
                                 showAlert.toggle()
@@ -180,19 +180,28 @@ struct AddView_Previews: PreviewProvider {
     }
 }
 
-func checkForPermission(habitName: String){
+
+extension Date {
+        public func getDateComponents() -> DateComponents {
+               let dateComponents = Calendar.current.dateComponents([ .hour, .minute, .second], from: self)
+
+               return dateComponents
+           }
+    }
+
+func checkForPermission(habitName: String, daysOfWeek: [Bool]){
     let notificationCenter = UNUserNotificationCenter.current()
     notificationCenter.getNotificationSettings{ settings in
         switch settings.authorizationStatus{ //tells us current state if notifications are allowed or not.
         case .authorized:
-            dispatchNotification(habitName: habitName)
+            dispatchNotification(habitName: habitName, daysOfWeek: daysOfWeek)
         case .denied:
             return
         case .notDetermined://or wasn't asked yet
             notificationCenter.requestAuthorization(options: [.alert, .sound]){
                 didAllow, error in
                 if didAllow{
-                    dispatchNotification(habitName: habitName)
+                    dispatchNotification(habitName: habitName, daysOfWeek: daysOfWeek)
                 }
             }
         default:
@@ -203,13 +212,21 @@ func checkForPermission(habitName: String){
     }
 }
 
-func dispatchNotification(habitName: String){
+func dispatchNotification(habitName: String, daysOfWeek: [Bool]){
     let identifier = habitName
     let title = "Time to water your plant!"
     let body = "Make sure to check in on your " + habitName + " habit!"
-    let hour = 12 //int in military
-    let minute = 12
-    let isDaily = true
+    let hour = 15 //int in military
+    let minute = 7
+//    let isDaily = true
+    
+    
+    var notiDays: [Int] = []
+    for i in 1...daysOfWeek.count{
+        if (daysOfWeek[i-1]){
+            notiDays.append(i)
+        }
+    }
     
     let notificationCenter = UNUserNotificationCenter.current()
     
@@ -219,14 +236,31 @@ func dispatchNotification(habitName: String){
     content.sound = .default
     
     let calendar = Calendar.current
-    var dateComponents = DateComponents(calendar: calendar, timeZone: TimeZone.current)
-    dateComponents.hour = hour
-    dateComponents.minute = minute
+//    var dateComponents = DateComponents(calendar: calendar, timeZone: TimeZone.current)
+//    dateComponents.hour = hour
+//    dateComponents.minute = minute
     
-    let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: isDaily)
-    let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+    for day in notiDays {
+        var dateComponents = DateComponents(calendar: calendar, timeZone: TimeZone.current)
+        dateComponents.hour = hour
+        dateComponents.minute = minute
+        dateComponents.weekday = day
+
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+
+        let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+        
+        notificationCenter.removePendingNotificationRequests(withIdentifiers: [identifier])
+        notificationCenter.add(request) { (error) in
+            if let error = error {
+            }
+        }
+    }
     
+//    let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: isDaily)
+//    let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+//
     //removes notis w/ same identifier
-    notificationCenter.removePendingNotificationRequests(withIdentifiers: [identifier])
-    notificationCenter.add(request)
+//    notificationCenter.removePendingNotificationRequests(withIdentifiers: [identifier])
+//    notificationCenter.add(request)
 }
