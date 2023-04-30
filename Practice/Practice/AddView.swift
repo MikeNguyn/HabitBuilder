@@ -181,14 +181,6 @@ struct AddView_Previews: PreviewProvider {
 }
 
 
-extension Date {
-        public func getDateComponents() -> DateComponents {
-               let dateComponents = Calendar.current.dateComponents([ .hour, .minute, .second], from: self)
-
-               return dateComponents
-           }
-    }
-
 func checkForPermission(habitName: String, daysOfWeek: [Bool]){
     let notificationCenter = UNUserNotificationCenter.current()
     notificationCenter.getNotificationSettings{ settings in

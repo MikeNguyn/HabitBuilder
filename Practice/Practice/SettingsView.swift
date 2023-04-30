@@ -14,7 +14,7 @@ struct SettingsView: View {
         List{
             Section(header: Text("Habit Garden Settings")){
                 HStack {
-                    Label("Clear the Entire Garden?", systemImage: "flame.fill")
+                    Text("Clear the Entire Garden?")
                     Spacer()
                     Button("X", role: .destructive) {
                         isPresentingConfirm = true
@@ -38,7 +38,15 @@ struct SettingsView: View {
                     }
                 }
                 HStack{
-                    Text("add section to turn on notifications")
+                    Text("Open Notification Settings")
+                    Spacer()
+                    Button {
+                        if let appSettings = URL(string: UIApplication.openSettingsURLString), UIApplication.shared.canOpenURL(appSettings) {
+                            UIApplication.shared.open(appSettings)
+                        }
+                    } label: {
+                        Image(systemName: "arrow.up.right.circle.fill")
+                    }
                 }
                 
             }
