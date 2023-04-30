@@ -32,6 +32,8 @@ struct SettingsView: View {
                              [[Habit(), Habit(), Habit()],
                               [Habit(), Habit(), Habit()],
                               [Habit(), Habit(), Habit()]]
+                          let notificationCenter = UNUserNotificationCenter.current()
+                          notificationCenter.removeAllPendingNotificationRequests()
                         }
                     }
                 }

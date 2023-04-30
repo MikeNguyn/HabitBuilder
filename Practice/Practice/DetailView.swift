@@ -129,6 +129,9 @@ struct DetailView: View {
                               isPresented: $isPresentingConfirm) {
                               Button("Delete this plant", role: .destructive) {
                                   habit = Habit()
+                                  let notificationCenter = UNUserNotificationCenter.current()
+                                  //removes future notifications for this habit
+                                  notificationCenter.removePendingNotificationRequests(withIdentifiers: [habit.name])
                                 }
                             }
                     
