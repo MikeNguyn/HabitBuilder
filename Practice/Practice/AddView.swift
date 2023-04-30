@@ -131,28 +131,11 @@ struct AddView: View {
                                 habit.health = 1
                                 habit.start = Date.now
                                 habit.importance = importance
-//                                var startDOW = habit.start.dayNumberOfWeek()
-//                                var endDOW = habit.end.dayNumberOfWeek()
-//                                var adjStart = habit.start.shiftDate(shift: 8 - startDOW!)
-//                                var adjEnd = habit.end.shiftDate(shift: -(endDOW! - 1))
-//                                var weeks = Double((Calendar.current.dateComponents([.day], from: adjStart!, to: adjEnd!).day! + 1)/7)
-//                                var weeksCorrected = weeks.rounded(.toNearestOrAwayFromZero)
-//                                var age = 0
-//                                for i in (startDOW! ... 7) {
-//                                    if habit.frequency[i - 1] == true {
-//                                        age = age + 1
-//                                    }
-//                                }
-//                                for i in (1 ... endDOW!) {
-//                                    if habit.frequency[i - 1] == true {
-//                                        age = age + 1
-//                                    }
-//                                }
-//                                let count = frequency.filter{$0 == true}.count
-//                                age = age + Int(weeksCorrected) * count
                                 habit.age = age
                                 habit.log = []
-                                ScheduleNotification(endDate: end)
+                                
+                                //THIS BELOW IS FOR NOTIFICATIONS
+                                checkForPermission(habitName: habit.name)
                             } else {
                                 print(showAlert)
                                 showAlert.toggle()
@@ -171,24 +154,24 @@ struct AddView: View {
 }
 
 
-func ScheduleNotification (endDate: Date) {
-    // creates the notification and schedules it to appear in 5 seconds. click this button second.
-    let content = UNMutableNotificationContent()
-    content.title = "Feed the cat"
-    content.subtitle = "It looks hungry"
-    content.sound = UNNotificationSound.default
-    
-    // show this notification five seconds from now
-    //this needs to trigger on end date
-    let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-    
-    //choose a random identifier
-    let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-    
-    // add our notification request
-    UNUserNotificationCenter.current().add(request)
-    print("IT WORKED")
-}
+//func ScheduleNotification (endDate: Date) {
+//    // creates the notification and schedules it to appear in 5 seconds. click this button second.
+//    let content = UNMutableNotificationContent()
+//    content.title = "Feed the cat"
+//    content.subtitle = "It looks hungry"
+//    content.sound = UNNotificationSound.default
+//
+//    // show this notification five seconds from now
+//    //this needs to trigger on end date
+//    let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+//
+//    //choose a random identifier
+//    let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+//
+//    // add our notification request
+//    UNUserNotificationCenter.current().add(request)
+//    print("IT WORKED")
+//}
 
 struct AddView_Previews: PreviewProvider {
     
@@ -197,3 +180,53 @@ struct AddView_Previews: PreviewProvider {
     }
 }
 
+func checkForPermission(habitName: String){
+    let notificationCenter = UNUserNotificationCenter.current()
+    notificationCenter.getNotificationSettings{ settings in
+        switch settings.authorizationStatus{ //tells us current state if notifications are allowed or not.
+        case .authorized:
+            dispatchNotification(habitName: habitName)
+        case .denied:
+            return
+        case .notDetermined://or wasn't asked yet
+            notificationCenter.requestAuthorization(options: [.alert, .sound]){
+                didAllow, error in
+                if didAllow{
+                    dispatchNotification(habitName: habitName)
+                }
+            }
+        default:
+            return
+        }
+        
+        
+    }
+}
+
+func dispatchNotification(habitName: String){
+    let identifier = habitName
+    let title = "Time to water your plant!"
+    let body = "Make sure to check in on your " + habitName + " habit!"
+    let hour = 12 //int in military
+    let minute = 12
+    let isDaily = true
+    
+    let notificationCenter = UNUserNotificationCenter.current()
+    
+    let content = UNMutableNotificationContent()
+    content.title = title
+    content.body = body
+    content.sound = .default
+    
+    let calendar = Calendar.current
+    var dateComponents = DateComponents(calendar: calendar, timeZone: TimeZone.current)
+    dateComponents.hour = hour
+    dateComponents.minute = minute
+    
+    let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: isDaily)
+    let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+    
+    //removes notis w/ same identifier
+    notificationCenter.removePendingNotificationRequests(withIdentifiers: [identifier])
+    notificationCenter.add(request)
+}
