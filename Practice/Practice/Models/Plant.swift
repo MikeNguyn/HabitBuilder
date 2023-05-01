@@ -48,6 +48,9 @@ struct Plant: Hashable, Identifiable, Codable {
         if plant == "pea" {
             return checkPlantGrowth(plantName: "peaPlant", plantStage: self.stage)
         }
+//        if plant == "strawberry" {
+//            return checkPlantGrowth(plantName: "strawberryPlant", plantStage: self.stage)
+//        }
         return Image("Error")
         
     }

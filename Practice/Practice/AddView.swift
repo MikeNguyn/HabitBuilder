@@ -22,7 +22,7 @@ struct AddView: View {
     @State var frequency = [false, false, false, false, false, false, false]
     @State var importance = 1
     @State private var showingAlert = false
-    var starterImages: [Image] = [Image("blueberryPlantSmall"),Image("orchidPlantSmall"),Image("tomatoPlantSmall"),Image("sunflowerPlantSmall"),Image("cornPlantSmall"),Image("peaPlantSmall") ]
+    var starterImages: [Image] = [Image("blueberryPlantSmall"),Image("orchidPlantSmall"),Image("tomatoPlantSmall"),Image("sunflowerPlantSmall"),Image("cornPlantSmall"),Image("peaPlantSmall")]
 //    @State var date: Date = Date()
 //    @Binding var listOfPlant: [Habit.Plant]
 //    @State var chosenPlant = Habit.Plant.tomato
