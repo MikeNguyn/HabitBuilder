@@ -22,6 +22,16 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack{
+                Image("cloudOne")
+                    .resizable()
+                    .frame(width: screenSize.width/2.2, height: screenSize.width/3.7)
+                    .rotation3DEffect(.degrees(0), axis: (x: 5.0, y: 5.0, z: 45.0))
+                    .position(x: 75,  y: 100)
+                Image("cloud2")
+                    .resizable()
+                    .frame(width: screenSize.width/2.2, height: screenSize.width/3.7)
+                    .rotation3DEffect(.degrees(0), axis: (x: 5.0, y: 5.0, z: 45.0))
+                    .position(x: 325,  y: 5)
 //                NavigationLink("Tutorial"){
 //                    ImageSlideShow(images: ["Tutss1", "Tutss1", "Tutss2", "Tutss3", "Tutss4","Tutss5", "Tutss6", "Tutss7", "Tutss8", "Tutss9", "Tutss10", "Tutss11", "Tutss12", "Tutss15", "Tutss16"])
 //                }
@@ -93,9 +103,10 @@ struct ContentView: View {
                  .scaleEffect(x: 1.0, y: 0.65, anchor: .center)
                 //  the frame is an attempt to make the rectangle a proper square instead of a rectangle. it didn't work.
 //                 .frame(width: screenSize.width/4.5, height: screenSize.width/1.2, alignment: .top)
-                Text("One day, or day one? You decide.")
-                            .position(x:200,y:0).foregroundColor(.black).font(.system(size: 20)
-                                .bold())
+                Text(randomQuote())
+                    .position(x:200,y:100).foregroundColor(.black)
+                    .font(.system(size: 20)
+                        .bold())
                 
                 Spacer()
                 HStack{
