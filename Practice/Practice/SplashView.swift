@@ -14,20 +14,26 @@ struct SplashView: View {
     var body: some View {
         if loading {
             ZStack {
-                Color.green
-                    .opacity(0.8)
-                    .ignoresSafeArea()
-                
-                VStack {
-                    Image("cactusemoji")
-                        .resizable()
-                        .scaledToFit()
-                        .aspectRatio(contentMode: .fit)
-                        .cornerRadius(15)
-                        .frame(width: screenSize.width/4, height: screenSize.width/4)
-                    Text("Habit Garden")
+                if loading {
+                    ZStack {
+                        Color.green
+                            .opacity(0.5)
+                            .ignoresSafeArea()
+                        
+                        VStack {
+                            Image("cactusemoji")
+                                .resizable()
+                                .scaledToFit()
+                                .aspectRatio(contentMode: .fit)
+                                .cornerRadius(15)
+                                .frame(width: screenSize.width/4, height: screenSize.width/4)
+                            Text("Habit Garden")
+                        }
+                    }
                 }
-            }.onAppear{
+
+            }
+            .onAppear{
                 print(0)
                 HabitStore.load { result in
                     switch result {
@@ -41,7 +47,7 @@ struct SplashView: View {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3.0){
                     self.loading = false
                 }
-            }
+        }
         } else {
             ContentView(habitList: $store.habits) {
                 HabitStore.save(habits: store.habits) { result in
@@ -49,9 +55,6 @@ struct SplashView: View {
                         fatalError(error.localizedDescription)
                     }
                 }
-            }
-            .onAppear{
-                print(2)
             }
         }
         
