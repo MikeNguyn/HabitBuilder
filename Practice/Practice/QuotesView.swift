@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct QuotesView: View {
 //    let myQuote: QuotesManager
 //
@@ -17,7 +18,7 @@ struct QuotesView: View {
 
     var body: some View {
         Text(randomQuote())
-            .position(x:200,y:100).foregroundColor(.teal)
+            .position(x:0,y:0).foregroundColor(.teal)
             .font(.system(size: 20)
                 .bold())
                   

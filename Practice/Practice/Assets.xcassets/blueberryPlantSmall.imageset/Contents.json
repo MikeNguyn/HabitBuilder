@@ -1,6 +1,7 @@
 {
   "images" : [
     {
+      "filename" : "smallblueberry.png",
       "idiom" : "universal",
       "scale" : "1x"
     },

@@ -21,7 +21,7 @@
 * HabitStore
     + This class's function is for the saving and loading of our habit list data into a url. So whenever we close out of the app, our data is saved for the next load.
 * QuoteManager
-    + TBD
+    + This model helps read in the quotes textfile that will be used to display new quotes daily on ContentView.
 
 ### Views
 * ContentView
@@ -39,7 +39,7 @@
 * EmptyView
     + This view displays the trowel/shovel when there is not an existing habit in the garden slot. When clicked upon, this empty view will signal addview to start the creation of a habit.
 * QuotesView
-    + TBD
+    + This view displays the text pulled from the quotes text file onto the main home page.
 
 
 ## Custom Assets
