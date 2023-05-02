@@ -9,10 +9,9 @@
 
 import SwiftUI
 
-//let sizeOfPlantList: Int = listOfPlantImages.count
 let screenSize: CGRect = UIScreen.main.bounds
 
-//the fill in the information part of the habit
+//the fill in the information part of the habit.
 struct AddView: View {
     @State private var showAlert = false
     @Binding var habit: Habit
@@ -23,12 +22,6 @@ struct AddView: View {
     @State var importance = 1
     @State private var showingAlert = false
     var starterImages: [Image] = [Image("blueberryPlantSmall"),Image("orchidPlantSmall"),Image("tomatoPlantSmall"),Image("sunflowerPlantSmall"),Image("cornPlantSmall"),Image("peaPlantSmall")]
-//    @State var date: Date = Date()
-//    @Binding var listOfPlant: [Habit.Plant]
-//    @State var chosenPlant = Habit.Plant.tomato
-//    @State var daysOfWeek = [false, false, false, false, false, false, false]
-//    @State var importance = [1, 2, 3]
-//    @State var chosenImportance: Int = 1
     var body: some View {
         NavigationView{
             List{
@@ -99,7 +92,7 @@ struct AddView: View {
             .toolbar{
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink(destination: DetailView(habit: $habit)){
-                        Button("Done", action: {
+                        Button("Done", action: { //WHEN DONE WAS CLICKED. SAVE THE INFORMATION and do calculations of habit age.
                             var start = Date()
                             var startDOW = start.dayNumberOfWeek()
                             var endDOW = end.dayNumberOfWeek()
@@ -153,26 +146,6 @@ struct AddView: View {
     }
 }
 
-
-//func ScheduleNotification (endDate: Date) {
-//    // creates the notification and schedules it to appear in 5 seconds. click this button second.
-//    let content = UNMutableNotificationContent()
-//    content.title = "Feed the cat"
-//    content.subtitle = "It looks hungry"
-//    content.sound = UNNotificationSound.default
-//
-//    // show this notification five seconds from now
-//    //this needs to trigger on end date
-//    let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-//
-//    //choose a random identifier
-//    let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-//
-//    // add our notification request
-//    UNUserNotificationCenter.current().add(request)
-//    print("IT WORKED")
-//}
-
 struct AddView_Previews: PreviewProvider {
     
     static var previews: some View {
@@ -215,7 +188,7 @@ func dispatchNotification(habitName: String, daysOfWeek: [Bool]){
     let title = "Time to water your plant!"
     let body = "Make sure to check in on your " + habitName + " habit!"
     let hour = 15 //int in military
-    let minute = 7 
+    let minute = 7
     
     
     var notiDays: [Int] = []
