@@ -9,6 +9,7 @@
 import Foundation
 import SwiftUI
 
+//This is a set of test date components for sample data if we want to have past log dates for a habit.
 let dateComponentsArray = [
     DateComponents(year: 2023, month: 3, day: 29),
     DateComponents(year: 2023, month: 3, day: 5),
@@ -28,16 +29,20 @@ let dateComponentsArray = [
     DateComponents(year: 2023, month: 3, day: 24),
     DateComponents(year: 2023, month: 3, day: 31)
 ]
+
+//These 3 arrays are used for different pickers. We want our addview picker to use plant images only at their oldest stage.
 var plantCasesforPicker = [Plant(plant: "sunflower", stage: 1),Plant(plant: "blueberry", stage: 1),Plant(plant: "pea", stage: 1),Plant(plant: "orchid", stage: 1),Plant(plant: "corn", stage: 1),Plant(plant: "tomato", stage: 1)]
 
 var plantCasesforPicker2 = [Plant(plant: "sunflower", stage: 2),Plant(plant: "blueberry", stage: 2),Plant(plant: "pea", stage: 2),Plant(plant: "orchid", stage: 2),Plant(plant: "corn", stage: 2),Plant(plant: "tomato", stage: 2)]
 
+//the picker used for addview.
 var plantCasesforPicker3 = [Plant(plant: "sunflower", stage: 3),Plant(plant: "blueberry", stage: 3),Plant(plant: "pea", stage: 3),Plant(plant: "orchid", stage: 3),Plant(plant: "corn", stage: 3),Plant(plant: "tomato", stage: 3)]
 
 var datesForLog = Set(dateComponentsArray)
 
 var stageGlobal = 1
 
+//This stores all the properties we want for a specific habit.
 struct Habit: Identifiable, Codable {
     let id: UUID
     var name: String
@@ -85,6 +90,7 @@ struct Habit: Identifiable, Codable {
     
 }
 
+//This extension allows us to pull variables/properties out of a habit.
 extension Habit {
     struct Data {
         var name: String

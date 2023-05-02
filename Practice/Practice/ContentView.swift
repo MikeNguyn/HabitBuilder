@@ -104,7 +104,7 @@ struct ContentView: View {
                 //  the frame is an attempt to make the rectangle a proper square instead of a rectangle. it didn't work.
 //                 .frame(width: screenSize.width/4.5, height: screenSize.width/1.2, alignment: .top)
                 Text(randomQuote())
-                    .position(x:200,y:100).foregroundColor(.black)
+                    .position(x:screenSize.width*0.5,y:0).foregroundColor(.black)
                     .font(.system(size: 20)
                         .bold())
                 
