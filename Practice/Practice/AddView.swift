@@ -180,7 +180,10 @@ struct AddView_Previews: PreviewProvider {
     }
 }
 
+//Used bottom article to help me with the check for permission and dispatch notification methods.
+//https://stackoverflow.com/questions/61371631/how-to-set-uncalendarnotificationtrigger-for-workweek-monday-to-friday-in-swif
 
+//This method checks current state of notifications and will dispatch a notification if authorized.
 func checkForPermission(habitName: String, daysOfWeek: [Bool]){
     let notificationCenter = UNUserNotificationCenter.current()
     notificationCenter.getNotificationSettings{ settings in
@@ -204,13 +207,15 @@ func checkForPermission(habitName: String, daysOfWeek: [Bool]){
     }
 }
 
+
+//This function dispatches notifications for a specific habitName and for certain days of the week given in a [Bool]
+//For testing purposes the hour and minute for each notification is hard coded. Can adjust to whatever.
 func dispatchNotification(habitName: String, daysOfWeek: [Bool]){
     let identifier = habitName
     let title = "Time to water your plant!"
     let body = "Make sure to check in on your " + habitName + " habit!"
     let hour = 15 //int in military
-    let minute = 7
-//    let isDaily = true
+    let minute = 7 
     
     
     var notiDays: [Int] = []
@@ -228,9 +233,6 @@ func dispatchNotification(habitName: String, daysOfWeek: [Bool]){
     content.sound = .default
     
     let calendar = Calendar.current
-//    var dateComponents = DateComponents(calendar: calendar, timeZone: TimeZone.current)
-//    dateComponents.hour = hour
-//    dateComponents.minute = minute
     
     for day in notiDays {
         var dateComponents = DateComponents(calendar: calendar, timeZone: TimeZone.current)
@@ -248,11 +250,4 @@ func dispatchNotification(habitName: String, daysOfWeek: [Bool]){
             }
         }
     }
-    
-//    let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: isDaily)
-//    let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
-//
-    //removes notis w/ same identifier
-//    notificationCenter.removePendingNotificationRequests(withIdentifiers: [identifier])
-//    notificationCenter.add(request)
 }
