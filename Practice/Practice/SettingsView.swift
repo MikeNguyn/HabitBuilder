@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+//This settings view has two main functions. The first is the clear the entire garden of habits. The second is to open notification settings to toggle them on/off.
+
 struct SettingsView: View {
     @Binding var habitList: [[Habit]]
     @State private var isPresentingConfirm = false
@@ -14,6 +16,7 @@ struct SettingsView: View {
         List{
             Section(header: Text("Habit Garden Settings")){
                 HStack {
+                    //This is the clear garden section
                     Text("Clear the Entire Garden?")
                     Spacer()
                     Button("X", role: .destructive) {
@@ -23,8 +26,6 @@ struct SettingsView: View {
                     .padding(5)
                         .background(Color.black)
                         .clipShape(Circle())
-//                        .padding(.trailing, 20)
-                    
                     .confirmationDialog("Are you sure?",
                       isPresented: $isPresentingConfirm) {
                       Button("Delete the entire garden?", role: .destructive) {
@@ -37,6 +38,8 @@ struct SettingsView: View {
                         }
                     }
                 }
+                //This triggers the opening of settings
+//got help from https://stackoverflow.com/questions/42848539/opening-apps-notification-settings-in-the-settings-app
                 HStack{
                     Text("Open Notification Settings")
                     Spacer()

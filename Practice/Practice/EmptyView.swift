@@ -5,6 +5,7 @@
 //  Created by Minh Nguyen on 3/8/23.
 //
 
+//This empty view is for an empty habit. This displays a trowel image.
 import SwiftUI
 
 struct EmptyView: View {
@@ -15,10 +16,7 @@ struct EmptyView: View {
             .resizable()
             .frame(width: screenSize.width/4.5, height: screenSize.width/4.5)
             .rotation3DEffect(.degrees(-55), axis: (x: 5.0, y: 5.0, z: 45.0))
-//            .rotationEffect(.degrees(-45))
             .scaleEffect(x: 1.2 , y: 1.33, anchor: .center)
-//        .rotation3DEffect(.degrees(-75), axis: (x: 0.0, y: 0.0, z: 45.0))
-//        .scaleEffect(x: 0.75, y: 1.125, anchor: .center)
     }
 }
 
