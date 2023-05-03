@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+//This splash view is our loading screen with our logo. 
 struct SplashView: View {
     let screenSize: CGRect = UIScreen.main.bounds
     @State var loading = true

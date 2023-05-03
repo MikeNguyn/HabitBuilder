@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+//This view is our tutorial for how to use the app. Users will press the question mark on content view to open up the tutorial.
+
 struct ImageSlideShow: View {
     let images: [String]
     @State private var currentImageIndex = 0
@@ -50,7 +52,8 @@ struct ImageSlideShow: View {
             .padding()
         }
     }
-
+    
+    //These next two functions let us scroll left and right manually during the slideshow.
     func previousImage() {
         if currentImageIndex > 0 {
             currentImageIndex -= 1

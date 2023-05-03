@@ -8,17 +8,13 @@
 
 import SwiftUI
 
-//var globalImageNumber: Int = 1
 
 struct ButtonView: View {
-//    var widthPercentage: Int
-//    var heightPercentage: Int
     @Binding var habit: Habit
     let screenSize: CGRect = UIScreen.main.bounds
     @GestureState var press = false
     @State var show = false
     @State var isShowingDetailView = false
-//    @State var plant: Habit.Plant = Habit.Plant.tomato3
     
     var body: some View {
         VStack{
@@ -47,6 +43,7 @@ struct ButtonView: View {
                 .scaleEffect(press ? 1.5: 1)
                 .animation(.spring(response: 0.4, dampingFraction: 1))
                 .highPriorityGesture(
+                    //below is the long press gesture that will update the pressed state. it will make the plant glow and add to log.
                     LongPressGesture(minimumDuration: 0.5)
                         .updating($press) {currentState, gestureState, transaction in
                             gestureState = currentState
@@ -61,6 +58,7 @@ struct ButtonView: View {
                                 if (!habit.log.contains(todayDate)) {
                                     print("the user checked off habit")
                                     habit.log.insert(todayDate)
+                                    // May trigger plant growth if it is the right day.
                                     habit.plant = Plant(plant: habit.plant.plant, stage: checkPlantGrowth(age: habit.age, log: habit.log.count))
                                     print(habit.plant.stage)
                                 } else {

@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+//This settings view has two main functions. The first is the clear the entire garden of habits. The second is to open notification settings to toggle them on/off.
+
 struct SettingsView: View {
     @Binding var habitList: [[Habit]]
     @State private var isPresentingConfirm = false
@@ -53,10 +55,6 @@ struct SettingsView: View {
                 }
             }.navigationTitle("Settings")
         }
-        
-        
-        
-        
     }
 }
 

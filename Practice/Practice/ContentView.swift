@@ -19,12 +19,9 @@ struct ContentView: View {
     @GestureState var isLongPressed = false
     @Environment(\.scenePhase) private var scenePhase
     let saveAction: () -> Void
-    
-
-    
     var body: some View {
         NavigationView {
-            VStack {
+            VStack{
                 ZStack{
                 Circle()
                     .fill(Color("sunColor"))
@@ -32,6 +29,7 @@ struct ContentView: View {
                     .shadow(color: Color("sunColor"), radius: 20)
                     .shadow(color: Color("sunColor"), radius: 10)
                     .position(x: screenSize.width*0.8, y: screenSize.height*0.1)
+                //Cloud images
                 Image("cloudOne")
                     .resizable()
                     .renderingMode(.template)
@@ -62,6 +60,8 @@ struct ContentView: View {
 //                    }
 //                }
                 //Schedule button HAS BEEN MOVED TO ADDVIEW
+
+                //This is the start of our 3x3 Grid
                 Grid(){
                     Divider()
                     GridRow {
@@ -71,7 +71,6 @@ struct ContentView: View {
                                     EmptyView()
                                         .offset(y:-5)
                                         .offset(x:-5)
-//                                        .offset(x:10)
                                 }
                             } else {
                                     ButtonView(habit: $habit)
@@ -117,17 +116,18 @@ struct ContentView: View {
                  .padding(80)
                  .rotationEffect(Angle(degrees: 45), anchor: .center) //I found this online :)
                  .scaleEffect(x: 1.0, y: 0.65, anchor: .center)
-                //  the frame is an attempt to make the rectangle a proper square instead of a rectangle. it didn't work.
-//                 .frame(width: screenSize.width/4.5, height: screenSize.width/1.2, alignment: .top)
+                
+                //This is the random quote portion
                 Text(randomQuote())
                     .position(x:screenSize.width*0.5,y:0).foregroundColor(Color("quotesColor"))
                     .font(.system(size: 20)
                         .bold())
                 
                 Spacer()
+                
+                //Below is the button for the slideshow
                 HStack{
                     NavigationLink(destination: ImageSlideShow(images: ["Tutss1", "Tutss1", "Tutss2", "Tutss3", "Tutss4","Tutss5", "Tutss6", "Tutss7", "Tutss8", "Tutss9", "Tutss10", "Tutss11", "Tutss12", "Tutss15", "Tutss16"])) {
-//                        Text(systemImage: "gear")
                         Label("", systemImage: "questionmark.circle").padding(.leading, 8)
                     }
                     .buttonStyle(.borderedProminent)
@@ -136,17 +136,15 @@ struct ContentView: View {
                     
                     Spacer()
                     
+                    //Settings button
+                    
                     NavigationLink(destination: SettingsView(habitList: $habitList)) {
-//                        Text(systemImage: "gear")
                         Label("", systemImage: "gear").padding(.leading, 8)
                     }
                     .buttonStyle(.borderedProminent)
                     .padding(.trailing, 20)
                     .tint(Color("buttonColor"))
 
-                    
-                    
-                    //Below i will save to show in a settings page
                     
                 }.edgesIgnoringSafeArea(.all)
             }
