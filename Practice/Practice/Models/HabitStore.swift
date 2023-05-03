@@ -8,6 +8,8 @@
 import Foundation
 import SwiftUI
 
+//Habit Store takes in our list of list of habits. Then it will save this data in a URL. When we are reloading the app we will pull from this url to get our saved habit data.
+
 class HabitStore: ObservableObject {
     @Published var habits: [[Habit]] =
     [[Habit(), Habit(), Habit()], [Habit(), Habit(), Habit()], [Habit(), Habit(), Habit()]]

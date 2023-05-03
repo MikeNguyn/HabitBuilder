@@ -7,47 +7,15 @@
 
 import SwiftUI
 
+
+//This is the main class of our app that is ran when we run the application. This initiates the SplashView/loading screen.
 @main
 struct PracticeApp: App {
-    //    @State var habitManager = HabitManager()
     @StateObject private var store = HabitStore()
-    @State private var notificationsAllowed = false
     var body: some Scene {
         @State var loading = true
         WindowGroup {
             SplashView()
-//            if loading {
-//                SplashView()
-//                    .onAppear {
-//                        HabitStore.load { result in
-//                            switch result {
-//                            case .failure(let error):
-//                                fatalError(error.localizedDescription)
-//                            case .success(let habits):
-//                                store.habits = habits
-//                            }
-//                        }
-//                        loading = false
-//                    }
-//            } else {
-//                ContentView(habitList: $store.habits) {
-//                    HabitStore.save(habits: store.habits) { result in
-//                        if case .failure(let error) = result {
-//                            fatalError(error.localizedDescription)
-//                        }
-//                    }
-//                }
-//                //            .onAppear {
-//                //                HabitStore.load { result in
-//                //                    switch result {
-//                //                    case .failure(let error):
-//                //                        fatalError(error.localizedDescription)
-//                //                    case .success(let habits):
-//                //                        store.habits = habits
-//                //                    }
-//                //                }
-//                //            }
-//            }
         }
     }
 }

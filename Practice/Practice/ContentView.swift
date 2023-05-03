@@ -22,30 +22,31 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack{
+                ZStack{
+                Circle()
+                    .fill(Color("sunColor"))
+                    .frame(width: screenSize.width/6.0, height: screenSize.width/6.0)
+                    .shadow(color: Color("sunColor"), radius: 20)
+                    .shadow(color: Color("sunColor"), radius: 10)
+                    .position(x: screenSize.width*0.8, y: screenSize.height*0.1)
+                //Cloud images
                 Image("cloudOne")
                     .resizable()
+                    .renderingMode(.template)
+                    .foregroundColor(Color("cloudColor"))
                     .frame(width: screenSize.width/2.2, height: screenSize.width/3.7)
                     .rotation3DEffect(.degrees(0), axis: (x: 5.0, y: 5.0, z: 45.0))
-                    .position(x: 75,  y: 100)
+                    .position(x: screenSize.width*0.2,  y: screenSize.height*0.15)
                 Image("cloud2")
                     .resizable()
+                    .renderingMode(.template)
+                    .foregroundColor(Color("cloudColor"))
                     .frame(width: screenSize.width/2.2, height: screenSize.width/3.7)
                     .rotation3DEffect(.degrees(0), axis: (x: 5.0, y: 5.0, z: 45.0))
-                    .position(x: 325,  y: 5)
-//                NavigationLink("Tutorial"){
-//                    ImageSlideShow(images: ["Tutss1", "Tutss1", "Tutss2", "Tutss3", "Tutss4","Tutss5", "Tutss6", "Tutss7", "Tutss8", "Tutss9", "Tutss10", "Tutss11", "Tutss12", "Tutss15", "Tutss16"])
-//                }
-//                Button("Request Permission") {
-//                    // requests permission from the user to send notifications. Click this first
-//                    UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
-//                        if success {
-//                            print("All set!")
-//                        } else if let error = error {
-//                            print(error.localizedDescription)
-//                        }
-//                    }
-//                }
-                //Schedule button HAS BEEN MOVED TO ADDVIEW
+                    .position(x: screenSize.width*0.8,  y: screenSize.height*0.15)
+            }
+
+                //This is the start of our 3x3 Grid
                 Grid(){
                     Divider()
                     GridRow {
@@ -55,7 +56,6 @@ struct ContentView: View {
                                     EmptyView()
                                         .offset(y:-5)
                                         .offset(x:-5)
-//                                        .offset(x:10)
                                 }
                             } else {
                                     ButtonView(habit: $habit)
@@ -101,39 +101,41 @@ struct ContentView: View {
                  .padding(80)
                  .rotationEffect(Angle(degrees: 45), anchor: .center) //I found this online :)
                  .scaleEffect(x: 1.0, y: 0.65, anchor: .center)
-                //  the frame is an attempt to make the rectangle a proper square instead of a rectangle. it didn't work.
-//                 .frame(width: screenSize.width/4.5, height: screenSize.width/1.2, alignment: .top)
+                
+                //This is the random quote portion
                 Text(randomQuote())
-                    .position(x:200,y:100).foregroundColor(.black)
+                    .position(x:screenSize.width*0.5,y:0).foregroundColor(Color("quotesColor"))
                     .font(.system(size: 20)
                         .bold())
                 
                 Spacer()
+                
+                //Below is the button for the slideshow
                 HStack{
                     NavigationLink(destination: ImageSlideShow(images: ["Tutss1", "Tutss1", "Tutss2", "Tutss3", "Tutss4","Tutss5", "Tutss6", "Tutss7", "Tutss8", "Tutss9", "Tutss10", "Tutss11", "Tutss12", "Tutss15", "Tutss16"])) {
-//                        Text(systemImage: "gear")
                         Label("", systemImage: "questionmark.circle").padding(.leading, 8)
                     }
                     .buttonStyle(.borderedProminent)
                     .padding(.leading, 20)
+                    .tint(Color("buttonColor"))
                     
                     Spacer()
                     
+                    //Settings button
+                    
                     NavigationLink(destination: SettingsView(habitList: $habitList)) {
-//                        Text(systemImage: "gear")
                         Label("", systemImage: "gear").padding(.leading, 8)
                     }
                     .buttonStyle(.borderedProminent)
                     .padding(.trailing, 20)
-                    
-                    
-                    //Below i will save to show in a settings page
+                    .tint(Color("buttonColor"))
+
                     
                 }.edgesIgnoringSafeArea(.all)
-                
             }
             .background(Color("ColorHomeBackground"))
             .navigationTitle("Your Garden")
+            
         } // end of navigation view
         .onChange(of: scenePhase) {phase in
             if phase == .inactive {saveAction()}

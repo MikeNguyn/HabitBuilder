@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-//The main detail backbones that display a plants information
+//The main detail backbones that display a plants information.
 struct DetailView: View {
     @Binding var habit: Habit
     let PLANTICONSIZE = 75.0
@@ -24,6 +24,7 @@ struct DetailView: View {
                 habit.plant.image.resizable().frame(width: PLANTICONSIZE, height: PLANTICONSIZE)
                 LinearProgressDemoView(habit: habit)
                 Spacer()
+                //Users can also check off habit on this page.
                 Button("Check off Habit") {
                     let now = Date() // get the current date and time
                     let calendar = Calendar.current // get the current calendar
@@ -41,7 +42,7 @@ struct DetailView: View {
                         }
                     }
                 }
-
+                //The displayed properties of a habit,
                 List{
                     Section(header: Text("Habit Details")){
                         HStack {
@@ -50,17 +51,9 @@ struct DetailView: View {
                             Label("", systemImage: getImportanceLevel(num: habit.importance))
                         }
                         HStack {
-                            Label("Length", systemImage: "timer")
+                            Label("Checkins needed for complete growth", systemImage: "timer")
                             Spacer()
-//                            Text(String(calculateLength(startDate: habit.start,endDate: habit.end)) + " days")
                             Text(String(habit.age) + " checkins")
-                        }
-                        HStack {
-                            Label("Z calculation", systemImage: "timer")
-                            Spacer()
-                            var totalCheckins = calculateZ(frequency: habit.frequency, lengthOfHabit: calculateLength(startDate: habit.start,endDate: habit.end))
-                            Text(String(totalCheckins) + " total checkins")
-                            
                         }
                         HStack {
                             Label("Checkins in log", systemImage: "info.circle")
@@ -82,16 +75,10 @@ struct DetailView: View {
                         }
                         HStack
                         {
-                            Label("Check-ins allowed", systemImage:  "info.circle")
+                            Label("End Date", systemImage:  "info.circle")
                             Spacer()
-                            Text(String(habit.frequency[day.dayNumberOfWeek()! - 1]))
+                            Text(stringOfDate(date:habit.end))
                         }
-//                        HStack
-//                        {
-//                            Label("Log", systemImage:  "info.circle")
-//                            Spacer()
-//                            Text(String(habit.log))
-//                        }
                         ZStack{
                             MultiDatePicker(                                     "Start Date",
                                 selection: $habit.log
@@ -104,19 +91,15 @@ struct DetailView: View {
                                 .onTapGesture{
                                     calendarClicked = true
                                 }
-        //                        calendarClicked = false
                         }
                     }
                 }.background(CustomColor.homeGreen)
                     .listStyle(.plain)
-                
-                
-//                MultiDatePicker(                                     "Start Date",
-//                    selection: $habit.log
-//                )
                                         .datePickerStyle(.graphical)
                     .scaleEffect(x: 0.9, y: 0.9)
                 
+                
+                //button that lets us delete a habit
                 HStack(spacing: 75){
                     Button("Delete habit", role: .destructive){
                         isPresentingConfirm = true
@@ -137,7 +120,7 @@ struct DetailView: View {
                     
                         
                     
-                    
+                    //button that allows us to edit habit
                     Button("Edit Habit") {
                                     presentSheet.toggle()
                                 }
@@ -196,13 +179,12 @@ func evaluateHealth(health: Double)->Color{
 }
 
 struct DetailView_Previews: PreviewProvider {
-//    static var habit = Habit.sampleData[2][1]
     static var previews: some View {
         DetailView(habit: .constant(Habit.sampleData[0][1]))
     }
 }
 
-//Creates the health bar of the plant
+//Creates the progess bar of the plant.
 struct LinearProgressDemoView: View {
     let habit: Habit
 
@@ -225,42 +207,10 @@ func calculateLength(startDate: Date,endDate: Date)->Int{
     return answer
 }
 
-//Z is the number of checkins to reach final goal image.
-func calculateZ(frequency: [Bool], lengthOfHabit: Int)->Int{
-    var freqInt = 0
-    for i in frequency{ //for how many true days in the week
-        if i{
-            freqInt += 1
-        }
-    }
-    var z = 0
-    let numberofweeks = lengthOfHabit / 7
-    z = freqInt  * numberofweeks
-    return z
-    
-}
 
 func stringOfDate(date: Date) -> String{
         let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "yyyy-MM-dd hh:mm:ss"
         dateFormatter.dateStyle = .short
     return dateFormatter.string(from: date)
 }
-
-//struct DeleteButton: View {
-//  @EnvironmentObject var store: Store
-//  @State private var isPresentingConfirm: Bool = false
-//
-//  var body: some View {
-//    Button("Delete", role: .destructive) {
-//      isPresentingConfirm = true
-//    }
-//   .confirmationDialog("Are you sure?",
-//     isPresented: $isPresentingConfirm) {
-//     Button("Delete all items?", role: .destructive) {
-//       store.deleteAll()
-//      }
-//    }
-//  }
-//}
 

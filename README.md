@@ -10,6 +10,18 @@
 * App was built using SwiftUI and Xcode.
 
 
+## USER MANUAL
+--------------
+* Our Habit Garden app is only available for iPhones. Upon opening, users will be loaded onto the mainscreen (ContentView) where they will see a plot of land and 9 trowels. These trowels are clickable and allow us to add new habits to the garden plot. 
+* When a trowel is clicked, users will be asked to enter in habit information and will be able to choose a plant to represent their habit.
+* Plants that are currently in the garden can be long-pressed to check off a habit for the day. This will be signified by a green glow. If a habit is mistakenly checked off, another long-press will uncheck the habit.
+* A simply tap of a plant will display a view with details of the habit. It will also show a calendar log of the past month and how many check-ins have occurred. 
+* On this details page we can also check/uncheck habits. The progress bar shows how close the user is to fully growing the habit and reaching the final, full-grown plant.
+* On the bottom of the details page are two buttons. We can edit a habit's attributes or delete a habit.
+* Back to the home garden page, on the bottom left is a (?) Button where we can access the tutorial slideshow.
+* The bottom right of the garden page opens up a small settings page where users can clear the entire garden or open their notification settings.
+
+
 ## UNDERSTANDING THE CODE
 --------------
 
@@ -21,7 +33,7 @@
 * HabitStore
     + This class's function is for the saving and loading of our habit list data into a url. So whenever we close out of the app, our data is saved for the next load.
 * QuoteManager
-    + TBD
+    + This model helps read in the quotes textfile that will be used to display new quotes daily on ContentView.
 
 ### Views
 * ContentView
@@ -39,7 +51,7 @@
 * EmptyView
     + This view displays the trowel/shovel when there is not an existing habit in the garden slot. When clicked upon, this empty view will signal addview to start the creation of a habit.
 * QuotesView
-    + TBD
+    + This view displays the text pulled from the quotes text file onto the main home page.
 
 
 ## Custom Assets
