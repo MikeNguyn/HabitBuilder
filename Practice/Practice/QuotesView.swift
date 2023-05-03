@@ -17,10 +17,14 @@ struct QuotesView: View {
 //    }
 
     var body: some View {
-        Text(randomQuote())
+        var quote = randomQuote()
+        Text(quote)
             .position(x:0,y:0).foregroundColor(.teal)
             .font(.system(size: 20)
                 .bold())
+            .onAppear{
+                var quote = randomQuote()
+            }
                   
 
 //        Text(printLine())

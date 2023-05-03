@@ -19,19 +19,35 @@ struct ContentView: View {
     @GestureState var isLongPressed = false
     @Environment(\.scenePhase) private var scenePhase
     let saveAction: () -> Void
+    
+
+    
     var body: some View {
         NavigationView {
-            VStack{
+            VStack {
+                ZStack{
+                Circle()
+                    .fill(Color("sunColor"))
+                    .frame(width: screenSize.width/6.0, height: screenSize.width/6.0)
+                    .shadow(color: Color("sunColor"), radius: 20)
+                    .shadow(color: Color("sunColor"), radius: 10)
+                    .position(x: screenSize.width*0.8, y: screenSize.height*0.1)
                 Image("cloudOne")
                     .resizable()
+                    .renderingMode(.template)
+                    .foregroundColor(Color("cloudColor"))
                     .frame(width: screenSize.width/2.2, height: screenSize.width/3.7)
                     .rotation3DEffect(.degrees(0), axis: (x: 5.0, y: 5.0, z: 45.0))
-                    .position(x: 75,  y: 100)
+                    .position(x: screenSize.width*0.2,  y: screenSize.height*0.15)
                 Image("cloud2")
                     .resizable()
+                    .renderingMode(.template)
+                    .foregroundColor(Color("cloudColor"))
                     .frame(width: screenSize.width/2.2, height: screenSize.width/3.7)
                     .rotation3DEffect(.degrees(0), axis: (x: 5.0, y: 5.0, z: 45.0))
-                    .position(x: 325,  y: 5)
+                    .position(x: screenSize.width*0.8,  y: screenSize.height*0.15)
+            }
+
 //                NavigationLink("Tutorial"){
 //                    ImageSlideShow(images: ["Tutss1", "Tutss1", "Tutss2", "Tutss3", "Tutss4","Tutss5", "Tutss6", "Tutss7", "Tutss8", "Tutss9", "Tutss10", "Tutss11", "Tutss12", "Tutss15", "Tutss16"])
 //                }
@@ -104,7 +120,7 @@ struct ContentView: View {
                 //  the frame is an attempt to make the rectangle a proper square instead of a rectangle. it didn't work.
 //                 .frame(width: screenSize.width/4.5, height: screenSize.width/1.2, alignment: .top)
                 Text(randomQuote())
-                    .position(x:screenSize.width*0.5,y:0).foregroundColor(.black)
+                    .position(x:screenSize.width*0.5,y:0).foregroundColor(Color("quotesColor"))
                     .font(.system(size: 20)
                         .bold())
                 
@@ -116,6 +132,7 @@ struct ContentView: View {
                     }
                     .buttonStyle(.borderedProminent)
                     .padding(.leading, 20)
+                    .tint(Color("buttonColor"))
                     
                     Spacer()
                     
@@ -125,15 +142,17 @@ struct ContentView: View {
                     }
                     .buttonStyle(.borderedProminent)
                     .padding(.trailing, 20)
+                    .tint(Color("buttonColor"))
+
                     
                     
                     //Below i will save to show in a settings page
                     
                 }.edgesIgnoringSafeArea(.all)
-                
             }
             .background(Color("ColorHomeBackground"))
             .navigationTitle("Your Garden")
+            
         } // end of navigation view
         .onChange(of: scenePhase) {phase in
             if phase == .inactive {saveAction()}
