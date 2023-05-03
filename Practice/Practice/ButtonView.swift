@@ -33,7 +33,15 @@ struct ButtonView: View {
                         if (habit.log.contains(calendar.dateComponents([.year, .month, .day], from: now))) {
                             return Color.green
                         } else {
-                            return Color.red
+                            if habit.importance == 1{
+                                return Color.yellow
+                            } else if habit.importance == 2 {
+                                return Color.orange
+                            } else if habit.importance == 3 {
+                                return Color.red
+                            } else {
+                                return Color.white.opacity(0.0)
+                            }
                         }
                     }
                     else {

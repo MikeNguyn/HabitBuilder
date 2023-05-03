@@ -49,6 +49,7 @@ struct DetailView: View {
                             Label("Priority", systemImage: "exclamationmark.square")
                             Spacer()
                             Label("", systemImage: getImportanceLevel(num: habit.importance))
+                                .foregroundStyle(habit.importance == 1 ? .yellow: habit.importance == 2 ? .orange: .red, .black)
                         }
                         HStack {
                             Label("Checkins needed for complete growth", systemImage: "timer")
