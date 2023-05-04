@@ -21,7 +21,7 @@ struct AddView: View {
     @State var frequency = [false, false, false, false, false, false, false]
     @State var importance = 1
     @State private var showingAlert = false
-    var starterImages: [Image] = [Image("blueberryPlantSmall"),Image("orchidPlantSmall"),Image("tomatoPlantSmall"),Image("sunflowerPlantSmall"),Image("cornPlantSmall"),Image("peaPlantSmall"), Image("eggplantSmall")]
+    var starterImages: [Image] = [Image("blueberryPlantSmall"),Image("orchidPlantSmall"),Image("tomatoPlantSmall"),Image("sunflowerPlantSmall"),Image("cornPlantSmall"),Image("peaPlantSmall"), Image("eggplantPlantSmall"), Image("strawberryPlantSmall")]
     var body: some View {
         NavigationView{
             List{

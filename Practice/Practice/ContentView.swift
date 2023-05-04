@@ -126,7 +126,7 @@ struct ContentView: View {
                 
                 //Below is the button for the slideshow
                 HStack{
-                    NavigationLink(destination: ImageSlideShow(images: ["Tutss1", "Tutss1", "Tutss2", "Tutss3", "Tutss4","Tutss5", "Tutss6", "Tutss7", "Tutss8", "Tutss9", "Tutss10", "Tutss11", "Tutss12", "Tutss15", "Tutss16"])) {
+                    NavigationLink(destination: ImageSlideShow(images: ["intro","intro", "Tutss1", "Tutss2", "Tutss3", "Tutss4","Tutss5", "Tutss6", "Tutss7", "Tutss8", "Tutss9", "Tutss10", "Tutss11", "Tutss12", "Tutss15", "Tutss16", "Tutss17", "Tutss18", "Tutss19", "Tutss20", "Tutss21"])) {
                         Label("", systemImage: "questionmark.circle").padding(.leading, 8)
                     }
                     .buttonStyle(.borderedProminent)
@@ -148,8 +148,7 @@ struct ContentView: View {
                 }.edgesIgnoringSafeArea(.all)
             }
             .background(Color("ColorHomeBackground"))
-            .navigationTitle("Your Garden")
-            
+            .navigationTitle("My Garden")
         } // end of navigation view
         .onChange(of: scenePhase) {phase in
             if phase == .inactive {saveAction()}
