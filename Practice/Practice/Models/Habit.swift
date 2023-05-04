@@ -31,12 +31,12 @@ let dateComponentsArray = [
 ]
 
 //These 3 arrays are used for different pickers. We want our addview picker to use plant images only at their oldest stage.
-var plantCasesforPicker = [Plant(plant: "sunflower", stage: 1),Plant(plant: "blueberry", stage: 1),Plant(plant: "pea", stage: 1),Plant(plant: "orchid", stage: 1),Plant(plant: "corn", stage: 1),Plant(plant: "tomato", stage: 1),Plant(plant: "strawberry", stage: 1),Plant(plant: "carrot", stage: 1)]
+var plantCasesforPicker = [Plant(plant: "sunflower", stage: 1),Plant(plant: "blueberry", stage: 1),Plant(plant: "pea", stage: 1),Plant(plant: "orchid", stage: 1),Plant(plant: "corn", stage: 1),Plant(plant: "tomato", stage: 1),Plant(plant: "strawberry", stage: 1),Plant(plant: "carrot", stage: 1),Plant(plant: "eggplant", stage: 1)]
 
-var plantCasesforPicker2 = [Plant(plant: "sunflower", stage: 2),Plant(plant: "blueberry", stage: 2),Plant(plant: "pea", stage: 2),Plant(plant: "orchid", stage: 2),Plant(plant: "corn", stage: 2),Plant(plant: "tomato", stage: 2),Plant(plant: "strawberry", stage: 2),Plant(plant: "carrot", stage: 2)]
+var plantCasesforPicker2 = [Plant(plant: "sunflower", stage: 2),Plant(plant: "blueberry", stage: 2),Plant(plant: "pea", stage: 2),Plant(plant: "orchid", stage: 2),Plant(plant: "corn", stage: 2),Plant(plant: "tomato", stage: 2),Plant(plant: "strawberry", stage: 2),Plant(plant: "carrot", stage: 2),Plant(plant: "eggplant", stage: 2)]
 
 //the picker used for addview.
-var plantCasesforPicker3 = [Plant(plant: "sunflower", stage: 3),Plant(plant: "blueberry", stage: 3),Plant(plant: "pea", stage: 3),Plant(plant: "orchid", stage: 3),Plant(plant: "corn", stage: 3),Plant(plant: "tomato", stage: 3),Plant(plant: "strawberry", stage: 3),Plant(plant: "carrot", stage: 3)]
+var plantCasesforPicker3 = [Plant(plant: "sunflower", stage: 3),Plant(plant: "blueberry", stage: 3),Plant(plant: "pea", stage: 3),Plant(plant: "orchid", stage: 3),Plant(plant: "corn", stage: 3),Plant(plant: "tomato", stage: 3),Plant(plant: "strawberry", stage: 3),Plant(plant: "carrot", stage: 3),Plant(plant: "eggplant", stage: 3)]
 
 var datesForLog = Set(dateComponentsArray)
 
