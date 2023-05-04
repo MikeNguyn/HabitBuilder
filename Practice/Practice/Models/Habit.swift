@@ -31,12 +31,12 @@ let dateComponentsArray = [
 ]
 
 //These 3 arrays are used for different pickers. We want our addview picker to use plant images only at their oldest stage.
-var plantCasesforPicker = [Plant(plant: "sunflower", stage: 1),Plant(plant: "blueberry", stage: 1),Plant(plant: "pea", stage: 1),Plant(plant: "orchid", stage: 1),Plant(plant: "corn", stage: 1),Plant(plant: "tomato", stage: 1),Plant(plant: "strawberry", stage: 1),Plant(plant: "carrot", stage: 1)]
+var plantCasesforPicker = [Plant(plant: "sunflower", stage: 1),Plant(plant: "blueberry", stage: 1),Plant(plant: "pea", stage: 1),Plant(plant: "orchid", stage: 1),Plant(plant: "corn", stage: 1),Plant(plant: "tomato", stage: 1),Plant(plant: "strawberry", stage: 1),Plant(plant: "carrot", stage: 1),Plant(plant: "eggplant", stage: 1)]
 
-var plantCasesforPicker2 = [Plant(plant: "sunflower", stage: 2),Plant(plant: "blueberry", stage: 2),Plant(plant: "pea", stage: 2),Plant(plant: "orchid", stage: 2),Plant(plant: "corn", stage: 2),Plant(plant: "tomato", stage: 2),Plant(plant: "strawberry", stage: 2),Plant(plant: "carrot", stage: 2)]
+var plantCasesforPicker2 = [Plant(plant: "sunflower", stage: 2),Plant(plant: "blueberry", stage: 2),Plant(plant: "pea", stage: 2),Plant(plant: "orchid", stage: 2),Plant(plant: "corn", stage: 2),Plant(plant: "tomato", stage: 2),Plant(plant: "strawberry", stage: 2),Plant(plant: "carrot", stage: 2),Plant(plant: "eggplant", stage: 2)]
 
 //the picker used for addview.
-var plantCasesforPicker3 = [Plant(plant: "sunflower", stage: 3),Plant(plant: "blueberry", stage: 3),Plant(plant: "pea", stage: 3),Plant(plant: "orchid", stage: 3),Plant(plant: "corn", stage: 3),Plant(plant: "tomato", stage: 3),Plant(plant: "strawberry", stage: 3),Plant(plant: "carrot", stage: 3)]
+var plantCasesforPicker3 = [Plant(plant: "sunflower", stage: 3),Plant(plant: "blueberry", stage: 3),Plant(plant: "pea", stage: 3),Plant(plant: "orchid", stage: 3),Plant(plant: "corn", stage: 3),Plant(plant: "tomato", stage: 3),Plant(plant: "strawberry", stage: 3),Plant(plant: "carrot", stage: 3),Plant(plant: "eggplant", stage: 3)]
 
 var datesForLog = Set(dateComponentsArray)
 
@@ -134,14 +134,14 @@ extension Date {
  
 //This is sample habit data that we can use for testing and displaying.
 extension Habit {
-    static let sampleData: [[Habit]] = [[Habit(name: "Drinking Water", plant: Plant(plant: "sunflower", stage: 1), start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 1.0, importance: 2, empty: false, log: datesForLog, age: 0, stage:1),
+    static let sampleData: [[Habit]] = [[Habit(name: "Drinking Water", plant: Plant(plant: "strawberry", stage: 3), start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 1.0, importance: 2, empty: false, log: datesForLog, age: 0, stage:1),
                                          Habit(name: "Drinking Wine", plant: Plant(plant: "sunflower", stage: 1), start: Date(), end: Date(), frequency: [false, true, true, true, false, false, false], health: 0.85, importance: 1, empty: false, log: datesForLog, age: 0,stage: 1),
-                                      Habit(name: "Exercise", plant: Plant(plant: "sunflower", stage: 1), start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.40, importance: 3, empty: false, log: datesForLog, age: 0,stage: 2)],
-                                      [Habit(name: "Water Plants", plant: Plant(plant: "sunflower", stage: 1), start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.0, importance: 2, empty: false, log: datesForLog, age: 0,stage: 2),
-                                      Habit(name: "Shower", plant: Plant(plant: "sunflower", stage: 1), start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.60, importance: 1, empty: false, log: datesForLog, age: 0,stage: 2),
-                                      Habit(name: "Wash Laundry", plant: Plant(plant: "sunflower", stage: 1), start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.29, importance: 1, empty: false, log: datesForLog, age: 0,stage: 3)],
-                                      [Habit(name: "Tell a joke", plant: Plant(plant: "sunflower", stage: 1), start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.82, importance: 2, empty: false, log: datesForLog, age: 0,stage: 3),
-                                      Habit(name: "Take Medicine", plant: Plant(plant: "sunflower", stage: 1), start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.90, importance: 3, empty: false, log: datesForLog, age: 0,stage: 3),
+                                      Habit(name: "Exercise", plant: Plant(plant: "blueberry", stage: 1), start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.40, importance: 3, empty: false, log: datesForLog, age: 0,stage: 2)],
+                                      [Habit(name: "Water Plants", plant: Plant(plant: "orchid", stage: 3), start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.0, importance: 2, empty: false, log: datesForLog, age: 0,stage: 2),
+                                      Habit(name: "Shower", plant: Plant(plant: "corn", stage: 3), start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.60, importance: 1, empty: false, log: datesForLog, age: 0,stage: 2),
+                                      Habit(name: "Wash Laundry", plant: Plant(plant: "sunflower", stage: 1), start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.29, importance: 1, empty: true, log: datesForLog, age: 0,stage: 3)],
+                                      [Habit(name: "Tell a joke", plant: Plant(plant: "eggplant", stage: 3), start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.82, importance: 2, empty: false, log: datesForLog, age: 0,stage: 3),
+                                      Habit(name: "Take Medicine", plant: Plant(plant: "pea", stage: 3), start: Date(), end: Date(), frequency: [false, false, false, false, false, false, false], health: 0.90, importance: 3, empty: false, log: datesForLog, age: 0,stage: 3),
                                       Habit()]
 ]
 }
