@@ -23,64 +23,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "389104A5-6AC8-46F6-AD2A-F5B1121F692F"
-            shouldBeEnabled = "Yes"
+            uuid = "338B71A5-F452-4281-8B1B-51FB10A895C2"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Practice/ContentView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
             landmarkName = "body"
             landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "389104A5-6AC8-46F6-AD2A-F5B1121F692F - dfb24fbf2ff2dd69"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.Divider, SwiftUI.GridRow&lt;SwiftUI.ForEach&lt;SwiftUI.Binding&lt;Swift.Array&lt;Practice.Habit&gt;&gt;, Foundation.UUID, SwiftUI._ConditionalContent&lt;SwiftUI.NavigationLink&lt;&lt;&lt;opaque return type of SwiftUI.View.offset(x: CoreGraphics.CGFloat, y: CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0, SwiftUI.AnyView&gt;, &lt;&lt;opaque return type of SwiftUI.View.offset(x: CoreGraphics.CGFloat, y: CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0&gt;&gt;&gt;, SwiftUI.Divider, SwiftUI.GridRow&lt;SwiftUI.ForEach&lt;SwiftUI.Binding&lt;Swift.Array&lt;Practice.Habit&gt;&gt;, Foundation.UUID, SwiftUI._ConditionalContent&lt;SwiftUI.NavigationLink&lt;&lt;&lt;opaque return type of SwiftUI.View.offset(x: CoreGraphics.CGFloat, y: CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0, SwiftUI.AnyView&gt;, &lt;&lt;opaque return type of SwiftUI.View.offset(x: CoreGraphics.CGFloat, y: CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0&gt;&gt;&gt;, SwiftUI.Divider, SwiftUI.GridRow&lt;SwiftUI.ForEach&lt;SwiftUI.Binding&lt;Swift.Array&lt;Practice.Habit&gt;&gt;, Foundation.UUID, SwiftUI._ConditionalContent&lt;SwiftUI.NavigationLink&lt;&lt;&lt;opaque return type of SwiftUI.View.offset(x: CoreGraphics.CGFloat, y: CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0, SwiftUI.AnyView&gt;, &lt;&lt;opaque return type of SwiftUI.View.offset(x: CoreGraphics.CGFloat, y: CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0&gt;&gt;&gt;, SwiftUI.Divider)&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.position(x: CoreGraphics.CGFloat, y: CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.scaleEffect(x: CoreGraphics.CGFloat, y: CoreGraphics.CGFloat, anchor: SwiftUI.UnitPoint) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.font(Swift.Optional&lt;SwiftUI.Font&gt;) -&gt; some&gt;&gt;.0, SwiftUI.Spacer, &lt;&lt;opaque return type of SwiftUI.View.edgesIgnoringSafeArea(SwiftUI.Edge.Set) -&gt; some&gt;&gt;.0)&gt; in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.navigationTitle(SwiftUI.LocalizedStringKey) -&gt; some&gt;&gt;.0 in Practice.ContentView.body.getter : some"
-                  moduleName = "Practice"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/francescabrown/Downloads/HabitBuilder/Practice/Practice/ContentView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "70"
-                  endingLineNumber = "70"
-                  offsetFromSymbolStart = "666">
-               </Location>
-               <Location
-                  uuid = "389104A5-6AC8-46F6-AD2A-F5B1121F692F - d3a1587c884255a2"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (SwiftUI.Binding&lt;Practice.Habit&gt;) -&gt; SwiftUI._ConditionalContent&lt;SwiftUI.NavigationLink&lt;&lt;&lt;opaque return type of SwiftUI.View.offset(x: CoreGraphics.CGFloat, y: CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0, SwiftUI.AnyView&gt;, &lt;&lt;opaque return type of SwiftUI.View.offset(x: CoreGraphics.CGFloat, y: CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0&gt; in implicit closure #1 (SwiftUI.Binding&lt;Practice.Habit&gt;) -&gt; SwiftUI._ConditionalContent&lt;SwiftUI.NavigationLink&lt;&lt;&lt;opaque return type of SwiftUI.View.offset(x: CoreGraphics.CGFloat, y: CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0, SwiftUI.AnyView&gt;, &lt;&lt;opaque return type of SwiftUI.View.offset(x: CoreGraphics.CGFloat, y: CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0&gt; in closure #1 () -&gt; SwiftUI.ForEach&lt;SwiftUI.Binding&lt;Swift.Array&lt;Practice.Habit&gt;&gt;, Foundation.UUID, SwiftUI._ConditionalContent&lt;SwiftUI.NavigationLink&lt;&lt;&lt;opaque return type of SwiftUI.View.offset(x: CoreGraphics.CGFloat, y: CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0, SwiftUI.AnyView&gt;, &lt;&lt;opaque return type of SwiftUI.View.offset(x: CoreGraphics.CGFloat, y: CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0&gt;&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.Divider, SwiftUI.GridRow&lt;SwiftUI.ForEach&lt;SwiftUI.Binding&lt;Swift.Array&lt;Practice.Habit&gt;&gt;, Foundation.UUID, SwiftUI._ConditionalContent&lt;SwiftUI.NavigationLink&lt;&lt;&lt;opaque return type of SwiftUI.View.offset(x: CoreGraphics.CGFloat, y: CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0, SwiftUI.AnyView&gt;, &lt;&lt;opaque return type of SwiftUI.View.offset(x: CoreGraphics.CGFloat, y: CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0&gt;&gt;&gt;, SwiftUI.Divider, SwiftUI.GridRow&lt;SwiftUI.ForEach&lt;SwiftUI.Binding&lt;Swift.Array&lt;Practice.Habit&gt;&gt;, Foundation.UUID, SwiftUI._ConditionalContent&lt;SwiftUI.NavigationLink&lt;&lt;&lt;opaque return type of SwiftUI.View.offset(x: CoreGraphics.CGFloat, y: CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0, SwiftUI.AnyView&gt;, &lt;&lt;opaque return type of SwiftUI.View.offset(x: CoreGraphics.CGFloat, y: CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0&gt;&gt;&gt;, SwiftUI.Divider, SwiftUI.GridRow&lt;SwiftUI.ForEach&lt;SwiftUI.Binding&lt;Swift.Array&lt;Practice.Habit&gt;&gt;, Foundation.UUID, SwiftUI._ConditionalContent&lt;SwiftUI.NavigationLink&lt;&lt;&lt;opaque return type of SwiftUI.View.offset(x: CoreGraphics.CGFloat, y: CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0, SwiftUI.AnyView&gt;, &lt;&lt;opaque return type of SwiftUI.View.offset(x: CoreGraphics.CGFloat, y: CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0&gt;&gt;&gt;, SwiftUI.Divider)&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.position(x: CoreGraphics.CGFloat, y: CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.position(x: CoreGraphics.CGFloat, y: CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.scaleEffect(x: CoreGraphics.CGFloat, y: CoreGraphics.CGFloat, anchor: SwiftUI.UnitPoint) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.font(Swift.Optional&lt;SwiftUI.Font&gt;) -&gt; some&gt;&gt;.0, SwiftUI.Spacer, &lt;&lt;opaque return type of SwiftUI.View.edgesIgnoringSafeArea(SwiftUI.Edge.Set) -&gt; some&gt;&gt;.0)&gt; in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.navigationTitle(SwiftUI.LocalizedStringKey) -&gt; some&gt;&gt;.0 in Practice.ContentView.body.getter : some"
-                  moduleName = "Practice"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/francescabrown/Downloads/HabitBuilder/Practice/Practice/ContentView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "70"
-                  endingLineNumber = "70"
-                  offsetFromSymbolStart = "1275">
-               </Location>
-               <Location
-                  uuid = "389104A5-6AC8-46F6-AD2A-F5B1121F692F - d3a1587c8842548b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (SwiftUI.Binding&lt;Practice.Habit&gt;) -&gt; SwiftUI._ConditionalContent&lt;SwiftUI.NavigationLink&lt;&lt;&lt;opaque return type of SwiftUI.View.offset(x: CoreGraphics.CGFloat, y: CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0, SwiftUI.AnyView&gt;, &lt;&lt;opaque return type of SwiftUI.View.offset(x: CoreGraphics.CGFloat, y: CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0&gt; in implicit closure #1 (SwiftUI.Binding&lt;Practice.Habit&gt;) -&gt; SwiftUI._ConditionalContent&lt;SwiftUI.NavigationLink&lt;&lt;&lt;opaque return type of SwiftUI.View.offset(x: CoreGraphics.CGFloat, y: CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0, SwiftUI.AnyView&gt;, &lt;&lt;opaque return type of SwiftUI.View.offset(x: CoreGraphics.CGFloat, y: CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0&gt; in closure #1 () -&gt; SwiftUI.ForEach&lt;SwiftUI.Binding&lt;Swift.Array&lt;Practice.Habit&gt;&gt;, Foundation.UUID, SwiftUI._ConditionalContent&lt;SwiftUI.NavigationLink&lt;&lt;&lt;opaque return type of SwiftUI.View.offset(x: CoreGraphics.CGFloat, y: CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0, SwiftUI.AnyView&gt;, &lt;&lt;opaque return type of SwiftUI.View.offset(x: CoreGraphics.CGFloat, y: CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0&gt;&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.Divider, SwiftUI.GridRow&lt;SwiftUI.ForEach&lt;SwiftUI.Binding&lt;Swift.Array&lt;Practice.Habit&gt;&gt;, Foundation.UUID, SwiftUI._ConditionalContent&lt;SwiftUI.NavigationLink&lt;&lt;&lt;opaque return type of SwiftUI.View.offset(x: CoreGraphics.CGFloat, y: CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0, SwiftUI.AnyView&gt;, &lt;&lt;opaque return type of SwiftUI.View.offset(x: CoreGraphics.CGFloat, y: CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0&gt;&gt;&gt;, SwiftUI.Divider, SwiftUI.GridRow&lt;SwiftUI.ForEach&lt;SwiftUI.Binding&lt;Swift.Array&lt;Practice.Habit&gt;&gt;, Foundation.UUID, SwiftUI._ConditionalContent&lt;SwiftUI.NavigationLink&lt;&lt;&lt;opaque return type of SwiftUI.View.offset(x: CoreGraphics.CGFloat, y: CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0, SwiftUI.AnyView&gt;, &lt;&lt;opaque return type of SwiftUI.View.offset(x: CoreGraphics.CGFloat, y: CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0&gt;&gt;&gt;, SwiftUI.Divider, SwiftUI.GridRow&lt;SwiftUI.ForEach&lt;SwiftUI.Binding&lt;Swift.Array&lt;Practice.Habit&gt;&gt;, Foundation.UUID, SwiftUI._ConditionalContent&lt;SwiftUI.NavigationLink&lt;&lt;&lt;opaque return type of SwiftUI.View.offset(x: CoreGraphics.CGFloat, y: CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0, SwiftUI.AnyView&gt;, &lt;&lt;opaque return type of SwiftUI.View.offset(x: CoreGraphics.CGFloat, y: CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0&gt;&gt;&gt;, SwiftUI.Divider)&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.position(x: CoreGraphics.CGFloat, y: CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.position(x: CoreGraphics.CGFloat, y: CoreGraphics.CGFloat) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.scaleEffect(x: CoreGraphics.CGFloat, y: CoreGraphics.CGFloat, anchor: SwiftUI.UnitPoint) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.font(Swift.Optional&lt;SwiftUI.Font&gt;) -&gt; some&gt;&gt;.0, SwiftUI.Spacer, &lt;&lt;opaque return type of SwiftUI.View.edgesIgnoringSafeArea(SwiftUI.Edge.Set) -&gt; some&gt;&gt;.0)&gt; in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.navigationTitle(SwiftUI.LocalizedStringKey) -&gt; some&gt;&gt;.0 in Practice.ContentView.body.getter : some"
-                  moduleName = "Practice"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/francescabrown/Downloads/HabitBuilder/Practice/Practice/ContentView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "61"
-                  endingLineNumber = "61"
-                  offsetFromSymbolStart = "1275">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
