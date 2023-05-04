@@ -4,12 +4,11 @@
 ////
 ////  Created by Francesca Brown on 3/25/23.
 
+// import Foundation
+// import SwiftUI
 
-
-//import Foundation
-//import SwiftUI
-
-// with credit to Joslenne Peña and Paul Cantrell
+// With credit to Joslenne Peña and Paul Cantrell
+// This file allows random quotes to be taken from the "motivators" txt file, where there is one quote per line.
 
 import Foundation
 import SwiftUI

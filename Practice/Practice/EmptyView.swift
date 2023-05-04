@@ -5,7 +5,7 @@
 //  Created by Minh Nguyen on 3/8/23.
 //
 
-//This empty view is for an empty habit. This displays a trowel image.
+// This empty view is for an empty habit. This displays a trowel image on the gird.
 import SwiftUI
 
 struct EmptyView: View {

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-//This view is our tutorial for how to use the app. Users will press the question mark on content view to open up the tutorial.
+// This view is our tutorial for how to use the app. Users will press the question mark on content view to open up the tutorial. The tutorial will be a slideshow instructing the user how to use the app.
 
 struct ImageSlideShow: View {
     let images: [String]

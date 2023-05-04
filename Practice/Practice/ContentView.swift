@@ -30,7 +30,7 @@ struct ContentView: View {
                     .shadow(color: Color("sunColor"), radius: 20)
                     .shadow(color: Color("sunColor"), radius: 10)
                     .position(x: screenSize.width*0.8, y: screenSize.height*0.1)
-                //Cloud image animation
+                // This is the cloud image animation. They will move across the screen in one direction
                 GeometryReader { geometry in
                     Image("cloudGroup")
                         .resizable()
@@ -38,27 +38,13 @@ struct ContentView: View {
                         .frame(width: screenSize.width/1.1, height: screenSize.width/1.5)
                         .offset(x: cloudOffset.width, y: -screenSize.width/8)
                         .onAppear {
-                            //The bigger the duration, the slower they move
-                            withAnimation(Animation.linear(duration: 18).repeatForever(autoreverses: false)) {
+                            // The bigger the duration, the slower they move
+                            withAnimation(Animation.linear(duration: 20).repeatForever(autoreverses: false)) {
                                 self.cloudOffset = CGSize(width: UIScreen.main.bounds.width + screenSize.width/1.1, height: 0)
                             }
                         }
+                    }
                 }
-//                Image("cloudOne")
-//                    .resizable()
-//                    .renderingMode(.template)
-//                    .foregroundColor(Color("cloudColor"))
-//                    .frame(width: screenSize.width/2.2, height: screenSize.width/3.7)
-//                    .rotation3DEffect(.degrees(0), axis: (x: 5.0, y: 5.0, z: 45.0))
-//                    .position(x: screenSize.width*0.2,  y: screenSize.height*0.15)
-//                Image("cloud2")
-//                    .resizable()
-//                    .renderingMode(.template)
-//                    .foregroundColor(Color("cloudColor"))
-//                    .frame(width: screenSize.width/2.2, height: screenSize.width/3.7)
-//                    .rotation3DEffect(.degrees(0), axis: (x: 5.0, y: 5.0, z: 45.0))
-//                    .position(x: screenSize.width*0.8,  y: screenSize.height*0.15)
-            }
 
                 //This is the start of our 3x3 Grid
                 Grid(){
@@ -116,7 +102,7 @@ struct ContentView: View {
                  .rotationEffect(Angle(degrees: 45), anchor: .center) //I found this online :)
                  .scaleEffect(x: 1.0, y: 0.65, anchor: .center)
                 
-                //This is the random quote portion
+                //This takes a random quote from QuotesManager to display for the user.
                 Text(randomQuote())
                     .position(x:screenSize.width*0.5,y:0).foregroundColor(Color("quotesColor"))
                     .font(.system(size: 20)

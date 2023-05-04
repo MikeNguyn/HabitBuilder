@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		05652B8F29F053F5002169AB /* ImageSlideShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05652B8E29F053F5002169AB /* ImageSlideShow.swift */; };
 		058744EF29CE2CB9003DDB52 /* motivators.txt in Resources */ = {isa = PBXBuildFile; fileRef = 058744EE29CE2CB9003DDB52 /* motivators.txt */; };
-		058744F129CE2D38003DDB52 /* QuotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058744F029CE2D38003DDB52 /* QuotesView.swift */; };
 		058744F329CF9008003DDB52 /* QuotesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058744F229CF9008003DDB52 /* QuotesManager.swift */; };
 		5437606329943C5B006D3E90 /* PracticeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5437606229943C5B006D3E90 /* PracticeApp.swift */; };
 		5437606529943C5B006D3E90 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5437606429943C5B006D3E90 /* ContentView.swift */; };
@@ -50,7 +49,6 @@
 /* Begin PBXFileReference section */
 		05652B8E29F053F5002169AB /* ImageSlideShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSlideShow.swift; sourceTree = "<group>"; };
 		058744EE29CE2CB9003DDB52 /* motivators.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = motivators.txt; sourceTree = "<group>"; };
-		058744F029CE2D38003DDB52 /* QuotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesView.swift; sourceTree = "<group>"; };
 		058744F229CF9008003DDB52 /* QuotesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesManager.swift; sourceTree = "<group>"; };
 		5437605F29943C5B006D3E90 /* Practice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Practice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5437606229943C5B006D3E90 /* PracticeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeApp.swift; sourceTree = "<group>"; };
@@ -135,7 +133,6 @@
 				757758BD29B914F600DD887F /* EmptyView.swift */,
 				7516AEAB29A41FC300ED7D17 /* DetailView.swift */,
 				75EA3C6029F9BBA8009973A9 /* SplashView.swift */,
-				058744F029CE2D38003DDB52 /* QuotesView.swift */,
 				5437606629943C60006D3E90 /* Assets.xcassets */,
 				5437606829943C60006D3E90 /* Preview Content */,
 			);
@@ -323,7 +320,6 @@
 				7516AEAC29A41FC300ED7D17 /* DetailView.swift in Sources */,
 				5437606329943C5B006D3E90 /* PracticeApp.swift in Sources */,
 				7516AEA829A41B0600ED7D17 /* ButtonView.swift in Sources */,
-				058744F129CE2D38003DDB52 /* QuotesView.swift in Sources */,
 				75EA3C6129F9BBA8009973A9 /* SplashView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
