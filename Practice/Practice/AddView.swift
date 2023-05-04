@@ -29,6 +29,10 @@ struct AddView: View {
                     Text("Habit name")
                     Spacer()
                     TextField("Habit", text: $name).multilineTextAlignment(.trailing)
+                        .tint(Color("accentColor"))
+                        .onAppear{
+                            UITextField.appearance().clearButtonMode = .whileEditing
+                        }
                 }
                 HStack {
                     Text("Plant")
@@ -52,8 +56,8 @@ struct AddView: View {
                         selection: $end,
                         in: Date()...,
                         displayedComponents: [.date]
-                        
                     )
+                    .tint(Color("accentColor"))
                     
                 }
                 HStack {
@@ -66,23 +70,25 @@ struct AddView: View {
                             Toggle("Tue", isOn: $frequency[2])
                             Toggle("Wed", isOn: $frequency[3])
                         }.toggleStyle(.button)
+                            .tint(Color("accentColor"))
                         HStack(alignment: .center){
                             Toggle("Thu", isOn: $frequency[4])
                             Toggle("Fri", isOn: $frequency[5])
                             Toggle("Sat", isOn: $frequency[6])
                         }.toggleStyle(.button)
+                            .tint(Color("accentColor"))
                     }
                     Spacer()
                 }.frame(alignment: .center)
                 HStack{
                     Picker("Importance", selection: $importance) {
-                        Label("", systemImage: "exclamationmark")
+                        Label("Low", systemImage: "exclamationmark")
                             .foregroundStyle(.yellow, .black)
                             .tag(1)
-                        Label("", systemImage: "exclamationmark.2")
+                        Label("Medium", systemImage: "exclamationmark.2")
                             .foregroundStyle(.orange, .black)
                             .tag(2)
-                        Label("", systemImage: "exclamationmark.3")
+                        Label("High", systemImage: "exclamationmark.3")
                             .foregroundStyle(.red, .black)
                             .tag(3)
                     }
