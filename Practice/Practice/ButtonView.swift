@@ -22,7 +22,6 @@ struct ButtonView: View {
                 .resizable()
                 .scaledToFit()
                 .aspectRatio(contentMode: .fit)
-                .cornerRadius(15)
                 .frame(width: screenSize.width/6, height: screenSize.width/6)
                 // need to get width and height of original images, or resize all images to have the same w and h
                 .scaleEffect(x: 1.5, y: 2.5, anchor: .center)

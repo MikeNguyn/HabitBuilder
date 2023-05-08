@@ -95,6 +95,7 @@ struct DetailView: View {
                         }
                     }
                 }.background(CustomColor.homeGreen)
+                    .tint(Color("accentColor"))
                     .listStyle(.plain)
                                         .datePickerStyle(.graphical)
                     .scaleEffect(x: 0.9, y: 0.9)
@@ -192,7 +193,6 @@ struct LinearProgressDemoView: View {
     var body: some View {
         VStack {
             Text("Progress:")
-                .foregroundColor(Color.black)
             ProgressView(value: Double(habit.log.count)/Double(habit.age)).padding(70).frame(height: 10)
                 .accentColor(evaluateHealth(health: Double(habit.log.count)/Double(habit.age)))
                 .scaleEffect(x: 1, y: 3, anchor: .center)

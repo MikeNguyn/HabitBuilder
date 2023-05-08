@@ -58,7 +58,6 @@ struct AddView: View {
                         displayedComponents: [.date]
                     )
                     .tint(Color("accentColor"))
-                    
                 }
                 HStack {
                     Spacer()
