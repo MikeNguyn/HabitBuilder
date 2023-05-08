@@ -98,23 +98,43 @@ struct AddView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink(destination: DetailView(habit: $habit)){
                         Button("Done", action: { //WHEN DONE WAS CLICKED. SAVE THE INFORMATION and do calculations of habit age.
+                            let calendar = NSCalendar(calendarIdentifier: .gregorian)
                             var start = Date()
                             var startDOW = start.dayNumberOfWeek()
                             var endDOW = end.dayNumberOfWeek()
+                            print(startDOW!)
+                            print(endDOW!)
                             var adjStart = start.shiftDate(shift: 8 - startDOW!)
                             var adjEnd = end.shiftDate(shift: -(endDOW! - 1))
+                            
+                            print (adjStart!)
+                            print (adjEnd!)
                             var weeks = Double((Calendar.current.dateComponents([.day], from: adjStart!, to: adjEnd!).day! + 1)/7)
+                            if calendar!.startOfDay(for: adjEnd!).timeIntervalSince((calendar!.startOfDay(for: adjStart!))).sign == .minus {
+                                weeks = 0
+                            }
                             print(weeks)
                             var weeksCorrected = weeks.rounded(.toNearestOrAwayFromZero)
                             var age = 0
-                            for i in (startDOW! ... 7) {
-                                if frequency[i - 1] == true {
+                            if calendar!.startOfDay(for: adjEnd!).timeIntervalSince((calendar!.startOfDay(for: adjStart!))).sign == .minus{
+                                print("Minus")
+                                if frequency[startDOW!] == true {
                                     age = age + 1
                                 }
-                            }
-                            for i in (1 ... endDOW!) {
-                                if frequency[i - 1] == true {
+                                if frequency[endDOW!] == true {
                                     age = age + 1
+                                }
+                            } else {
+                                print("Plus or 0")
+                                for i in (startDOW! ... 7) {
+                                    if frequency[i - 1] == true {
+                                        age = age + 1
+                                    }
+                                }
+                                for i in (1 ... endDOW!) {
+                                    if frequency[i - 1] == true {
+                                        age = age + 1
+                                    }
                                 }
                             }
                             let count = frequency.filter{$0 == true}.count
