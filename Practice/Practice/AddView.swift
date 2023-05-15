@@ -118,11 +118,11 @@ struct AddView: View {
                             var age = 0
                             if calendar!.startOfDay(for: adjEnd!).timeIntervalSince((calendar!.startOfDay(for: adjStart!))).sign == .minus{
                                 print("Minus")
-                                if frequency[startDOW!] == true {
-                                    age = age + 1
-                                }
-                                if frequency[endDOW!] == true {
-                                    age = age + 1
+                                print(frequency)
+                                for i in (startDOW! ... endDOW!) {
+                                    if frequency[i - 1] == true {
+                                        age = age + 1
+                                    }
                                 }
                             } else {
                                 print("Plus or 0")
@@ -212,8 +212,8 @@ func dispatchNotification(habitName: String, daysOfWeek: [Bool]){
     let identifier = habitName
     let title = "Time to water your plant!"
     let body = "Make sure to check in on your " + habitName + " habit!"
-    let hour = 15 //int in military
-    let minute = 7
+    let hour = 14 //int in military
+    let minute = 09
     
     
     var notiDays: [Int] = []
